@@ -15,6 +15,8 @@ const PAGES = {
   about: () => import("./pages/about.js"),
   login: () => import("./pages/auth.js"),
   register: () => import("./pages/auth.js"),
+  me: () => import("./pages/me.js"),
+  admin: () => import("./pages/admin.js"),
 };
 
 async function boot() {

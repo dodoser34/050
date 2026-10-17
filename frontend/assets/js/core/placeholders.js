@@ -81,9 +81,9 @@ export function initPlaceholders() {
   });
 }
 
-const MISSING = "/assets/img/missing.webp";
 /** <img> с заглушкой. kind: avatar | cover | art */
 export function imgTag(src, kind, label, attrs = "") {
   const safe = String(label ?? "").replace(/"/g, "&quot;").replace(/</g, "&lt;");
-  return `<img src="${src || MISSING}" alt="" data-fb="${kind}" data-label="${safe}" loading="lazy" ${attrs}>`;
+  const image = src || uri(kind === "avatar" ? avatarSvg(label) : kind === "art" ? artSvg() : coverSvg(label));
+  return `<img src="${image}" alt="" data-fb="${kind}" data-label="${safe}" loading="lazy" ${attrs}>`;
 }

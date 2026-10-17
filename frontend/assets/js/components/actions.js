@@ -5,6 +5,7 @@ import { $, esc } from "../core/dom.js";
 import { requireAuth } from "../core/session.js";
 import { toast } from "../core/toast.js";
 import { clearErrorsOnInput, openModal, showFieldErrors } from "./modal.js";
+import { projectUrl } from "./cards.js";
 
 const handleError = (err) => (err.status === 401 ? requireAuth() : toast(err.message, "err"));
 
@@ -56,7 +57,7 @@ export async function openCreateProject() {
     roles: f.roles.value.split(",").map((s) => s.trim()).filter(Boolean), beta: f.beta.checked,
   }), (p) => {
     toast(p.status === "approved" ? `Проект «${p.title}» опубликован` : `Проект «${p.title}» отправлен на модерацию`, "ok");
-    setTimeout(() => (location.href = `/projects/${p.slug}`), 700);
+    setTimeout(() => (location.href = projectUrl(p)), 700);
   });
 }
 

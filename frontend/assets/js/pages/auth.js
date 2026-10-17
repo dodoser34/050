@@ -21,7 +21,7 @@ export async function init() {
   const form = $("[data-auth-form]");
   const cfg = FORMS[form.dataset.authForm];
 
-  sessionReady.then(() => { if (currentUser()) location.replace(nextUrl()); });
+  sessionReady.then(() => { if (currentUser()) location.replace(nextUrl(currentUser().is_admin ? "/admin" : "/me")); });
 
   $$("[data-toggle-password]", form).forEach((btn) => btn.addEventListener("click", () => {
     const input = btn.previousElementSibling, show = input.type === "password";
@@ -40,8 +40,8 @@ export async function init() {
     formError.textContent = "";
     btn.disabled = true;
     try {
-      await post(cfg.endpoint, cfg.payload(form.elements));
-      location.href = nextUrl();
+      const user = await post(cfg.endpoint, cfg.payload(form.elements));
+      location.href = nextUrl(user.is_admin ? "/admin" : "/me");
     } catch (err) {
       showFieldErrors(form, err.errors);
       if (!Object.keys(err.errors).length) formError.textContent = err.message;
@@ -71,8 +71,7 @@ async function initDemo(form) {
     try {
       await post("/api/auth/demo", { role });
       toast(role === "admin" ? "Вы вошли как администратор" : "Вы вошли в демо-аккаунт", "ok");
-      const next = nextUrl();
-      location.href = role === "admin" && next === "/" ? "/admin" : next;
+      location.href = nextUrl(role === "admin" ? "/admin" : "/me");
     } catch (err) {
       toast(err.message, "err");
       btn.disabled = false;

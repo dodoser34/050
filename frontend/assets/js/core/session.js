@@ -23,7 +23,11 @@ export async function logout() {
 }
 
 /** Безопасный адрес возврата из ?next= (только внутренние пути). */
-export function nextUrl() {
+export function nextUrl(fallback = "/") {
   const next = new URLSearchParams(location.search).get("next");
-  return next && next.startsWith("/") && !next.startsWith("//") ? next : "/";
+  if (next && next.startsWith("/") && !next.startsWith("//")) {
+    const url = new URL(next, location.origin);
+    if (url.origin === location.origin && !["/login", "/register"].includes(url.pathname.replace(/\/$/, ""))) return url.pathname + url.search + url.hash;
+  }
+  return fallback;
 }

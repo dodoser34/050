@@ -69,7 +69,8 @@ def build(base_path):
 
     for route, name in {"": "index.html", "services": "services.html", "projects": "projects.html",
                         "about": "about.html", "login": "login.html", "register": "register.html",
-                        "me": "login.html", "admin": "login.html"}.items():
+                        "me": "me.html", "admin": "admin.html",
+                        "projects/view": "project.html", "people/view": "profile.html"}.items():
         page(route, name)
     for slug in data["profiles"]:
         page("people/" + slug, "profile.html")
@@ -80,22 +81,30 @@ def build(base_path):
     (core / "pages-data.json").write_text(rewrite(json.dumps(data, ensure_ascii=False)), encoding="utf-8")
     adapter = (ROOT / "tools" / "pages_api.js").read_text(encoding="utf-8")
     (core / "api.js").write_text(adapter.replace("__BASE_PATH__", json.dumps(base)), encoding="utf-8")
+    store = (ROOT / "tools/pages_store.js").read_text(encoding="utf-8")
+    (core / "pages-store.js").write_text(store.replace("__BASE_PATH__", json.dumps(base)), encoding="utf-8")
 
-    # Keep auth controls honest on static hosting, without changing server mode.
-    auth = '''export function init() {
-      const form = document.querySelector('[data-auth-form]');
-      form.innerHTML = `<h2 class="auth-form__title">Демонстрационная версия</h2>
-        <p class="lead">Каталоги, поиск и страницы проектов доступны без регистрации.
-        Вход, создание проектов и сохранение изменений доступны в полной версии с сервером.</p>
-        <a class="btn btn--primary btn--block" href="/projects/">Смотреть проекты</a>`;
-    }'''
-    (OUTPUT / "assets/js/pages/auth.js").write_text(rewrite(auth), encoding="utf-8")
+    # Browser-created entities use existing HTML shells with a query parameter:
+    # GitHub Pages cannot create a directory for each new local slug.
+    cards = OUTPUT / "assets/js/components/cards.js"
+    text = cards.read_text(encoding="utf-8")
+    text = text.replace('projects/${encodeURIComponent(p.slug)}', 'projects/view/?slug=${encodeURIComponent(p.slug)}')
+    text = text.replace('people/${encodeURIComponent(slug)}', 'people/view/?slug=${encodeURIComponent(slug)}')
+    cards.write_text(text, encoding="utf-8")
+    dom = core / "dom.js"
+    text = dom.read_text(encoding="utf-8").replace(
+        'export const slugFromPath = () => ',
+        'export const slugFromPath = () => new URLSearchParams(location.search).get("slug") || ')
+    dom.write_text(text, encoding="utf-8")
     session = core / "session.js"
-    text = session.read_text(encoding="utf-8")
-    text = text.replace('toast("Войдите, чтобы продолжить");',
-                        'toast("В демоверсии доступен просмотр. Для сохранения изменений нужна полная версия с сервером.");')
-    text = text.replace('setTimeout(() => (location.href = loginUrl()), 700);', '')
+    text = session.read_text(encoding="utf-8").replace('fallback = "/"', 'fallback = ' + json.dumps(base))
+    text = text.replace('["/login", "/register"]', json.dumps([base + "login", base + "register"]))
     session.write_text(text, encoding="utf-8")
+    demo = (ROOT / "tools/pages_demo.js").read_text(encoding="utf-8")
+    (core / "pages-demo.js").write_text(demo.replace("__BASE_PATH__", json.dumps(base)), encoding="utf-8")
+    main = OUTPUT / "assets/js/main.js"
+    main.write_text('import { initPagesDemo } from "./core/pages-demo.js";\n' +
+                    main.read_text(encoding="utf-8") + '\ninitPagesDemo();\n', encoding="utf-8")
     (OUTPUT / ".nojekyll").touch()
     (OUTPUT / "404.html").write_text(
         '<!doctype html><html lang="ru"><meta charset="utf-8"><title>Страница не найдена — Среда</title>'
