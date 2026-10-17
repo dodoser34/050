@@ -1,4 +1,5 @@
 import { esc } from "../core/dom.js";
+import { get } from "../core/api.js";
 
 /** Главная: моушен-hero. Порт композиции из Claude Design («Среда - Hero Motion.html», hero-motion-v2.jsx)
  на чистый JS: те же координаты сцены 1000×750, тайминги и easing.
@@ -286,13 +287,13 @@ function render(H, T, wall) {
 
 async function loadTeam(H) {
   try {
-    const r = await fetch("/api/projects?limit=50").then((x) => x.json());
+    const r = await get("/api/projects?limit=50");
     // проект с самой большой командой — по умолчанию «Пульс» (5 человек, роли совпадают со слотами)
     const p = [...r.items].sort((a, b) => b.team.length - a.team.length || b.likes - a.likes)[0];
     if (!p) return;
     H.people = buildPeople(H.peopleBox, p.team);
     H.caption.innerHTML = `Команда проекта <a href="/projects?q=${encodeURIComponent(p.title)}">«${esc(p.title)}»</a>`;
-    const open = await fetch("/api/projects?has_roles=true&limit=1").then((x) => x.json());
+    const open = await get("/api/projects?has_roles=true&limit=1");
     const note = document.getElementById("hero-note");
     if (note) note.textContent = `Сейчас ${open.total} ${open.total % 10 === 1 && open.total % 100 !== 11 ? "команда ищет" : "команд ищут"} участников`;
   } catch (e) { /* hero работает и без людей */ }
