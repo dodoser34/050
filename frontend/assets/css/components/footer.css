@@ -1,0 +1,14 @@
+.footer { margin-top: clamp(3rem, 6vw, 6rem); background: var(--ink); color: #d8d6de; border-radius: clamp(1.5rem, 3vw, 3rem) clamp(1.5rem, 3vw, 3rem) 0 0; overflow: hidden; position: relative; }
+.footer__inner { padding-block: clamp(3rem, 6vw, 6rem) 2rem; display: grid; grid-template-columns: 1.4fr repeat(3, 1fr); gap: 2.5rem; }
+.footer__brand .logo { color: #fff; font-size: 2.2rem; }
+.footer__brand p { margin-top: 1rem; max-width: 24rem; color: #a5a3ad; line-height: 1.55; }
+.footer__col h4 { font-family: var(--font); font-weight: 600; font-size: .8rem; letter-spacing: .18em; text-transform: uppercase; color: #8d8a96; margin-bottom: 1rem; }
+.footer__col a { display: block; padding: .3rem 0; color: #e6e4ec; transition: color .2s, transform .25s var(--ease-out); }
+.footer__col a:hover { color: var(--orange); transform: translateX(4px); }
+.footer__big { font-family: var(--font-display); font-weight: 800; letter-spacing: -.06em; line-height: .8; font-size: clamp(5rem, 19vw, 22rem); color: transparent; -webkit-text-stroke: 1px rgba(255, 255, 255, .14); white-space: nowrap; user-select: none; margin: 1rem 0 -1.5vw; text-align: center; }
+.footer__bottom { border-top: 1px solid rgba(255, 255, 255, .1); padding-block: 1.25rem; display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; font-size: .875rem; color: #8d8a96; }
+
+@media (max-width: 900px) {
+  .footer__inner { grid-template-columns: 1fr 1fr; }
+  .footer__brand { grid-column: 1 / -1; }
+}

@@ -1,0 +1,16 @@
+.avatar { border-radius: 50%; object-fit: cover; background: var(--surface-2); flex: none; }
+.avatar--xs { width: 2rem; height: 2rem; }
+.avatar--sm { width: 2.5rem; height: 2.5rem; }
+.avatar--md { width: 3.5rem; height: 3.5rem; }
+.avatar--lg { width: 6rem; height: 6rem; }
+
+.avatar-initials { display: grid; place-items: center; border-radius: 50%; background: var(--lav-soft); color: var(--purple); font-weight: 700; }
+
+/* стопка участников: при наведении раздвигается */
+.avatar-stack { position: relative; z-index: 2; display: flex; align-items: center; }
+.avatar-stack > * { margin-left: -.6rem; transition: margin .3s var(--ease-out), transform .3s var(--ease-spring); }
+.avatar-stack > :first-child { margin-left: 0; }
+.avatar-stack:hover > * { margin-left: -.15rem; }
+.avatar-stack > a:hover { transform: translateY(-3px); }
+.avatar-stack img, .avatar-stack .more { width: 2.125rem; height: 2.125rem; border-radius: 50%; border: 2px solid var(--surface); object-fit: cover; display: block; }
+.avatar-stack .more { display: grid; place-items: center; background: var(--surface-2); font-size: .75rem; color: var(--muted); }

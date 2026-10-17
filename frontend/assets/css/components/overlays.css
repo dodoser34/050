@@ -1,0 +1,31 @@
+/* Модальные окна, лайтбокс, уведомления */
+.modal-backdrop {
+  position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; padding: 1rem;
+  background: rgba(17, 17, 20, .45); backdrop-filter: blur(6px); animation: fade-in .2s ease;
+}
+.modal {
+  position: relative; width: 100%; max-width: 34rem; max-height: calc(100vh - 2rem); overflow: auto;
+  background: var(--bg); border-radius: 1.5rem; padding: clamp(1.25rem, 2vw, 2rem); box-shadow: 0 30px 80px rgba(0, 0, 0, .25);
+  animation: modal-in .35s var(--ease-spring);
+}
+.modal--wide { max-width: min(72rem, 100%); padding: 0; background: #111; }
+.modal__title { font-size: 2rem; padding-right: 2.5rem; }
+.modal__sub { color: var(--muted); margin-top: .5rem; }
+.modal__close { position: absolute; top: .9rem; right: .9rem; z-index: 3; width: 2.5rem; height: 2.5rem; border-radius: 50%; border: 0; background: var(--surface-2); display: grid; place-items: center; transition: transform .3s var(--ease-spring); }
+.modal__close:hover { transform: rotate(90deg); }
+.modal__actions { display: flex; gap: .75rem; justify-content: flex-end; margin-top: 1.5rem; }
+.modal .field__label { font-size: .95rem; }
+.modal .input { height: 3.1rem; font-size: 1rem; }
+.modal textarea.input { height: 7.5rem; }
+@keyframes fade-in { from { opacity: 0; } }
+@keyframes modal-in { from { opacity: 0; transform: translateY(16px) scale(.97); } }
+
+.lightbox img { width: 100%; max-height: 80vh; object-fit: contain; background: #111; }
+.lightbox__caption { padding: 1rem 1.5rem; color: #fff; display: flex; justify-content: space-between; gap: 1rem; }
+.lightbox__caption small { color: #aaa; }
+
+.toast-stack { position: fixed; left: 50%; bottom: 1.5rem; transform: translateX(-50%); z-index: 120; display: flex; flex-direction: column; gap: .5rem; width: max-content; max-width: calc(100vw - 2rem); }
+.toast { background: var(--ink); color: #fff; padding: .8rem 1.15rem; border-radius: .9rem; font-size: .95rem; box-shadow: var(--shadow-lg); animation: toast-in .35s var(--ease-spring); }
+.toast--ok { background: #16794a; }
+.toast--err { background: #b42328; }
+@keyframes toast-in { from { opacity: 0; transform: translateY(12px) scale(.96); } }

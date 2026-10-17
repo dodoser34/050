@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Проекты — Среда</title>
+  <meta name="description" content="Проекты, которые ищут команду: игры, кино, музыка, архитектура, образование и другие.">
+  <meta name="theme-color" content="#fffbf5">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <script type="module" src="/assets/js/main.js"></script>
+</head>
+<body data-page="projects">
+  <header data-header data-active="projects"></header>
+
+  <main class="container">
+    <section class="page-hero" data-parallax-scope>
+      <div>
+        <p class="eyebrow" data-reveal>Проекты</p>
+        <h1 class="display--md split-words" style="margin-top:.75rem">Идеи, которые<br>обретают форму</h1>
+        <p class="lead" data-reveal style="--d:.2s">Находите проекты по душе. Присоединяйтесь к&nbsp;командам и поддерживайте идеи.</p>
+      </div>
+      <div class="page-hero__art">
+        <img class="float" data-parallax style="--depth:16px" src="/assets/img/illustrations/projects.webp" alt="" width="1600" height="1000" data-fb="art" data-variant="projects">
+        <button class="btn btn--primary btn--lg" data-action="create-project"><i data-icon="plus"></i>Создать проект</button>
+      </div>
+    </section>
+
+    <div class="catalog-tools">
+      <div class="search">
+        <label class="search__field">
+          <i data-icon="search"></i>
+          <span class="visually-hidden">Поиск</span>
+          <input type="search" id="project-search" placeholder="Поиск проектов, команд и идей" autocomplete="off">
+        </label>
+      </div>
+      <div class="chips chips--scroll" id="project-chips"><button class="chip is-active" data-tag="">Все</button></div>
+      <div class="dropdown-filters">
+        <select class="select" id="f-stage" aria-label="Стадия проекта"><option value="">Любая стадия</option></select>
+        <select class="select" id="f-role" aria-label="Открытые роли"><option value="">Любая роль</option></select>
+        <select class="select" id="f-license" aria-label="Лицензия"><option value="">Любая лицензия</option></select>
+        <label class="check check--sm"><input type="checkbox" id="f-open">Ищут участников</label>
+        <label class="check check--sm"><input type="checkbox" id="f-beta">Есть бета-версия</label>
+      </div>
+    </div>
+
+    <section style="padding-top:1.5rem">
+      <div class="list-head">
+        <h2 class="title" id="projects-title">Открывайте новое</h2>
+        <span class="list-head__count" id="project-count"></span>
+        <label class="visually-hidden" for="project-sort">Сортировка</label>
+        <select class="select" id="project-sort"><option value="popular">Популярные</option><option value="new">Новые</option></select>
+      </div>
+      <div class="grid-cards" id="project-grid"></div>
+      <div class="load-more">
+        <span class="load-more__count" id="project-shown"></span>
+        <button class="btn btn--outline btn--lg" id="load-more">Показать ещё<i data-icon="arrow-down" class="sm"></i></button>
+        <span></span>
+      </div>
+    </section>
+  </main>
+
+  <footer data-footer></footer>
+</body>
+</html>

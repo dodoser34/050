@@ -1,0 +1,23 @@
+/* Широкая раскладка: контейнер до 1920px (масштабируется на 2K/4K), поля — по 4vw */
+.container { width: min(100% - var(--gutter) * 2, var(--container)); margin-inline: auto; }
+
+.section { padding-block: clamp(3rem, 7vw, 7.5rem); }
+.section--tight { padding-block: clamp(2rem, 4vw, 4rem); }
+.section__head { display: flex; align-items: end; justify-content: space-between; gap: 1.5rem 3rem; flex-wrap: wrap; margin-bottom: clamp(1.25rem, 2.4vw, 2.5rem); }
+.section__head .lead { max-width: 36rem; }
+
+.stack { display: flex; flex-direction: column; gap: var(--gap, 1rem); }
+.row { display: flex; align-items: center; gap: var(--gap, 1rem); flex-wrap: wrap; }
+
+/* Сетки карточек сами подстраиваются под ширину экрана — от 1 колонки на телефоне до 5–6 на 4K */
+.grid-cards { display: grid; gap: clamp(1rem, 1.4vw, 1.75rem); grid-template-columns: repeat(auto-fill, minmax(min(100%, var(--card-min, 21rem)), 1fr)); }
+.grid-cards--people { --card-min: 25rem; }
+.grid-cards--wide { --card-min: 30rem; }
+.grid-2 { display: grid; gap: clamp(1rem, 1.4vw, 1.75rem); grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+main { display: block; min-height: 60vh; }
+.page-top { padding-top: clamp(1rem, 2.5vw, 2.5rem); }
+
+@media (max-width: 720px) {
+  .grid-2 { grid-template-columns: 1fr; }
+}

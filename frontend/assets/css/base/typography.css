@@ -1,0 +1,20 @@
+h1, h2, h3, h4, .display, .display--md, .title-lg, .title, .title-sm { font-family: var(--font-display); font-weight: 800; letter-spacing: -.045em; line-height: .98; margin: 0; }
+
+.display { font-size: clamp(2.9rem, 6.6vw, 7.25rem); }
+.display--md { font-size: clamp(2.5rem, 5vw, 5.5rem); }
+.title-lg { font-size: clamp(2rem, 3.4vw, 3.5rem); }
+.title { font-size: clamp(1.75rem, 2.6vw, 2.75rem); }
+.title-sm { font-size: clamp(1.25rem, 1.6vw, 1.6rem); letter-spacing: -.035em; }
+
+.lead { font-size: clamp(1.125rem, 1.6vw, 1.65rem); color: var(--muted); line-height: 1.35; letter-spacing: -.01em; }
+.eyebrow { font-size: .8125rem; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+.muted { color: var(--muted); }
+.text-orange { color: var(--orange); }
+
+.link { text-decoration: underline; text-underline-offset: .25em; text-decoration-thickness: 1px; transition: color .2s; }
+.link:hover { color: var(--orange); }
+.link--orange { color: var(--orange); }
+
+/* Подчёркивание, которое «рисуется» при наведении */
+.u-hover { background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat; transition: background-size .35s var(--ease-out); }
+.u-hover:hover { background-size: 100% 1px; }

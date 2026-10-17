@@ -1,0 +1,33 @@
+/* О платформе */
+.about-hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 2rem; align-items: center; padding-top: clamp(1rem, 3vw, 3rem); }
+.about-hero .display { margin-top: 1rem; font-size: clamp(2.75rem, 5.2vw, 6.75rem); }
+.about-hero .lead { margin-top: 1.25rem; max-width: 34rem; }
+.about-hero__art img { width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: contain; }
+
+.features { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1rem, 1.4vw, 1.75rem); }
+.feature { padding: clamp(1.5rem, 2.4vw, 2.5rem); border-radius: var(--radius-lg); background: var(--surface); border: 1px solid var(--line); }
+.feature__icon { width: 3.75rem; height: 3.75rem; border-radius: 1.1rem; display: grid; place-items: center; transition: transform .5s var(--ease-spring); }
+.feature:hover .feature__icon { transform: rotate(-8deg) scale(1.08); }
+.feature__icon--orange { background: var(--orange-soft); color: var(--orange); }
+.feature__icon--purple { background: var(--lav-soft); color: var(--purple); }
+.feature h3 { font-size: clamp(1.5rem, 2vw, 2.1rem); margin-top: 1.4rem; }
+.feature p { margin-top: .75rem; color: var(--muted); line-height: 1.55; }
+
+.values { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+.value { padding: 1.5rem; border-top: 2px solid var(--ink); }
+.value h4 { font-size: 1.35rem; }
+.value p { margin-top: .6rem; color: var(--muted); line-height: 1.5; }
+
+.cta-card { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(1.5rem, 3vw, 3rem); align-items: center; padding: clamp(.75rem, 1vw, 1.25rem); padding-right: clamp(1.5rem, 3vw, 3rem); }
+.cta-card .media { border-radius: 1rem; aspect-ratio: 16 / 7; }
+.cta-card h2 { font-size: clamp(2rem, 3.2vw, 3.5rem); }
+.cta-card p { color: var(--muted); font-size: 1.15rem; margin: 1rem 0 1.5rem; }
+
+@media (max-width: 1000px) {
+  .about-hero, .cta-card { grid-template-columns: 1fr; }
+  .about-hero__art { order: -1; }
+  .features { grid-template-columns: 1fr; }
+  .values { grid-template-columns: 1fr 1fr; }
+  .cta-card { padding: 1rem; }
+}
+@media (max-width: 560px) { .values { grid-template-columns: 1fr; } }

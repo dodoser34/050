@@ -1,0 +1,51 @@
+/* Дизайн-токены. Все размеры в rem — на 2K/4K масштабируется корневой шрифт. */
+:root {
+  --bg: #fffbf5;
+  --bg-2: #f7f1e8;
+  --surface: #fffefb;
+  --surface-2: #f3eee6;
+  --ink: #111114;
+  --ink-2: #2a2a30;
+  --muted: #74747e;
+  --muted-2: #9a9aa3;
+  --line: #e9e3da;
+  --line-2: #f1ece4;
+  --orange: #ff6a2c;
+  --orange-d: #f05a1c;
+  --orange-soft: #ffeee4;
+  --purple: #6c55f5;
+  --lav: #a996f5;
+  --lav-soft: #eeeaff;
+  --green: #1f9d55;
+  --green-soft: #e5f6ea;
+  --danger: #d93036;
+
+  --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Inter Tight", "Inter", system-ui, sans-serif;
+
+  --radius-xs: .5rem;
+  --radius-sm: .75rem;
+  --radius: 1.25rem;
+  --radius-lg: 1.75rem;
+  --radius-pill: 999px;
+
+  --shadow-sm: 0 1px 2px rgba(17, 17, 20, .04), 0 2px 8px rgba(17, 17, 20, .04);
+  --shadow: 0 2px 4px rgba(17, 17, 20, .04), 0 12px 32px rgba(60, 40, 120, .08);
+  --shadow-lg: 0 4px 10px rgba(17, 17, 20, .05), 0 24px 60px rgba(60, 40, 120, .14);
+  --shadow-orange: 0 10px 24px rgba(255, 106, 44, .28);
+
+  --ease-out: cubic-bezier(.2, .8, .2, 1);
+  --ease-in-out: cubic-bezier(.65, 0, .35, 1);
+  --ease-spring: cubic-bezier(.3, 1.4, .5, 1);
+
+  --container: 120rem;              /* 1920px при 16px */
+  --gutter: clamp(1rem, 4vw, 6rem);
+  --header-h: 4.75rem;
+}
+
+html { font-size: 16px; }
+@media (max-width: 380px) { html { font-size: 15px; } }
+@media (min-width: 2200px) { html { font-size: 18px; } }   /* 2K */
+@media (min-width: 2800px) { html { font-size: 21px; } }   /* 2.8K–3K */
+@media (min-width: 3400px) { html { font-size: 25px; } }   /* 4K */
+@media (min-width: 4800px) { html { font-size: 32px; } }   /* 5K+ */

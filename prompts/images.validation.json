@@ -1,0 +1,887 @@
+{
+  "prompt_file": "prompts/images.prompt",
+  "requested": 116,
+  "validated": 116,
+  "counts": {
+    "illustrations": 6,
+    "people": 30,
+    "portfolio": 60,
+    "projects": 20
+  },
+  "issues": [],
+  "duplicate_images": [],
+  "total_bytes": 20046408,
+  "extra_hero_layers": [
+    {
+      "path": "output/imagegen/hero-archive/ball.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "format": "PNG",
+      "alpha_range": [
+        0,
+        255
+      ]
+    },
+    {
+      "path": "output/imagegen/hero-archive/bg.webp",
+      "size": [
+        2560,
+        1440
+      ],
+      "format": "WEBP",
+      "alpha_range": null
+    },
+    {
+      "path": "output/imagegen/hero-archive/knot-back.png",
+      "size": [
+        2048,
+        2048
+      ],
+      "format": "PNG",
+      "alpha_range": [
+        0,
+        255
+      ]
+    },
+    {
+      "path": "output/imagegen/hero-archive/knot-front.png",
+      "size": [
+        2048,
+        2048
+      ],
+      "format": "PNG",
+      "alpha_range": [
+        0,
+        255
+      ]
+    },
+    {
+      "path": "output/imagegen/hero-archive/shadow.png",
+      "size": [
+        2048,
+        1024
+      ],
+      "format": "PNG",
+      "alpha_range": [
+        0,
+        143
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "illustrations/services.webp",
+      "width": 1600,
+      "height": 1000,
+      "bytes": 59664,
+      "sha256": "988a7d5a92b500455d4dfbf16f83d3c9da4ad3cccf3fa272be213e5d69a78e98"
+    },
+    {
+      "path": "illustrations/projects.webp",
+      "width": 1600,
+      "height": 1000,
+      "bytes": 45178,
+      "sha256": "8d904c15b687b65870b61cbd8e3f7a9d0b7b8c5c0dc79364fa0113c09a67736c"
+    },
+    {
+      "path": "illustrations/about.webp",
+      "width": 1600,
+      "height": 1000,
+      "bytes": 73860,
+      "sha256": "210bb88e6973713ea2bdef4daaebdd70e80f625e6fa9629a3336e46ae8dad51f"
+    },
+    {
+      "path": "illustrations/auth.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 43682,
+      "sha256": "2744520a7ccc4354c456725cb5323192953830f259bf1d6136efab366713551f"
+    },
+    {
+      "path": "illustrations/about-team.webp",
+      "width": 1600,
+      "height": 600,
+      "bytes": 122388,
+      "sha256": "e23bb1d5800ece2d3f5ccf972003ffac1755e9dabe1eeb14e2a8ef3cafc2a9f4"
+    },
+    {
+      "path": "illustrations/profile-banner.webp",
+      "width": 2400,
+      "height": 400,
+      "bytes": 48650,
+      "sha256": "7508c21e71d79d1816f6ebc930e3711f278c535847610a620b9bd783c8e4d759"
+    },
+    {
+      "path": "people/anna-mironova.webp",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 93496,
+      "sha256": "a37cad2a9dc677d5eee10a1606b9b0d1a39274cbf55ede0f5cd8edeb09953b08"
+    },
+    {
+      "path": "people/mark-volkov.webp",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 85976,
+      "sha256": "ab598753c10018e8bfed43e6e086fe4790a761ac634a07243f261dbc9c93d806"
+    },
+    {
+      "path": "people/lera-sokolova.webp",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 73312,
+      "sha256": "ad6f46811fd7ba6ef64557951f45a74228d477529698409fcd23c9257523e251"
+    },
+    {
+      "path": "people/daria-kim.webp",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 55288,
+      "sha256": "83e796e9b2c054f1d158c1d1d7f29bb6a449cbadba89739a33270a02e27f61b0"
+    },
+    {
+      "path": "people/alexey-petrov.webp",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 87242,
+      "sha256": "363d4059ba531abd1461a6f82a60731b6916d8423e9f5c03e5b6fb71eb116944"
+    },
+    {
+      "path": "people/olga-belova.webp",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 68478,
+      "sha256": "0f0ad14d449a0421e6ca63409b6170f95a1abdc4fb73500235e55bfada3cce6b"
+    },
+    {
+      "path": "people/ivan-orlov.webp",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 82728,
+      "sha256": "a609222974e422b4e8fc567e396b9e3a7336a85898b112921fb5f265f96ab3a8"
+    },
+    {
+      "path": "people/timur-gareev.webp",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 52502,
+      "sha256": "edc8f83090607ee09bc880f439c1c37cfda30637e155996ee0a5484adbc43442"
+    },
+    {
+      "path": "people/sofia-lebedeva.webp",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 155590,
+      "sha256": "fd77fc398df6a869b906faf331e9bd452486c273af87367dc809f50bc5a21cb7"
+    },
+    {
+      "path": "people/nikita-zaitsev.webp",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 64896,
+      "sha256": "eb13da21ee598df4ef349bdd0b5a11b09e25c19faf873d16d53831a1eecc0ee2"
+    },
+    {
+      "path": "people/polina-grishina.webp",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 140162,
+      "sha256": "4db4dbaf924d19fd70a549ebd7a43137c7f82a53cbcb4ca82e53dec267c46744"
+    },
+    {
+      "path": "people/artem-kovalev.webp",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 51304,
+      "sha256": "e6903347be41df5ecbcf0e2dbef972efd7cd3197f42f98bdc64e56fdc1f1ee5e"
+    },
+    {
+      "path": "people/ekaterina-romanova.webp",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 69272,
+      "sha256": "76e416edf5f7443d8bdd9ad5474ec3eb4839220eeb66e7d9764997a1d001b464"
+    },
+    {
+      "path": "people/maxim-belyaev.webp",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 89026,
+      "sha256": "1ab772f4cb70eabf8c338fcc712d45258e8bc7031baae1e67baa80c07f393aae"
+    },
+    {
+      "path": "people/alina-safina.webp",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 102848,
+      "sha256": "196a4ef59ae179798b498ebd46002dc03a5e04384271d5ce21e709b5170d0d4b"
+    },
+    {
+      "path": "people/grigory-melnikov.webp",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 70132,
+      "sha256": "11e03d51e54cae1ba2ffb1d8490a087c2cdf1e614270101c7082eb81befa5b02"
+    },
+    {
+      "path": "people/vera-nikolaeva.webp",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 69784,
+      "sha256": "8c620fa3b1c7a69f1b272f9493ed3b4f845b014d8de6be0d807aa5d2a47e3a85"
+    },
+    {
+      "path": "people/denis-fedorov.webp",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 67078,
+      "sha256": "629f36e95e63a210ba8fa9a8de6882d16d33a93862c9a0f44040a7984e2225f1"
+    },
+    {
+      "path": "people/kira-vasilyeva.webp",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 99988,
+      "sha256": "4de7eb71842a80b54360bc94cf2b6c66e86c9f6c0d4200d7abd632d637d09859"
+    },
+    {
+      "path": "people/ruslan-akhmedov.webp",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 106250,
+      "sha256": "21e6ec73cc5111d549aad7763e4a777f7e7b717d019f885bbc1723cd4fcfa1df"
+    },
+    {
+      "path": "people/yana-kuznetsova.webp",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 97184,
+      "sha256": "d917126e5c256385c5e2cdc8e0c53de2a4f425d8db723758a00d3ff5df5c6339"
+    },
+    {
+      "path": "people/pavel-smirnov.webp",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 94572,
+      "sha256": "f44e714c4927d625169137396fc0314a7730810dc9757016ab8d6d4564af15ee"
+    },
+    {
+      "path": "people/mila-osipova.webp",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 55292,
+      "sha256": "f9bbb17a22bc2abbf797f3d9f973afccba9562697c2d56da53a5a7ce47531d85"
+    },
+    {
+      "path": "people/egor-tikhonov.webp",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 117284,
+      "sha256": "28849f097dc85959836704a8f72587be856066954362cee166bc7842d14fe22e"
+    },
+    {
+      "path": "people/arina-pavlova.webp",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 65812,
+      "sha256": "d81e216f133888f2da89a81fb7a83a90c6f0a3004bb22b7ff7bf1718cea92ff1"
+    },
+    {
+      "path": "people/lev-gusev.webp",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 45168,
+      "sha256": "f1b28bd99db06e6248ed9c2c0648fa152a6cc41043d0f3610d53e9cce5b4a5b8"
+    },
+    {
+      "path": "people/forma-studio.webp",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 9960,
+      "sha256": "66d098fa7347d904f55023b8dc4107ba597e773fec24607bc85ab3def600f1ff"
+    },
+    {
+      "path": "people/hvoya-collective.webp",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 38724,
+      "sha256": "2c09d695d981782cde03ce80989024c3b3b25e28a5f6cabd7b8e6a8ab08abd05"
+    },
+    {
+      "path": "people/pole-studio.webp",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 4074,
+      "sha256": "f3bee07a314388978a1fba75998456b2006a92bf94908ef1b1bf22c1537925e8"
+    },
+    {
+      "path": "people/orbita-team.webp",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 15816,
+      "sha256": "34b0bd346d4c4ad1ea3c8ed6fa506638b02ac8f11491636aa804292c8e596669"
+    },
+    {
+      "path": "portfolio/anna-mironova-1.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 97370,
+      "sha256": "20947019bffbdf8a727402720761d82d8277fb7b96c0cb7bb81e0c168a31ca50"
+    },
+    {
+      "path": "portfolio/anna-mironova-2.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 86402,
+      "sha256": "0c89a0f756b093cb80b4c08ef663107fcd86dcd647cc155212d80c0510ac0006"
+    },
+    {
+      "path": "portfolio/mark-volkov-1.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 166322,
+      "sha256": "9635da7b56cae3763f9f5d0abecbb12fa4d48b9f340f55d54377320ecc6c6824"
+    },
+    {
+      "path": "portfolio/mark-volkov-2.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 80194,
+      "sha256": "3cbbdf85179f8d317360f8870383497f742948ae22e83bb871f17e870222fbc5"
+    },
+    {
+      "path": "portfolio/lera-sokolova-1.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 376396,
+      "sha256": "25716dd0cbd319c0342c18984222d1be40f0168d6950e87673a25f6a16ceb69f"
+    },
+    {
+      "path": "portfolio/lera-sokolova-2.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 197998,
+      "sha256": "5580df6856473d67bd399e6b6fa6a7d9c06aab630edaebe6c88c392101a110e3"
+    },
+    {
+      "path": "portfolio/daria-kim-1.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 131354,
+      "sha256": "cb0688429a513486c0020b4a03c9f9d6bb9c99dde7b7fab476c88ed1e44912b2"
+    },
+    {
+      "path": "portfolio/daria-kim-2.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 125112,
+      "sha256": "22a21697c22d4061df209f2606c3fee92b515fce2c00f46af3c886e7d5b82685"
+    },
+    {
+      "path": "portfolio/alexey-petrov-1.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 197772,
+      "sha256": "5665d0f0e2c57213d5eeba678a30edfc85c657141b1571bd4e2e663c52d0c4ab"
+    },
+    {
+      "path": "portfolio/alexey-petrov-2.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 244330,
+      "sha256": "83950d36e39930ac6d94beb663aca30d90f0ca9f79afb788ec3c2dac917d2e31"
+    },
+    {
+      "path": "portfolio/olga-belova-1.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 376672,
+      "sha256": "f251ff8bc85c78f72d8c086a878c0140b131ce4270837d1ebfb6073a72026db4"
+    },
+    {
+      "path": "portfolio/olga-belova-2.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 211888,
+      "sha256": "9939ffd724e0e8622f168bcbac950036ae6f3e5c8eaaec3e65bb9a19e767cb0f"
+    },
+    {
+      "path": "portfolio/ivan-orlov-1.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 164104,
+      "sha256": "ec4d567356a8e732834c67a013f56113a1938b97d4526fc56a2ed2515cae9f57"
+    },
+    {
+      "path": "portfolio/ivan-orlov-2.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 332854,
+      "sha256": "df3595a155ab90c05be28966eda6822f3ba55ae4dff6956665579c80ec5f8e30"
+    },
+    {
+      "path": "portfolio/timur-gareev-1.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 316554,
+      "sha256": "f5db326f2b60d0d4e50d7ca3f01f40b60bce12abab82b930454fd2679b0d6a70"
+    },
+    {
+      "path": "portfolio/timur-gareev-2.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 51778,
+      "sha256": "78725ffdf245bc43ba2bdf6d56f2d08cb731d5abaec45aee9efa154ff014fcf0"
+    },
+    {
+      "path": "portfolio/sofia-lebedeva-1.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 259042,
+      "sha256": "da7a6bb36695a553da78e69f07194b9d7162c4d71eed14929b37f8938ddc54eb"
+    },
+    {
+      "path": "portfolio/sofia-lebedeva-2.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 79802,
+      "sha256": "c65efc3361faf1b0f3011e8d62d637414cd3a514cc3a991d733624320a577fe2"
+    },
+    {
+      "path": "portfolio/nikita-zaitsev-1.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 153698,
+      "sha256": "0ae44826521b750bce856b4cdc14934193b890732899de92ab2a3c716981b245"
+    },
+    {
+      "path": "portfolio/nikita-zaitsev-2.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 180198,
+      "sha256": "c4565134d7ef9328df1be0da328d44b2dd84bc6fa9833c196544e2782b889d79"
+    },
+    {
+      "path": "portfolio/polina-grishina-1.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 222494,
+      "sha256": "816eb746f9f2f779d6cb314a866cdc0f6fd50e719488df35aac7b9895d8152e8"
+    },
+    {
+      "path": "portfolio/polina-grishina-2.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 243598,
+      "sha256": "a942c514148800088031dba7500a672f0d3cb76be029eea4e292f0e02cc78673"
+    },
+    {
+      "path": "portfolio/artem-kovalev-1.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 183194,
+      "sha256": "4deafe91c9bbee348a9ef3e3366dfd07b07b04da742b7542cb8d8b01d84903ad"
+    },
+    {
+      "path": "portfolio/artem-kovalev-2.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 187712,
+      "sha256": "71fbabd679f2add2b32b2e027958eaa1a7caa21502da727be99781775d5a1958"
+    },
+    {
+      "path": "portfolio/ekaterina-romanova-1.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 236990,
+      "sha256": "9af325ab6bf6edd92736a53e761b62af546bfb036f165ae5701d8c34768a7674"
+    },
+    {
+      "path": "portfolio/ekaterina-romanova-2.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 173780,
+      "sha256": "8e33b656140624e1dd3ad44a83022996d6a9ea1eeb964ad07a2d4229126f2fba"
+    },
+    {
+      "path": "portfolio/maxim-belyaev-1.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 211430,
+      "sha256": "ac80673c5b78793310eb9610795889842c46f120ae72764a08c442bb5ba2c642"
+    },
+    {
+      "path": "portfolio/maxim-belyaev-2.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 218440,
+      "sha256": "40fa3152332f4b3aefab753f294ea8a9679cb936dbb87a4cad190199ff7c183d"
+    },
+    {
+      "path": "portfolio/alina-safina-1.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 201918,
+      "sha256": "e5a003c6427c518f6d49b17be2790aec5108dfaa1d0830a59ea112dacd56fe9b"
+    },
+    {
+      "path": "portfolio/alina-safina-2.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 254168,
+      "sha256": "b816dc58edfdf7c1486e34f85a95808687946e0a65b84481e68dde472044fc9f"
+    },
+    {
+      "path": "portfolio/grigory-melnikov-1.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 414138,
+      "sha256": "5b1e92dcc62ed7a9b2c2b06af1422f6f4a73b1d22db03933f1153b7ff2b45a9b"
+    },
+    {
+      "path": "portfolio/grigory-melnikov-2.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 296036,
+      "sha256": "6ef7280197150b736c583f7bc58a2668995d1ee7c9965269b5865c579ed6eefb"
+    },
+    {
+      "path": "portfolio/vera-nikolaeva-1.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 360720,
+      "sha256": "54cbbb5394b4a7a87e69c3c0314398038810538d6f51abf1bf7b05be024d4edb"
+    },
+    {
+      "path": "portfolio/vera-nikolaeva-2.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 253816,
+      "sha256": "2aa4aeb46986f636806c2fe99e34195cb4626287bab660df5f573c54a7642877"
+    },
+    {
+      "path": "portfolio/denis-fedorov-1.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 190896,
+      "sha256": "108a3c771678d3631f7fe978633e4203f7ae8ebf8a70d6a69e1aac6fad959f95"
+    },
+    {
+      "path": "portfolio/denis-fedorov-2.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 304240,
+      "sha256": "02a65917e6d9278dd9de5b19c6358ea7f81482b8152e3803a64867b2254690de"
+    },
+    {
+      "path": "portfolio/kira-vasilyeva-1.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 142390,
+      "sha256": "2e5bd3ce24a537cd9d366fe27e106b34fcae0347cdf534bde0cead80f21e26b7"
+    },
+    {
+      "path": "portfolio/kira-vasilyeva-2.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 228946,
+      "sha256": "ad3b0bb7c5f17ff2134817487bbdcf58ca74ba28a56e4e015c89e6ff9fed9374"
+    },
+    {
+      "path": "portfolio/ruslan-akhmedov-1.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 211544,
+      "sha256": "bb1576104a89b723dddeb15ccaeed5eba1a5796baf9507c9d4a235fc0d3558fc"
+    },
+    {
+      "path": "portfolio/ruslan-akhmedov-2.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 274348,
+      "sha256": "fe0a1cc52e1ce72d266534a44668637b93258bb8e9fff3198487e7eb4941b425"
+    },
+    {
+      "path": "portfolio/yana-kuznetsova-1.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 228394,
+      "sha256": "dcffb9440fdc20c2951e4b6a0a20c5aa0660cdb81bb22e2c945a9ae89f4dbf62"
+    },
+    {
+      "path": "portfolio/yana-kuznetsova-2.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 259676,
+      "sha256": "601566a86ad42a1ed75b1e871e2e40c46091d05cffcffa87f3b9eaa27f8e86da"
+    },
+    {
+      "path": "portfolio/pavel-smirnov-1.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 165306,
+      "sha256": "037df925ea36312807b63617525861db181926a10b91d664aa52cec559d6afe2"
+    },
+    {
+      "path": "portfolio/pavel-smirnov-2.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 164172,
+      "sha256": "b581dff010c024eb7da0a39a81251ba4312527a4f0bdba0237c13a88296e510c"
+    },
+    {
+      "path": "portfolio/mila-osipova-1.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 238592,
+      "sha256": "2d0ced4565f03a490087ae80bf6c798b9111445f230ebc7fc9ff90f95a081e26"
+    },
+    {
+      "path": "portfolio/mila-osipova-2.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 227408,
+      "sha256": "d4407adad535f1f2ea84559828c0e26984b5142ce12aeb95e991236e4357a00e"
+    },
+    {
+      "path": "portfolio/egor-tikhonov-1.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 228388,
+      "sha256": "3a97ae38a6f66e79416dd542cdd1a6e846c1d2c6b0a27de0a990992029417244"
+    },
+    {
+      "path": "portfolio/egor-tikhonov-2.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 203026,
+      "sha256": "1b30c12f0ec14f064657aa5a007a5cf1efda540107a5355471abdd5207dc5a72"
+    },
+    {
+      "path": "portfolio/arina-pavlova-1.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 152872,
+      "sha256": "9fe1f305d501c2d31304125cfacc86f2fbb2d9407745cb2ef4329003589eb63a"
+    },
+    {
+      "path": "portfolio/arina-pavlova-2.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 135352,
+      "sha256": "058f6d45f430fb840d7ea8dc3035429eedf9fe60d7ea6d7b33e03e96a71e0adb"
+    },
+    {
+      "path": "portfolio/lev-gusev-1.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 258468,
+      "sha256": "82c1dc4162cd1ba97334b4e23b44ca0ccfccdaf05eaa446390ed3c28b362c5cd"
+    },
+    {
+      "path": "portfolio/lev-gusev-2.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 566286,
+      "sha256": "1a77ac4d5641a35330a11689da2186d2654957a0afa84e531c97f6a305753c30"
+    },
+    {
+      "path": "portfolio/forma-studio-1.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 166996,
+      "sha256": "588586a852e6d789771f280e5cc373a1f5fd767f04ed5d5650e544323bfbe2b2"
+    },
+    {
+      "path": "portfolio/forma-studio-2.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 110016,
+      "sha256": "0724762b354f156161669662066b799e4bb15ebe8439f209144cbb8ca67cb3c9"
+    },
+    {
+      "path": "portfolio/hvoya-collective-1.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 464840,
+      "sha256": "e685402367be22923ae7c7e3dada93c0e891a471f7c258b20c1d5e59bcdddca9"
+    },
+    {
+      "path": "portfolio/hvoya-collective-2.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 580632,
+      "sha256": "d062b21391f178b39efe9e13bcf231efae49886928f431a1b31d063f7bdff6e4"
+    },
+    {
+      "path": "portfolio/pole-studio-1.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 174668,
+      "sha256": "fe8ac1cda967851d880a627582e6f76e2d933c6869af6f2014129c872c6517f9"
+    },
+    {
+      "path": "portfolio/pole-studio-2.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 124378,
+      "sha256": "7741c7c5c1be28f67a8ce655457c77a7edbb6ff9a5046057ac3034e914dbb1e6"
+    },
+    {
+      "path": "portfolio/orbita-team-1.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 144430,
+      "sha256": "fe345e14ef2b5e47aa78ba3ee7c348cbbed1027208af5fffc22e81542a58f8a0"
+    },
+    {
+      "path": "portfolio/orbita-team-2.webp",
+      "width": 1600,
+      "height": 1200,
+      "bytes": 133104,
+      "sha256": "ccc6b5482a4bc2367a27531241e4da5ac96f446f883033e67f3b9880df5f7163"
+    },
+    {
+      "path": "projects/novaya-forma.webp",
+      "width": 1600,
+      "height": 900,
+      "bytes": 130384,
+      "sha256": "c55f115db7d2f67f140c8191e5e6830d95210c16873ac0ad65771a3677a7b2b3"
+    },
+    {
+      "path": "projects/gorod-budushchego.webp",
+      "width": 1600,
+      "height": 900,
+      "bytes": 156902,
+      "sha256": "ec4e4e2c0f56d906917dd09a2e1292c8ff6d5a799ca7710fa168cabe7f0ee893"
+    },
+    {
+      "path": "projects/orbita.webp",
+      "width": 1600,
+      "height": 900,
+      "bytes": 229350,
+      "sha256": "c90f7fc186addd54b5059e9295056f0dc4de41475ebcefab1208cd5570785eab"
+    },
+    {
+      "path": "projects/sreda-dlya-idey.webp",
+      "width": 1600,
+      "height": 900,
+      "bytes": 69432,
+      "sha256": "4751c8eb526ae3465b520c4d16d8853b0472d3a9b8ea30231e9a9f7db86af8e2"
+    },
+    {
+      "path": "projects/tikhiy-les.webp",
+      "width": 1600,
+      "height": 900,
+      "bytes": 305718,
+      "sha256": "d00626c78697caa09c9d23a3c5e1fe85cd4052dc279b7d3dae6ac44336818b8e"
+    },
+    {
+      "path": "projects/zvuk-goroda.webp",
+      "width": 1600,
+      "height": 900,
+      "bytes": 343432,
+      "sha256": "183fb01ada0e62d860a82bb1e1237eabdb2ac1ae5f22ff4d26bb00f2923f12e0"
+    },
+    {
+      "path": "projects/kod-dlya-detey.webp",
+      "width": 1600,
+      "height": 900,
+      "bytes": 164274,
+      "sha256": "d39b89cd6c2ca63d886ca29bb6f0464246825b94c90309f52a56db83a159c6f8"
+    },
+    {
+      "path": "projects/nochnoy-ekspress.webp",
+      "width": 1600,
+      "height": 900,
+      "bytes": 261984,
+      "sha256": "6f5a101da0906ea398bda683ba363a7e9d6bf31d507e1d04a32da5f8aacc5a05"
+    },
+    {
+      "path": "projects/vtoraya-zhizn.webp",
+      "width": 1600,
+      "height": 900,
+      "bytes": 247734,
+      "sha256": "532cefa8a023e99b287f179dcf04c9af9874f4f7dca112822773c6bca41516c2"
+    },
+    {
+      "path": "projects/pulse.webp",
+      "width": 1600,
+      "height": 900,
+      "bytes": 75244,
+      "sha256": "7423dc10cc5e80e51ce845034223566821c467bb5c143115e0956f76bafa0a1c"
+    },
+    {
+      "path": "projects/teplye-doma.webp",
+      "width": 1600,
+      "height": 900,
+      "bytes": 242356,
+      "sha256": "38aa40075216548332cc1deb94431747a3dcf1ead9700719f2862a3dd9420c18"
+    },
+    {
+      "path": "projects/chitay-vmeste.webp",
+      "width": 1600,
+      "height": 900,
+      "bytes": 151164,
+      "sha256": "ca6fce1bf2f2661219aa88dde3c4639b16237c6996af4ef28e0c5cbc990b9925"
+    },
+    {
+      "path": "projects/svet-i-ten.webp",
+      "width": 1600,
+      "height": 900,
+      "bytes": 158110,
+      "sha256": "d1486d70a13cc2411eae16ef3dd8510bf8208e6e872c052199a11c243efb46b6"
+    },
+    {
+      "path": "projects/rynok-na-ladoni.webp",
+      "width": 1600,
+      "height": 900,
+      "bytes": 263482,
+      "sha256": "4d350f14e21b0d581183d79368ec2945bc1224ac5a000d02c586ffef6ad8f61a"
+    },
+    {
+      "path": "projects/lisa-i-zvezdy.webp",
+      "width": 1600,
+      "height": 900,
+      "bytes": 193806,
+      "sha256": "9bc1ff3f41a49c179c8977d87589c62bb360f4fa938c2859db53ea2f6a99f315"
+    },
+    {
+      "path": "projects/chistyy-bereg.webp",
+      "width": 1600,
+      "height": 900,
+      "bytes": 186788,
+      "sha256": "e53c00c47d99fd5b05bab67b64b26b5fa8c0e5b2307c9fc1714f46bb8a063443"
+    },
+    {
+      "path": "projects/iz-masterskoy.webp",
+      "width": 1600,
+      "height": 900,
+      "bytes": 172336,
+      "sha256": "afed20915d33df27d75d315a35830dc7b0fdba4b5082542806e6852c07bb02e0"
+    },
+    {
+      "path": "projects/atlas-remesel.webp",
+      "width": 1600,
+      "height": 900,
+      "bytes": 201910,
+      "sha256": "fe89e4359ba1767457f6ab75ceb1ad2599abe6a58268b8c744fcf3de575b38d1"
+    },
+    {
+      "path": "projects/ritm.webp",
+      "width": 1600,
+      "height": 900,
+      "bytes": 137272,
+      "sha256": "8aca2a8451c1629e7320d3d89e10408860f89e4fa91024e497b3846c4db8ad91"
+    },
+    {
+      "path": "projects/mesto-vstrechi.webp",
+      "width": 1600,
+      "height": 900,
+      "bytes": 364428,
+      "sha256": "0afc4e9c1f9cd41acac1dbec367a5eaaa552062dd75b03cbf472dcb070415176"
+    }
+  ]
+}

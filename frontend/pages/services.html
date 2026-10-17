@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Специалисты и студии — Среда</title>
+  <meta name="description" content="Специалисты и студии для ваших проектов: дизайн, разработка, 3D, музыка, архитектура и не только.">
+  <meta name="theme-color" content="#fffbf5">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <script type="module" src="/assets/js/main.js"></script>
+</head>
+<body data-page="services">
+  <header data-header data-active="services"></header>
+
+  <main class="container">
+    <section class="page-hero" data-parallax-scope>
+      <div>
+        <p class="eyebrow" data-reveal>Каталог</p>
+        <h1 class="display--md split-words" style="margin-top:.75rem">Найдите тех, кто<br>воплотит вашу идею</h1>
+        <p class="lead" data-reveal style="--d:.2s">Специалисты и студии для ваших проектов — с портфолио, отзывами и понятным статусом.</p>
+      </div>
+      <div class="page-hero__art float" data-parallax style="--depth:16px">
+        <img src="/assets/img/illustrations/services.webp" alt="" width="1600" height="1000" data-fb="art" data-variant="services">
+      </div>
+    </section>
+
+    <div class="catalog-tools">
+      <div class="search">
+        <label class="search__field">
+          <i data-icon="search"></i>
+          <span class="visually-hidden">Поиск</span>
+          <input type="search" id="spec-search" placeholder="Поиск по имени, навыкам или направлению" autocomplete="off">
+        </label>
+      </div>
+      <div class="chips chips--scroll" id="spec-chips"><button class="chip is-active" data-direction="">Все</button></div>
+    </div>
+
+    <section class="catalog">
+      <aside class="card filters" aria-label="Фильтры">
+        <h3 class="filters__title">Фильтры <button class="filters__reset" id="filters-reset" type="button">Сбросить</button></h3>
+        <details class="filter-group" open>
+          <summary>Кто нужен <i data-icon="chevron-up"></i></summary>
+          <div class="filter-group__opts">
+            <label class="visually-hidden" for="kind">Тип профиля</label>
+            <select class="select" id="kind"><option value="">Все профили</option><option value="person">Специалисты</option><option value="studio">Студии</option></select>
+          </div>
+        </details>
+        <details class="filter-group" open>
+          <summary>Направление <i data-icon="chevron-up"></i></summary>
+          <div class="filter-group__opts" id="direction-opts"></div>
+        </details>
+        <details class="filter-group" open>
+          <summary>Формат работы <i data-icon="chevron-up"></i></summary>
+          <div class="filter-group__opts" id="format-opts"></div>
+        </details>
+        <details class="filter-group" open>
+          <summary>Локация <i data-icon="chevron-up"></i></summary>
+          <div class="filter-group__opts">
+            <label class="visually-hidden" for="city">Город</label>
+            <select class="select" id="city"><option value="">Все города</option></select>
+          </div>
+        </details>
+        <details class="filter-group" open>
+          <summary>Доступность <i data-icon="chevron-up"></i></summary>
+          <div class="filter-group__opts"><label class="check check--sm"><input type="checkbox" id="available">Открыт к проектам</label></div>
+        </details>
+      </aside>
+
+      <div>
+        <div class="list-head">
+          <h2 class="title">Специалисты и студии</h2>
+          <span class="list-head__count" id="spec-count"></span>
+          <label class="visually-hidden" for="spec-sort">Сортировка</label>
+          <select class="select" id="spec-sort">
+            <option value="popular">Сначала популярные</option>
+            <option value="new">Сначала новые</option>
+            <option value="name">По имени</option>
+          </select>
+        </div>
+        <div class="grid-cards grid-cards--people" id="spec-list"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer data-footer></footer>
+</body>
+</html>

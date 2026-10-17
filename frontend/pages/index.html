@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Среда — создавайте вместе</title>
+  <meta name="description" content="Находите людей, собирайте команды и запускайте идеи.">
+  <meta name="theme-color" content="#fffbf5">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <script type="module" src="/assets/js/main.js"></script>
+</head>
+<body data-page="home">
+  <header data-header data-active="home"></header>
+
+  <!-- Полноэкранный моушен-hero: сцена и люди строятся в assets/js/pages/hero-motion.js -->
+  <section class="hero" aria-label="Среда">
+    <div class="hero__bg"></div>
+    <div class="container">
+      <div class="hero__copy">
+        <h1 class="hero__title" data-enter="0">Создавайте<br>вместе</h1>
+        <p class="hero__lead muted" data-enter="0.1">Находите людей, собирайте команды и&nbsp;запускайте идеи.</p>
+        <div class="hero__actions" data-enter="0.2">
+          <a class="btn btn--primary btn--lg" href="/services">Найти команду<i data-icon="arrow-right"></i></a>
+          <a class="btn btn--outline btn--lg" href="/projects">Смотреть проекты</a>
+        </div>
+        <p class="hero__note" data-enter="0.3"><span class="dot dot--live"></span><span id="hero-note">Сейчас команды ищут участников</span></p>
+      </div>
+    </div>
+    <div class="hero__stage" id="hero-stage" title="Нажмите, чтобы проиграть анимацию ещё раз">
+      <div class="hero__people" id="hero-people"></div>
+      <div class="hero__caption" id="hero-caption"></div>
+    </div>
+    <a class="hero__cue" href="#discover">Листайте</a>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span class="marquee__item">Дизайн</span><span class="marquee__item marquee__item--outline">Разработка</span><span class="marquee__item">3D и моушн</span>
+      <span class="marquee__item marquee__item--outline">Музыка</span><span class="marquee__item">Архитектура</span><span class="marquee__item marquee__item--outline">Кино</span>
+      <span class="marquee__item">Геймдев</span><span class="marquee__item marquee__item--outline">Мода</span><span class="marquee__item">Экология</span>
+      <span class="marquee__item">Дизайн</span><span class="marquee__item marquee__item--outline">Разработка</span><span class="marquee__item">3D и моушн</span>
+      <span class="marquee__item marquee__item--outline">Музыка</span><span class="marquee__item">Архитектура</span><span class="marquee__item marquee__item--outline">Кино</span>
+      <span class="marquee__item">Геймдев</span><span class="marquee__item marquee__item--outline">Мода</span><span class="marquee__item">Экология</span>
+    </div>
+  </div>
+
+  <main id="discover">
+    <div class="container">
+      <div class="search home-search" data-global-search data-reveal>
+        <label class="search__field">
+          <i data-icon="search"></i>
+          <span class="visually-hidden">Поиск</span>
+          <input type="search" placeholder="Поиск людей, проектов и студий" autocomplete="off">
+          <span class="search__kbd">/</span>
+        </label>
+        <div class="search__results" hidden></div>
+      </div>
+    </div>
+
+    <section class="section container">
+      <div class="section__head">
+        <h2 class="title-lg split-words">Открытия недели</h2>
+        <a class="btn btn--outline" href="/projects">Все проекты<i data-icon="arrow-right" class="sm"></i></a>
+      </div>
+      <div class="chips chips--scroll" id="discover-chips" style="margin-bottom:1.5rem"><button class="chip is-active" data-tag="">Все</button></div>
+      <div class="discover">
+        <div class="grid-cards discover__grid" id="discover-grid"></div>
+        <aside class="side" id="home-side"><div class="skeleton"></div><div class="skeleton" style="min-height:10rem"></div></aside>
+      </div>
+    </section>
+
+    <section class="section--tight container" id="stats">
+      <div class="stats">
+        <div class="stat" data-reveal><div class="stat__num"><b data-stat="people">0</b><span>+</span></div><div class="stat__label">специалистов в Среде</div></div>
+        <div class="stat" data-reveal style="--d:.08s"><div class="stat__num"><b data-stat="projects">0</b></div><div class="stat__label">проектов ищут единомышленников</div></div>
+        <div class="stat" data-reveal style="--d:.16s"><div class="stat__num"><b data-stat="cities">0</b></div><div class="stat__label">городов на карте</div></div>
+        <div class="stat stat--accent" data-reveal style="--d:.24s"><div class="stat__num"><b data-stat="open">0</b><span>•</span></div><div class="stat__label">команд прямо сейчас ищут людей</div></div>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="section__head">
+        <div>
+          <p class="eyebrow">Люди недели</p>
+          <h2 class="title-lg split-words" style="margin-top:.6rem">С ними хочется работать</h2>
+        </div>
+        <a class="btn btn--outline" href="/services">Все специалисты<i data-icon="arrow-right" class="sm"></i></a>
+      </div>
+      <div class="grid-cards" style="--card-min:15rem" id="people-grid"></div>
+    </section>
+
+    <section class="section container">
+      <div class="section__head"><h2 class="title-lg split-words">Как это работает</h2><p class="lead">От идеи до команды — за три шага.</p></div>
+      <div class="steps">
+        <article class="step" data-reveal><span class="step__icon"><i data-icon="compass"></i></span><h3>Найдите своих</h3><p>Ищите людей по навыкам, городу и формату работы. Смотрите портфолио и отзывы о совместной работе.</p></article>
+        <article class="step" data-reveal style="--d:.1s"><span class="step__icon"><i data-icon="users"></i></span><h3>Соберите команду</h3><p>Опубликуйте проект, отметьте открытые роли и пригласите тех, кто подходит. Отклики приходят прямо в проект.</p></article>
+        <article class="step" data-reveal style="--d:.2s"><span class="step__icon"><i data-icon="rocket"></i></span><h3>Запустите идею</h3><p>Ведите проект от идеи до релиза: этапы, бета-версия, новости для подписчиков и поддержка аудитории.</p></article>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="cta-band" data-reveal="zoom" data-parallax-scope>
+        <div>
+          <h2 class="split-words">Есть идея?<br>Соберите под неё команду</h2>
+          <p>Опубликуйте проект за пару минут — специалисты увидят его в каталоге и откликнутся.</p>
+          <div class="row"><button class="btn btn--white btn--lg" data-action="create-project"><i data-icon="plus"></i>Создать проект</button><a class="btn btn--ghost btn--lg" style="color:#fff" href="/projects">Посмотреть примеры</a></div>
+        </div>
+        <div class="cta-band__art">
+          <div class="cta-band__ring"></div>
+          <div class="cta-band__ball" data-parallax style="--depth:22px;inset:28%"></div>
+          <div class="cta-band__ball" data-parallax style="--depth:-30px;width:12%;height:12%;left:8%;top:14%;background:radial-gradient(circle at 35% 30%,#eae4ff,#a996f5 60%,#6c55f5)"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer data-footer></footer>
+</body>
+</html>

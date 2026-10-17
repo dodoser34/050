@@ -1,0 +1,373 @@
+# ============================================================
+# Среда — промпты для всех изображений сайта
+# Файл сгенерирован: python -m tools.build_prompts
+# Hero главной — векторный моушен в коде (frontend/assets/js/pages/hero-motion.js), картинки для него не нужны.
+# Формат записи:  [путь в frontend/assets/img]  размер  — комментарий
+#                 промпт (на английском — так стабильнее для генераторов)
+# Пока файла нет, сайт рисует аккуратную заглушку — можно заливать постепенно.
+# Сохраняйте в .webp (качество 85) или .png там, где нужна прозрачность.
+# ============================================================
+
+## ОБЩИЙ СТИЛЬ
+# 3D-иллюстрации: soft matte clay 3D render, velvety micro-texture, rounded organic forms, soft global illumination, gentle contact shadows, palette: cream #FFFBF5, lavender #A996F5 / #6C55F5, warm orange #FF6A2C, ink #111114, minimal, premium, no text, no logos, no watermark
+# Портреты: photorealistic studio headshot, head and shoulders, looking at camera, soft natural window light from the left, warm neutral beige seamless background #EFE8DD, shallow depth of field, 85mm lens, natural skin texture, editorial, friendly and confident, no text, no watermark
+# Логотипы студий: minimal flat vector logo mark, perfectly centered, generous padding, solid background filling the whole square, crisp geometric shapes, no text, no letters, no watermark
+
+## 1. ИЛЛЮСТРАЦИИ СТРАНИЦ (у каждой страницы своя; вход и регистрация — общая)
+
+[illustrations/services.webp]  1600x1000
+Hero illustration for the SPECIALISTS page: a loose floating arc of creative tools made of soft clay — a pencil, a code bracket symbol, a camera, a microphone, a paint brush, a tiny gear and a ruler — orbiting a small orange sphere, thin lavender orbit lines connecting them. Cream background #FFFBF5 that fades out at the edges. soft matte clay 3D render, velvety micro-texture, rounded organic forms, soft global illumination, gentle contact shadows, palette: cream #FFFBF5, lavender #A996F5 / #6C55F5, warm orange #FF6A2C, ink #111114, minimal, premium, no text, no logos, no watermark
+
+[illustrations/projects.webp]  1600x1000
+Hero illustration for the PROJECTS page: a playful staircase of rounded lavender blocks growing from small to tall, an orange ball rolling up the steps leaving a dotted trail, a little flag on the top block, a lightbulb-shaped cloud. Idea grows into a product. Cream background #FFFBF5 fading at the edges. soft matte clay 3D render, velvety micro-texture, rounded organic forms, soft global illumination, gentle contact shadows, palette: cream #FFFBF5, lavender #A996F5 / #6C55F5, warm orange #FF6A2C, ink #111114, minimal, premium, no text, no logos, no watermark
+
+[illustrations/about.webp]  1600x1000
+Hero illustration for the ABOUT page: a group of different soft shapes (sphere, cube, cone, torus, capsule) gathered around a round low table like a team in conversation, one orange sphere in the middle glowing slightly, thin orbit lines linking them. Cream background #FFFBF5 fading at the edges. soft matte clay 3D render, velvety micro-texture, rounded organic forms, soft global illumination, gentle contact shadows, palette: cream #FFFBF5, lavender #A996F5 / #6C55F5, warm orange #FF6A2C, ink #111114, minimal, premium, no text, no logos, no watermark
+
+[illustrations/auth.webp]  1600x1200
+Illustration for LOGIN and SIGN-UP pages: a tall arched doorway / portal made of a thick lavender tube standing on a soft plinth, warm orange light glowing from inside the arch, an orange ball rolling towards the doorway along a curved path, a few small floating lavender spheres and thin orbit lines. Welcoming feeling. Cream background #FFFBF5 fading at the edges. soft matte clay 3D render, velvety micro-texture, rounded organic forms, soft global illumination, gentle contact shadows, palette: cream #FFFBF5, lavender #A996F5 / #6C55F5, warm orange #FF6A2C, ink #111114, minimal, premium, no text, no logos, no watermark
+
+[illustrations/about-team.webp]  1600x600
+Candid photo of a diverse team of four young creatives (two women, two men) laughing around a laptop at a wooden table in a sunny loft studio with plants and moodboards on the wall, warm natural light, orange and black clothing accents, shallow depth of field, editorial photography, no readable text
+
+[illustrations/profile-banner.webp]  2400x400
+Very wide abstract banner: soft lavender clay tube loops drifting across a pale lilac background #ECE6FF with a partially visible orange sphere on the right and a thin orbit line, lots of calm empty space on the left. soft matte clay 3D render, velvety micro-texture, rounded organic forms, soft global illumination, gentle contact shadows, palette: cream #FFFBF5, lavender #A996F5 / #6C55F5, warm orange #FF6A2C, ink #111114, minimal, premium, no text, no logos, no watermark
+
+## 2. АВАТАРЫ И ЛОГОТИПЫ (30 шт.)
+
+[people/anna-mironova.webp]  1024x1024  — Анна Миронова, UX/UI-дизайнер
+photorealistic studio headshot, head and shoulders, looking at camera, soft natural window light from the left, warm neutral beige seamless background #EFE8DD, shallow depth of field, 85mm lens, natural skin texture, editorial, friendly and confident, no text, no watermark. Subject: a woman around 28, shoulder-length wavy chestnut hair, calm confident look, black knit sweater.
+
+[people/mark-volkov.webp]  1024x1024  — Марк Волков, Фронтенд-разработчик
+photorealistic studio headshot, head and shoulders, looking at camera, soft natural window light from the left, warm neutral beige seamless background #EFE8DD, shallow depth of field, 85mm lens, natural skin texture, editorial, friendly and confident, no text, no watermark. Subject: a man around 30, curly dark hair, light stubble, warm smile, beige overshirt.
+
+[people/lera-sokolova.webp]  1024x1024  — Лера Соколова, Иллюстратор
+photorealistic studio headshot, head and shoulders, looking at camera, soft natural window light from the left, warm neutral beige seamless background #EFE8DD, shallow depth of field, 85mm lens, natural skin texture, editorial, friendly and confident, no text, no watermark. Subject: a young East Asian woman around 25, long straight black hair, gentle smile, cream top.
+
+[people/daria-kim.webp]  1024x1024  — Дарья Ким, Продуктовый дизайнер
+photorealistic studio headshot, head and shoulders, looking at camera, soft natural window light from the left, warm neutral beige seamless background #EFE8DD, shallow depth of field, 85mm lens, natural skin texture, editorial, friendly and confident, no text, no watermark. Subject: a woman around 32 of Korean descent, sleek bob haircut, thin glasses, white shirt.
+
+[people/alexey-petrov.webp]  1024x1024  — Алексей Петров, Продюсер
+photorealistic studio headshot, head and shoulders, looking at camera, soft natural window light from the left, warm neutral beige seamless background #EFE8DD, shallow depth of field, 85mm lens, natural skin texture, editorial, friendly and confident, no text, no watermark. Subject: a man around 38 with a full dark beard, black baseball cap, glasses, grey t-shirt.
+
+[people/olga-belova.webp]  1024x1024  — Ольга Белова, Маркетолог
+photorealistic studio headshot, head and shoulders, looking at camera, soft natural window light from the left, warm neutral beige seamless background #EFE8DD, shallow depth of field, 85mm lens, natural skin texture, editorial, friendly and confident, no text, no watermark. Subject: a woman around 35, auburn hair in a low bun, small earrings, olive blazer.
+
+[people/ivan-orlov.webp]  1024x1024  — Иван Орлов, Бэкенд-разработчик
+photorealistic studio headshot, head and shoulders, looking at camera, soft natural window light from the left, warm neutral beige seamless background #EFE8DD, shallow depth of field, 85mm lens, natural skin texture, editorial, friendly and confident, no text, no watermark. Subject: a man around 33, short neat hair, round glasses, navy hoodie, thoughtful expression.
+
+[people/timur-gareev.webp]  1024x1024  — Тимур Гареев, 3D-художник
+photorealistic studio headshot, head and shoulders, looking at camera, soft natural window light from the left, warm neutral beige seamless background #EFE8DD, shallow depth of field, 85mm lens, natural skin texture, editorial, friendly and confident, no text, no watermark. Subject: a man around 27 of Tatar descent, undercut hairstyle, black t-shirt, slight smile.
+
+[people/sofia-lebedeva.webp]  1024x1024  — София Лебедева, Моушн-дизайнер
+photorealistic studio headshot, head and shoulders, looking at camera, soft natural window light from the left, warm neutral beige seamless background #EFE8DD, shallow depth of field, 85mm lens, natural skin texture, editorial, friendly and confident, no text, no watermark. Subject: a woman around 26 with short pink-dyed hair, oversized denim jacket, playful expression.
+
+[people/nikita-zaitsev.webp]  1024x1024  — Никита Зайцев, Мобильный разработчик
+photorealistic studio headshot, head and shoulders, looking at camera, soft natural window light from the left, warm neutral beige seamless background #EFE8DD, shallow depth of field, 85mm lens, natural skin texture, editorial, friendly and confident, no text, no watermark. Subject: a man around 29, short blond hair, fair skin, green sweatshirt, friendly look.
+
+[people/polina-grishina.webp]  1024x1024  — Полина Гришина, Фотограф
+photorealistic studio headshot, head and shoulders, looking at camera, soft natural window light from the left, warm neutral beige seamless background #EFE8DD, shallow depth of field, 85mm lens, natural skin texture, editorial, friendly and confident, no text, no watermark. Subject: a woman around 31 with freckles and wavy ginger hair, warm smile, rust sweater.
+
+[people/artem-kovalev.webp]  1024x1024  — Артём Ковалёв, Видеограф и монтажёр
+photorealistic studio headshot, head and shoulders, looking at camera, soft natural window light from the left, warm neutral beige seamless background #EFE8DD, shallow depth of field, 85mm lens, natural skin texture, editorial, friendly and confident, no text, no watermark. Subject: a man around 34, shaved head, short dark beard, black turtleneck, serious but kind look.
+
+[people/ekaterina-romanova.webp]  1024x1024  — Екатерина Романова, Саунд-дизайнер
+photorealistic studio headshot, head and shoulders, looking at camera, soft natural window light from the left, warm neutral beige seamless background #EFE8DD, shallow depth of field, 85mm lens, natural skin texture, editorial, friendly and confident, no text, no watermark. Subject: a woman around 29 with straight dark hair and bangs, studio headphones around her neck, black top.
+
+[people/maxim-belyaev.webp]  1024x1024  — Максим Беляев, Композитор
+photorealistic studio headshot, head and shoulders, looking at camera, soft natural window light from the left, warm neutral beige seamless background #EFE8DD, shallow depth of field, 85mm lens, natural skin texture, editorial, friendly and confident, no text, no watermark. Subject: a man around 40 with long hair tied back, grey streaks, linen shirt, calm expression.
+
+[people/alina-safina.webp]  1024x1024  — Алина Сафина, Копирайтер
+photorealistic studio headshot, head and shoulders, looking at camera, soft natural window light from the left, warm neutral beige seamless background #EFE8DD, shallow depth of field, 85mm lens, natural skin texture, editorial, friendly and confident, no text, no watermark. Subject: a woman around 27 of Bashkir descent, long dark hair, mustard sweater, bright smile.
+
+[people/grigory-melnikov.webp]  1024x1024  — Григорий Мельников, Архитектор
+photorealistic studio headshot, head and shoulders, looking at camera, soft natural window light from the left, warm neutral beige seamless background #EFE8DD, shallow depth of field, 85mm lens, natural skin texture, editorial, friendly and confident, no text, no watermark. Subject: a man around 45 with short grey hair and a neat beard, white shirt, confident look.
+
+[people/vera-nikolaeva.webp]  1024x1024  — Вера Николаева, Дизайнер интерьеров
+photorealistic studio headshot, head and shoulders, looking at camera, soft natural window light from the left, warm neutral beige seamless background #EFE8DD, shallow depth of field, 85mm lens, natural skin texture, editorial, friendly and confident, no text, no watermark. Subject: a woman around 36 with a blonde pixie cut, terracotta blouse, warm expression.
+
+[people/denis-fedorov.webp]  1024x1024  — Денис Фёдоров, Геймдизайнер
+photorealistic studio headshot, head and shoulders, looking at camera, soft natural window light from the left, warm neutral beige seamless background #EFE8DD, shallow depth of field, 85mm lens, natural skin texture, editorial, friendly and confident, no text, no watermark. Subject: a man around 28 with messy brown hair, glasses, graphic t-shirt, enthusiastic look.
+
+[people/kira-vasilyeva.webp]  1024x1024  — Кира Васильева, Аналитик данных
+photorealistic studio headshot, head and shoulders, looking at camera, soft natural window light from the left, warm neutral beige seamless background #EFE8DD, shallow depth of field, 85mm lens, natural skin texture, editorial, friendly and confident, no text, no watermark. Subject: a woman around 30 with dark curly hair, gold hoop earrings, white t-shirt, smart look.
+
+[people/ruslan-akhmedov.webp]  1024x1024  — Руслан Ахмедов, ML-инженер
+photorealistic studio headshot, head and shoulders, looking at camera, soft natural window light from the left, warm neutral beige seamless background #EFE8DD, shallow depth of field, 85mm lens, natural skin texture, editorial, friendly and confident, no text, no watermark. Subject: a man around 31 with a short dark beard, dark hair, grey hoodie, focused look.
+
+[people/yana-kuznetsova.webp]  1024x1024  — Яна Кузнецова, SMM-стратег
+photorealistic studio headshot, head and shoulders, looking at camera, soft natural window light from the left, warm neutral beige seamless background #EFE8DD, shallow depth of field, 85mm lens, natural skin texture, editorial, friendly and confident, no text, no watermark. Subject: a woman around 24 with long light-brown hair, beige cardigan, cheerful smile.
+
+[people/pavel-smirnov.webp]  1024x1024  — Павел Смирнов, DevOps-инженер
+photorealistic studio headshot, head and shoulders, looking at camera, soft natural window light from the left, warm neutral beige seamless background #EFE8DD, shallow depth of field, 85mm lens, natural skin texture, editorial, friendly and confident, no text, no watermark. Subject: a man around 35 with a ginger beard, plaid flannel shirt, relaxed expression.
+
+[people/mila-osipova.webp]  1024x1024  — Мила Осипова, Бренд-дизайнер
+photorealistic studio headshot, head and shoulders, looking at camera, soft natural window light from the left, warm neutral beige seamless background #EFE8DD, shallow depth of field, 85mm lens, natural skin texture, editorial, friendly and confident, no text, no watermark. Subject: a woman around 29 with a sharp black bob, red lipstick, black turtleneck.
+
+[people/egor-tikhonov.webp]  1024x1024  — Егор Тихонов, Режиссёр анимации
+photorealistic studio headshot, head and shoulders, looking at camera, soft natural window light from the left, warm neutral beige seamless background #EFE8DD, shallow depth of field, 85mm lens, natural skin texture, editorial, friendly and confident, no text, no watermark. Subject: a man around 37 with wavy shoulder-length hair and a mustache, corduroy jacket, creative look.
+
+[people/arina-pavlova.webp]  1024x1024  — Арина Павлова, UX-исследователь
+photorealistic studio headshot, head and shoulders, looking at camera, soft natural window light from the left, warm neutral beige seamless background #EFE8DD, shallow depth of field, 85mm lens, natural skin texture, editorial, friendly and confident, no text, no watermark. Subject: a woman around 33 with glasses and a long braid, light blue shirt, attentive expression.
+
+[people/lev-gusev.webp]  1024x1024  — Лев Гусев, Fashion-дизайнер
+photorealistic studio headshot, head and shoulders, looking at camera, soft natural window light from the left, warm neutral beige seamless background #EFE8DD, shallow depth of field, 85mm lens, natural skin texture, editorial, friendly and confident, no text, no watermark. Subject: a man around 26 with a bleached buzz cut, small earring, oversized white shirt.
+
+[people/forma-studio.webp]  1024x1024  — логотип студии
+Logo for «Форма Studio» (Брендинг и цифровые продукты): a bold black geometric logo mark: an abstract diamond made of four rounded petals with a square hole in the middle. minimal flat vector logo mark, perfectly centered, generous padding, solid background filling the whole square, crisp geometric shapes, no text, no letters, no watermark
+
+[people/hvoya-collective.webp]  1024x1024  — логотип студии
+Logo for «Хвоя Collective» (Архитектура и урбанистика): a minimal logo mark: stylized pine needle cluster forming a circle, white on deep green. minimal flat vector logo mark, perfectly centered, generous padding, solid background filling the whole square, crisp geometric shapes, no text, no letters, no watermark
+
+[people/pole-studio.webp]  1024x1024  — логотип студии
+Logo for «Поле Студия» (Выставочный дизайн и навигация): a minimal logo mark: a white quarter-circle and a square forming a stylized field, on black. minimal flat vector logo mark, perfectly centered, generous padding, solid background filling the whole square, crisp geometric shapes, no text, no letters, no watermark
+
+[people/orbita-team.webp]  1024x1024  — логотип студии
+Logo for «Орбита Team» (Игры и интерактив): a minimal logo mark: a white planet with a tilted ring, on dark violet circle. minimal flat vector logo mark, perfectly centered, generous padding, solid background filling the whole square, crisp geometric shapes, no text, no letters, no watermark
+
+## 3. ПОРТФОЛИО (60 шт., первая работа — ещё и обложка карточки специалиста)
+
+[portfolio/anna-mironova-1.webp]  1600x1200  — Анна Миронова — «Среда для идей», Интерфейс платформы · 2025
+laptop and smartphone mockups showing a clean collaborative platform UI in cream, lavender and orange, floating soft 3D shapes around, studio presentation shot. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/anna-mironova-2.webp]  1600x1200  — Анна Миронова — «Банк для фрилансеров», Мобильное приложение · 2024
+three smartphone screens of a minimalist banking app with soft cards and charts, arranged on a pastel lavender background, product design presentation. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/mark-volkov-1.webp]  1600x1200  — Марк Волков — «Nexos», Корпоративный сайт · 2025
+modern corporate website for an architecture tech company displayed on a large monitor, white and concrete tones, clean layout, desk setup. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/mark-volkov-2.webp]  1600x1200  — Марк Волков — «Kit UI», Библиотека компонентов · 2024
+grid of colorful UI components (buttons, toggles, cards) floating in 3D space with soft shadows, design system showcase, lavender background. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/lera-sokolova-1.webp]  1600x1200  — Лера Соколова — «Сказки ветра», Детская книга · 2025
+spread of a children's picture book with whimsical gouache illustrations of a fox and wind spirits over hills, open book on a table. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/lera-sokolova-2.webp]  1600x1200  — Лера Соколова — «Мягкие формы», Серия постеров · 2026
+series of three illustrated posters with soft pastel 3D-like shapes and plants, hanging on a cream wall. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/daria-kim-1.webp]  1600x1200  — Дарья Ким — «Пульс», Медицинский сервис · 2026
+health tracking app screens with heart-rate graphs and calm green-lavender palette on phones, floating on soft gradient background. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/daria-kim-2.webp]  1600x1200  — Дарья Ким — «Учи.Лаб», Платформа для школ · 2024
+tablet showing a friendly educational dashboard with progress cards and colorful course tiles, classroom desk scene. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/alexey-petrov-1.webp]  1600x1200  — Алексей Петров — «Орбита», Продюсирование игры · 2026
+behind-the-scenes photo of a game studio team around a big screen showing a space game, warm office light. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/alexey-petrov-2.webp]  1600x1200  — Алексей Петров — «Северный ветер», Документальный сериал · 2024
+cinematic still of a film crew shooting on a snowy northern coast at golden hour, camera on tripod. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/olga-belova-1.webp]  1600x1200  — Ольга Белова — «Рынок на ладони», Запуск маркетплейса · 2025
+flat lay of farm products, a smartphone with a marketplace app and printed promo flyers on a wooden table, bright daylight. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/olga-belova-2.webp]  1600x1200  — Ольга Белова — «Кампания «Ближе»», Рекламная кампания · 2024
+city billboard mockup with bold purple and orange campaign poster at a bus stop in the evening, people walking by blurred. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/ivan-orlov-1.webp]  1600x1200  — Иван Орлов — «Код для детей», Платформа онлайн-школы · 2025
+isometric illustration of server racks connected to colorful learning app screens, soft 3D clay style, lavender and orange. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/ivan-orlov-2.webp]  1600x1200  — Иван Орлов — «Логистика 24», Сервис доставки · 2023
+abstract data visualization of delivery routes glowing over a dark city map, neon orange lines. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/timur-gareev-1.webp]  1600x1200  — Тимур Гареев — «Атлас ремёсел», AR-модели · 2026
+3D renders of traditional russian crafts: painted wooden toys, ceramic teapot and embroidered towel, soft studio light, cream background. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/timur-gareev-2.webp]  1600x1200  — Тимур Гареев — «Мягкий мир», Серия рендеров · 2025
+soft matte clay 3D render of rounded shapes, spheres and arches in lavender and orange, playful composition. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/sofia-lebedeva-1.webp]  1600x1200  — София Лебедева — «Ночной экспресс», Анимация титров · 2026
+motion design frame of a stylized night train moving through glowing purple mountains, flat vector style with grain. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/sofia-lebedeva-2.webp]  1600x1200  — София Лебедева — «Онбординг Kit», Lottie-анимации · 2025
+sequence of four animated onboarding frames for a mobile app with bouncing shapes and arrows, displayed as a storyboard. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/nikita-zaitsev-1.webp]  1600x1200  — Никита Зайцев — «Тихий лес», Приложение для бёрдвотчинга · 2026
+smartphone in a hand in a misty forest showing a bird identification app with a bird photo card. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/nikita-zaitsev-2.webp]  1600x1200  — Никита Зайцев — «Велопуть», Трекер велопрогулок · 2024
+phone mounted on a bicycle handlebar showing a route map app, city park background, sunny day. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/polina-grishina-1.webp]  1600x1200  — Полина Гришина — «Свет и тень», Фотопроект · 2025
+moody black and white photograph of a northern town street with long shadows and a lone figure, fine art photography. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/polina-grishina-2.webp]  1600x1200  — Полина Гришина — «Керамика Глина», Предметная съёмка · 2024
+minimal product photo of handmade ceramic cups on a linen cloth, soft window light, beige palette. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/artem-kovalev-1.webp]  1600x1200  — Артём Ковалёв — «Звук города», Документальный ролик · 2025
+cinematic film still of a street musician playing violin in a Moscow underpass, teal and orange grading. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/artem-kovalev-2.webp]  1600x1200  — Артём Ковалёв — «Бег на рассвете», Рекламный ролик · 2024
+cinematic still of a runner on an empty bridge at sunrise, lens flare, anamorphic look. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/ekaterina-romanova-1.webp]  1600x1200  — Екатерина Романова — «Звук города», Аудиокарта · 2025
+field recording setup: a zoom recorder with furry windscreen on a tripod on a rainy city street at night, bokeh lights. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/ekaterina-romanova-2.webp]  1600x1200  — Екатерина Романова — «Орбита», Звук для игры · 2026
+music production desk with midi keyboard, monitors showing audio waveforms, purple ambient light. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/maxim-belyaev-1.webp]  1600x1200  — Максим Беляев — «Ночной экспресс», Саундтрек · 2026
+grand piano in a dim recording studio with sheet music and a single warm lamp, cinematic. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/maxim-belyaev-2.webp]  1600x1200  — Максим Беляев — «Из мастерской», Музыка для подкаста · 2025
+acoustic guitar, vintage microphone and handwritten notes on a wooden workbench in a craft workshop. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/alina-safina-1.webp]  1600x1200  — Алина Сафина — «Читай вместе», Тон голоса приложения · 2025
+notebook with handwritten word lists and sticky notes next to a phone with a reading app, cozy cafe table. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/alina-safina-2.webp]  1600x1200  — Алина Сафина — «Глина», Нейминг и айдентика · 2024
+brand presentation board with naming options on cards and a ceramic mug, beige and terracotta palette. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/grigory-melnikov-1.webp]  1600x1200  — Григорий Мельников — «Город будущего», Концепция района · 2026
+architectural render of a futuristic modular city district with curved concrete buildings, greenery and water at sunset. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/grigory-melnikov-2.webp]  1600x1200  — Григорий Мельников — «Тёплые дома», Модульное жильё · 2025
+architectural model of modular wooden houses in snowy northern landscape, warm lights in windows, dusk. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/vera-nikolaeva-1.webp]  1600x1200  — Вера Николаева — «Место встречи», Арт-кластер · 2026
+interior of a converted brick factory into a bright art space with plants, wooden benches and big windows. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/vera-nikolaeva-2.webp]  1600x1200  — Вера Николаева — «Кофейня Утро», Интерьер кафе · 2024
+cozy minimalist coffee shop interior with terracotta tiles, round lamps and morning sunlight. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/denis-fedorov-1.webp]  1600x1200  — Денис Фёдоров — «Лиса и звёзды», Мобильная головоломка · 2026
+colorful mobile puzzle game screenshot with a fox character jumping between glowing star platforms, cute stylized art. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/denis-fedorov-2.webp]  1600x1200  — Денис Фёдоров — «Орбита», Кооперативная игра · 2026
+game screenshot of a cooperative space adventure with small astronauts on an orange planet, lavender nebula. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/kira-vasilyeva-1.webp]  1600x1200  — Кира Васильева — «Пульс», Аналитика здоровья · 2026
+clean analytics dashboard with line charts and heatmaps on a large monitor, lavender and orange accents, bright office. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/kira-vasilyeva-2.webp]  1600x1200  — Кира Васильева — «Чистый берег», Карта волонтёров · 2025
+data map visualization of a coastline with glowing dots of volunteer activity, dark blue background. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/ruslan-akhmedov-1.webp]  1600x1200  — Руслан Ахмедов — «Пульс», Модель анализа ЭКГ · 2026
+abstract visualization of a neural network analyzing a heartbeat line, glowing nodes in purple and orange on dark background. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/ruslan-akhmedov-2.webp]  1600x1200  — Руслан Ахмедов — «Атлас ремёсел», Распознавание узоров · 2025
+phone camera recognizing a traditional embroidery pattern with AR overlay labels, close-up. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/yana-kuznetsova-1.webp]  1600x1200  — Яна Кузнецова — «Чистый берег», Кампания волонтёров · 2025
+grid of social media posts showing volunteers cleaning a beach, bright summer colors, phone mockup. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/yana-kuznetsova-2.webp]  1600x1200  — Яна Кузнецова — «Вторая жизнь», Запуск коллекции · 2026
+instagram feed mockup with fashion photos of upcycled clothing, warm editorial tones. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/pavel-smirnov-1.webp]  1600x1200  — Павел Смирнов — «Рынок на ладони», Инфраструктура · 2025
+isometric 3D illustration of cloud servers and containers connected by glowing pipes, soft clay style. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/pavel-smirnov-2.webp]  1600x1200  — Павел Смирнов — «Тёплые дома», Умный дом · 2025
+smart home control panel on a wall of a wooden house, showing temperature graphs, cozy evening light. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/mila-osipova-1.webp]  1600x1200  — Мила Осипова — «Новая форма», Айдентика выставки · 2026
+exhibition identity mockups: posters, tickets and tote bag with bold abstract purple and orange shapes, no readable text. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/mila-osipova-2.webp]  1600x1200  — Мила Осипова — «Глина», Брендинг керамики · 2024
+branding mockup of a ceramics studio: labels, boxes and business cards in terracotta and cream, minimal. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/egor-tikhonov-1.webp]  1600x1200  — Егор Тихонов — «Ночной экспресс», Короткий метр · 2026
+animated film frame of a cozy train compartment at night with a girl looking at stars through window, painterly style. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/egor-tikhonov-2.webp]  1600x1200  — Егор Тихонов — «Домовой», Анимационная реклама · 2024
+stop-motion style frame of a tiny house spirit character in a kitchen, warm lighting, handmade textures. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/arina-pavlova-1.webp]  1600x1200  — Арина Павлова — «Код для детей», Исследование родителей · 2025
+research wall with sticky notes, printed quotes and customer journey map in a bright office. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/arina-pavlova-2.webp]  1600x1200  — Арина Павлова — «Пульс», Юзабилити-тесты · 2026
+usability testing session: a person using a phone app while a researcher takes notes, soft daylight. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/lev-gusev-1.webp]  1600x1200  — Лев Гусев — «Вторая жизнь», Коллекция · 2026
+fashion editorial photo of models in patchwork upcycled denim outfits in an industrial space. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/lev-gusev-2.webp]  1600x1200  — Лев Гусев — «Лоскут», Капсула · 2024
+flat lay of colorful patchwork jackets and fabric swatches on a concrete floor, top view. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/forma-studio-1.webp]  1600x1200  — Форма Studio — «Новые бренды ближе», Рекламная кампания · 2026
+large outdoor exhibition wall with bold purple and orange graphic shapes, people walking by, motion blur. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/forma-studio-2.webp]  1600x1200  — Форма Studio — «Ритм», Дизайн наушников · 2026
+product render of sleek wireless sport earphones in lavender and orange on a soft pedestal. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/hvoya-collective-1.webp]  1600x1200  — Хвоя Collective — «Город будущего», Концепция · 2026
+aerial architectural render of a green modular neighborhood with curved rooftops and parks, soft morning light. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/hvoya-collective-2.webp]  1600x1200  — Хвоя Collective — «Место встречи», Реновация двора · 2026
+renovated factory courtyard with pavilions, trees and people relaxing, architectural photography. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/pole-studio-1.webp]  1600x1200  — Поле Студия — «Новая форма», Выставка · 2026
+contemporary exhibition hall with huge colorful abstract panels in purple and orange, visitors walking, wide shot. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/pole-studio-2.webp]  1600x1200  — Поле Студия — «Маршрут», Навигация в музее · 2024
+museum wayfinding signs with bold arrows and color coding in a modern concrete interior, no readable text. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/orbita-team-1.webp]  1600x1200  — Орбита Team — «Орбита», Кооперативная игра · 2026
+key art of a cozy space game: small planets with orbits, an orange glowing planet in center, purple space. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+[portfolio/orbita-team-2.webp]  1600x1200  — Орбита Team — «Лиса и звёзды», Мобильная игра · 2026
+app store style key art of a fox character on a crescent moon with stars, soft gradients. high-end portfolio cover image, professional art direction, balanced composition, rich but soft colors, no readable text, no logos, no watermark
+
+## 4. ОБЛОЖКИ ПРОЕКТОВ (21 шт., последняя — проект демо-аккаунта)
+
+[projects/novaya-forma.webp]  1600x900  — «Новая форма» — Искусство
+a bold contemporary exhibition hall with giant abstract panels in deep purple and orange, a visitor walking past with motion blur, editorial photo. wide key visual for a project card, cinematic composition with the subject centered (edges may be cropped), high detail, no readable text, no logos, no watermark
+
+[projects/gorod-budushchego.webp]  1600x900  — «Город будущего» — Архитектура
+futuristic curved concrete cultural building with an arch reflecting in still water at sunset, warm orange lights inside, architectural render. wide key visual for a project card, cinematic composition with the subject centered (edges may be cropped), high detail, no readable text, no logos, no watermark
+
+[projects/orbita.webp]  1600x900  — «Орбита» — Игры
+glowing orange planet with luminous orbit rings and smaller planets in a purple nebula, cinematic sci-fi key art. wide key visual for a project card, cinematic composition with the subject centered (edges may be cropped), high detail, no readable text, no logos, no watermark
+
+[projects/sreda-dlya-idey.webp]  1600x900  — «Среда для идей» — Разработка
+laptop and phone showing a creative collaboration platform UI, surrounded by soft lavender 3D shapes and an orange sphere, studio shot. wide key visual for a project card, cinematic composition with the subject centered (edges may be cropped), high detail, no readable text, no logos, no watermark
+
+[projects/tikhiy-les.webp]  1600x900  — «Тихий лес» — Экология
+misty pine forest at dawn with a small robin on a branch in the foreground, soft light rays, nature photography. wide key visual for a project card, cinematic composition with the subject centered (edges may be cropped), high detail, no readable text, no logos, no watermark
+
+[projects/zvuk-goroda.webp]  1600x900  — «Звук города» — Музыка
+night city street with neon reflections on wet asphalt and visualized sound waves flowing through the air in purple and orange. wide key visual for a project card, cinematic composition with the subject centered (edges may be cropped), high detail, no readable text, no logos, no watermark
+
+[projects/kod-dlya-detey.webp]  1600x900  — «Код для детей» — Образование
+kids building colorful block-based code on tablets in a bright classroom, playful 3D clay style illustration. wide key visual for a project card, cinematic composition with the subject centered (edges may be cropped), high detail, no readable text, no logos, no watermark
+
+[projects/nochnoy-ekspress.webp]  1600x900  — «Ночной экспресс» — Кино
+painterly animated film still of a glowing night train crossing a bridge under a starry violet sky, warm windows. wide key visual for a project card, cinematic composition with the subject centered (edges may be cropped), high detail, no readable text, no logos, no watermark
+
+[projects/vtoraya-zhizn.webp]  1600x900  — «Вторая жизнь» — Мода
+fashion editorial of a model in a patchwork upcycled denim coat standing in an old textile factory, soft daylight. wide key visual for a project card, cinematic composition with the subject centered (edges may be cropped), high detail, no readable text, no logos, no watermark
+
+[projects/pulse.webp]  1600x900  — «Пульс» — Разработка
+smartwatch and phone showing a glowing heartbeat line with soft lavender UI, floating on a gradient background, product render. wide key visual for a project card, cinematic composition with the subject centered (edges may be cropped), high detail, no readable text, no logos, no watermark
+
+[projects/teplye-doma.webp]  1600x900  — «Тёплые дома» — Архитектура
+cluster of modular wooden houses with glowing windows in a snowy northern landscape at blue hour. wide key visual for a project card, cinematic composition with the subject centered (edges may be cropped), high detail, no readable text, no logos, no watermark
+
+[projects/chitay-vmeste.webp]  1600x900  — «Читай вместе» — Образование
+stack of books with colorful sticky notes, a phone showing chat bubbles, cozy warm reading corner, soft light. wide key visual for a project card, cinematic composition with the subject centered (edges may be cropped), high detail, no readable text, no logos, no watermark
+
+[projects/svet-i-ten.webp]  1600x900  — «Свет и тень» — Искусство
+gallery wall with large black and white photographs of northern towns, a visitor silhouette, dramatic light. wide key visual for a project card, cinematic composition with the subject centered (edges may be cropped), high detail, no readable text, no logos, no watermark
+
+[projects/rynok-na-ladoni.webp]  1600x900  — «Рынок на ладони» — Разработка
+wooden crates of fresh vegetables at a farmers market with a phone showing an order app in the foreground. wide key visual for a project card, cinematic composition with the subject centered (edges may be cropped), high detail, no readable text, no logos, no watermark
+
+[projects/lisa-i-zvezdy.webp]  1600x900  — «Лиса и звёзды» — Игры
+cute fox sitting on a crescent moon connecting glowing stars into a constellation, soft violet gradients, game key art. wide key visual for a project card, cinematic composition with the subject centered (edges may be cropped), high detail, no readable text, no logos, no watermark
+
+[projects/chistyy-bereg.webp]  1600x900  — «Чистый берег» — Экология
+group of volunteers cleaning a sunny sea coast with bags, wide shot, hopeful documentary photo. wide key visual for a project card, cinematic composition with the subject centered (edges may be cropped), high detail, no readable text, no logos, no watermark
+
+[projects/iz-masterskoy.webp]  1600x900  — «Из мастерской» — Музыка
+podcast microphone on a carpenter's workbench surrounded by tools and wood shavings, warm cinematic light. wide key visual for a project card, cinematic composition with the subject centered (edges may be cropped), high detail, no readable text, no logos, no watermark
+
+[projects/atlas-remesel.webp]  1600x900  — «Атлас ремёсел» — Образование
+phone held over a traditional painted wooden plate showing AR floating 3D ornaments, soft studio light. wide key visual for a project card, cinematic composition with the subject centered (edges may be cropped), high detail, no readable text, no logos, no watermark
+
+[projects/ritm.webp]  1600x900  — «Ритм» — Дизайн
+sleek wireless sport earphones in lavender with orange accents floating above a running track, product render. wide key visual for a project card, cinematic composition with the subject centered (edges may be cropped), high detail, no readable text, no logos, no watermark
+
+[projects/mesto-vstrechi.webp]  1600x900  — «Место встречи» — Архитектура
+old brick factory courtyard transformed into an art cluster with pavilions, string lights and people, evening. wide key visual for a project card, cinematic composition with the subject centered (edges may be cropped), high detail, no readable text, no logos, no watermark
+
+[projects/zerno-demo.webp]  1600x900  — «Зерно» — Дизайн
+cozy coffee shop coworking with large windows, wooden communal table, people working on laptops, warm morning light, terracotta and cream interior with lavender accents. wide key visual for a project card, cinematic composition with the subject centered (edges may be cropped), high detail, no readable text, no logos, no watermark

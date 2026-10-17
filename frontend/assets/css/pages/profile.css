@@ -1,0 +1,57 @@
+/* Профиль специалиста / студии */
+.profile-banner { height: clamp(9rem, 14vw, 15rem); border-radius: clamp(1.25rem, 2.4vw, 2.5rem); overflow: hidden; background: var(--lav-soft); margin-top: 1rem; }
+.profile-banner img { width: 100%; height: 100%; object-fit: cover; animation: cover-in 1.6s var(--ease-out) forwards; transform: scale(1.08); }
+
+.profile-head { display: grid; grid-template-columns: auto 1fr auto; gap: clamp(1rem, 2vw, 2rem); align-items: start; padding-left: clamp(0rem, 1.5vw, 1.5rem); }
+.profile-head__avatar { width: clamp(8rem, 13vw, 15rem); height: clamp(8rem, 13vw, 15rem); margin-top: calc(clamp(8rem, 13vw, 15rem) * -.42); border: .4rem solid var(--bg); position: relative; box-shadow: var(--shadow); animation: avatar-in .9s var(--ease-spring) both .2s; }
+@keyframes avatar-in { from { opacity: 0; transform: scale(.8) translateY(20px); } }
+.profile-head__info { padding-top: 1.25rem; min-width: 0; }
+.profile-head__name { font-size: clamp(2.25rem, 4vw, 4rem); letter-spacing: -.05em; }
+.profile-head__role { font-size: clamp(1.15rem, 1.6vw, 1.6rem); color: var(--muted); margin-top: .35rem; }
+.profile-meta { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1.4rem; margin-top: 1rem; color: var(--muted); }
+.profile-meta > span { display: inline-flex; align-items: center; gap: .45rem; }
+.profile-meta .badge { height: 2rem; padding: 0 .9rem; font-size: .875rem; }
+.profile-head__actions { display: flex; gap: .75rem; padding-top: 1.75rem; flex-wrap: wrap; }
+
+.tabs { display: flex; gap: .25rem; border-bottom: 1px solid var(--line); margin: clamp(1.5rem, 3vw, 2.5rem) 0 clamp(1.25rem, 2vw, 2rem); overflow-x: auto; scrollbar-width: none; }
+.tab { position: relative; background: none; border: 0; padding: .9rem 1.3rem; font-size: 1.05rem; color: var(--ink-2); white-space: nowrap; transition: color .2s; }
+.tab:hover { color: var(--ink); }
+.tab::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; background: var(--orange); transform: scaleX(0); transition: transform .35s var(--ease-out); }
+.tab.is-active { color: var(--orange); }
+.tab.is-active::after { transform: scaleX(1); }
+.tab-panel { animation: panel-in .45s var(--ease-out); }
+@keyframes panel-in { from { opacity: 0; transform: translateY(10px); } }
+
+.profile-body { display: grid; grid-template-columns: minmax(0, 1fr) clamp(20rem, 26vw, 28rem); gap: clamp(1.5rem, 2.5vw, 3rem); }
+.profile-bio { color: var(--muted); font-size: clamp(1.1rem, 1.4vw, 1.4rem); line-height: 1.5; margin: .9rem 0 2rem; max-width: 50rem; }
+.h-count { display: flex; align-items: baseline; gap: .9rem; margin-bottom: 1rem; }
+.h-count span { color: var(--muted); font-size: 1.25rem; }
+
+.aside { padding: 1.6rem; align-self: start; position: sticky; top: calc(var(--header-h) + 1.5rem); }
+.aside section { padding: 1.3rem 0; border-bottom: 1px solid var(--line); }
+.aside section:first-child { padding-top: 0; }
+.aside section:last-child { border-bottom: 0; padding-bottom: 0; }
+.aside h3 { font-size: 1.5rem; margin-bottom: .9rem; }
+.contacts { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: .6rem; }
+.contacts .btn { height: 2.875rem; padding: 0 .9rem; gap: .45rem; }
+.aside__note { color: var(--muted); font-size: .85rem; margin-top: .7rem; }
+
+.timeline { display: flex; flex-direction: column; gap: .8rem; }
+.timeline__item { display: flex; justify-content: space-between; gap: 1rem; padding: 1.1rem 1.25rem; }
+.timeline__item small { color: var(--muted); }
+.review { display: flex; gap: 1rem; padding: 1.25rem; }
+.review img { width: 3rem; height: 3rem; border-radius: 50%; object-fit: cover; flex: none; }
+.review p { color: var(--ink-2); margin-top: .25rem; line-height: 1.5; }
+
+@media (max-width: 1100px) {
+  .profile-head { grid-template-columns: auto 1fr; }
+  .profile-head__actions { grid-column: 1 / -1; padding-top: 0; }
+  .profile-body { grid-template-columns: 1fr; }
+  .aside { position: static; }
+}
+@media (max-width: 640px) {
+  .profile-head { grid-template-columns: 1fr; padding-left: 0; }
+  .profile-head__info { padding-top: 0; }
+  .profile-head__actions .btn { flex: 1 1 auto; }
+  .profile-head__actions .btn--primary { flex-basis: 100%; }
+}

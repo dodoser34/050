@@ -1,0 +1,89 @@
+.card { position: relative; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.card--pad { padding: clamp(1.25rem, 1.8vw, 1.75rem); }
+
+/* Вся карточка — ссылка: растянутая ссылка поверх карточки, кнопки внутри поднимаются над ней */
+.card__link::after { content: ""; position: absolute; inset: 0; z-index: 1; border-radius: inherit; }
+.card :is(button, .btn, .icon-btn, .avatar-stack, .card__raise) { position: relative; z-index: 2; }
+
+.is-hoverable { transition: transform .45s var(--ease-out), box-shadow .45s var(--ease-out), border-color .3s; }
+.is-hoverable:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: transparent; }
+
+.media { position: relative; overflow: hidden; background: var(--surface-2); }
+.media img { width: 100%; height: 100%; object-fit: cover; transition: transform .9s var(--ease-out), filter .5s; }
+.is-hoverable:hover .media img { transform: scale(1.06); }
+.media--16x9 { aspect-ratio: 16 / 9; }
+.media--4x3 { aspect-ratio: 4 / 3; }
+.media--banner { aspect-ratio: 525 / 160; }
+
+/* ---------- Карточка проекта ---------- */
+.project-card { display: flex; flex-direction: column; }
+.project-card__badges { position: absolute; top: .875rem; left: .875rem; z-index: 2; display: flex; gap: .4rem; }
+.like-btn {
+  position: absolute; top: .875rem; right: .875rem; z-index: 2; display: inline-flex; align-items: center; gap: .35rem;
+  height: 1.875rem; padding: 0 .75rem; border: 0; border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, .88); backdrop-filter: blur(8px); font-size: .875rem; font-weight: 500;
+  transition: transform .3s var(--ease-spring), color .2s;
+}
+.like-btn:hover { transform: scale(1.08); }
+.like-btn .icon { width: 1.05rem; height: 1.05rem; }
+.like-btn.is-on { color: var(--orange); }
+.like-btn.is-on .icon { fill: currentColor; animation: heart .45s var(--ease-spring); }
+@keyframes heart { 40% { transform: scale(1.45); } }
+.project-card__body { padding: 1.1rem 1.15rem 1.15rem; display: flex; flex-direction: column; gap: .4rem; flex: 1; }
+.project-card__title { font-size: 1.45rem; letter-spacing: -.035em; transition: color .2s; }
+.project-card:hover .project-card__title { color: var(--orange); }
+.project-card__text { color: var(--muted); font-size: .95rem; line-height: 1.45; }
+.project-card__badges-row { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .3rem; }
+.project-card__foot { margin-top: auto; padding-top: .9rem; display: flex; align-items: center; justify-content: space-between; gap: .75rem; }
+
+.owner { position: relative; z-index: 2; display: inline-flex; align-items: center; gap: .65rem; font-size: .95rem; font-weight: 500; min-width: 0; }
+.owner img { width: 2.5rem; height: 2.5rem; border-radius: 50%; object-fit: cover; flex: none; }
+.owner span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+a.owner:hover span { color: var(--orange); }
+
+/* ---------- Карточка специалиста ---------- */
+.spec-card { padding: .5rem .5rem 1rem; display: flex; flex-direction: column; container-type: inline-size; }
+.spec-card .media { border-radius: .875rem; }
+.spec-card__info { display: grid; grid-template-columns: 6rem 1fr auto; gap: 1rem; padding: 0 .5rem; align-items: start; }
+.spec-card__avatar { width: 6rem; height: 6rem; margin-top: -2rem; border: 4px solid var(--surface); position: relative; z-index: 2; transition: transform .4s var(--ease-spring); }
+.spec-card:hover .spec-card__avatar { transform: scale(1.05) rotate(-3deg); }
+.spec-card__meta { padding-top: .9rem; min-width: 0; }
+.spec-card__name { font-size: 1.2rem; letter-spacing: -.03em; display: flex; align-items: center; gap: .4rem; transition: color .2s; }
+.spec-card:hover .spec-card__name { color: var(--orange); }
+.spec-card__role { color: var(--muted); font-size: .9rem; margin-top: .15rem; }
+.spec-card__tags { display: flex; gap: .4rem; flex-wrap: wrap; margin-top: .7rem; }
+.spec-card__actions { padding-top: .9rem; display: flex; flex-direction: column; align-items: flex-end; gap: .9rem; }
+.spec-card__status { display: inline-flex; align-items: center; gap: .4rem; font-size: .8rem; color: var(--green); }
+@container (max-width: 30rem) {
+  .spec-card__info { grid-template-columns: 4.75rem 1fr; }
+  .spec-card__avatar { width: 4.75rem; height: 4.75rem; }
+  .spec-card__actions { grid-column: 1 / -1; flex-direction: row-reverse; justify-content: space-between; align-items: center; padding-top: .25rem; }
+}
+
+/* ---------- Мини-карточки ---------- */
+.person-tile { padding: 1.25rem; display: flex; flex-direction: column; align-items: center; text-align: center; gap: .35rem; }
+.person-tile .avatar { width: 6.5rem; height: 6.5rem; margin-bottom: .6rem; transition: transform .45s var(--ease-spring); box-shadow: 0 10px 24px rgba(70, 50, 140, .14); }
+.person-tile:hover .avatar { transform: translateY(-4px) scale(1.04); }
+.person-tile__name { font-size: 1.1rem; letter-spacing: -.03em; display: inline-flex; gap: .35rem; align-items: center; }
+.person-tile__role { color: var(--muted); font-size: .875rem; }
+
+.work-card .media { aspect-ratio: 4 / 3; }
+.work-card__foot { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 1.25rem; }
+.work-card__title { font-size: 1.35rem; letter-spacing: -.035em; }
+.work-card__meta { color: var(--muted); font-size: .95rem; }
+
+.list-card { display: flex; align-items: center; gap: 1rem; padding: .9rem 1.1rem; }
+.list-card img { width: 4.5rem; height: 3.4rem; border-radius: .6rem; object-fit: cover; flex: none; }
+.list-card__title { font-weight: 600; letter-spacing: -.01em; }
+.list-card__meta { color: var(--muted); font-size: .875rem; }
+.list-card .round-btn { margin-left: auto; }
+
+.skeleton { border-radius: var(--radius); min-height: 18rem; background: linear-gradient(90deg, #f2ede6 25%, #f8f4ee 50%, #f2ede6 75%); background-size: 200% 100%; animation: shimmer 1.2s infinite; }
+@keyframes shimmer { to { background-position: -200% 0; } }
+
+.notice { margin-top: 1rem; padding: 1rem 1.25rem; border-radius: 1rem; background: var(--lav-soft); color: #3c2fa0; line-height: 1.5; border: 1px solid #ddd5ff; }
+.notice--warn { background: var(--orange-soft); color: #9a3a0e; border-color: #ffd5bf; }
+.notice a { text-decoration: underline; }
+
+.empty-state { grid-column: 1 / -1; padding: 3rem 1.5rem; text-align: center; color: var(--muted); border: 1px dashed var(--line); border-radius: var(--radius); }
+.empty-state strong { display: block; color: var(--ink); font-size: 1.15rem; margin-bottom: .25rem; }

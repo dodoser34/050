@@ -1,0 +1,1329 @@
+[
+  {
+    "slug": "anna-mironova",
+    "kind": "person",
+    "name": "Анна Миронова",
+    "role": "UX/UI-дизайнер",
+    "directions": [
+      "Дизайн"
+    ],
+    "city": "Москва",
+    "formats": [
+      "Удалённо"
+    ],
+    "tags": [
+      "Figma",
+      "Веб-дизайн"
+    ],
+    "look": "a woman around 28, shoulder-length wavy chestnut hair, calm confident look, black knit sweater",
+    "open": 1,
+    "verified": 1,
+    "popularity": 98,
+    "bio": "Создаю понятные цифровые продукты и визуальные системы. Помогаю командам превращать сложные идеи в простой опыт.",
+    "skills": [
+      "Figma",
+      "UI/UX",
+      "Прототипирование",
+      "Дизайн-системы"
+    ],
+    "portfolio": [
+      {
+        "title": "Среда для идей",
+        "meta": "Интерфейс платформы · 2025",
+        "prompt": "laptop and smartphone mockups showing a clean collaborative platform UI in cream, lavender and orange, floating soft 3D shapes around, studio presentation shot"
+      },
+      {
+        "title": "Банк для фрилансеров",
+        "meta": "Мобильное приложение · 2024",
+        "prompt": "three smartphone screens of a minimalist banking app with soft cards and charts, arranged on a pastel lavender background, product design presentation"
+      }
+    ],
+    "experience": [
+      {
+        "place": "Форма Studio",
+        "role": "UX/UI-дизайнер",
+        "period": "2024 — 2026"
+      },
+      {
+        "place": "Поле Студия",
+        "role": "Продуктовый дизайнер",
+        "period": "2021 — 2024"
+      }
+    ],
+    "reviews": [
+      {
+        "author": "Марк Волков",
+        "text": "Анна быстро собрала дизайн-систему, с которой было удобно работать всей команде."
+      },
+      {
+        "author": "Иван Орлов",
+        "text": "Макеты всегда продуманы до состояний ошибок и пустых экранов — редкость."
+      }
+    ]
+  },
+  {
+    "slug": "mark-volkov",
+    "kind": "person",
+    "name": "Марк Волков",
+    "role": "Фронтенд-разработчик",
+    "directions": [
+      "Разработка"
+    ],
+    "city": "Санкт-Петербург",
+    "formats": [
+      "Удалённо",
+      "Гибрид"
+    ],
+    "tags": [
+      "React",
+      "TypeScript"
+    ],
+    "look": "a man around 30, curly dark hair, light stubble, warm smile, beige overshirt",
+    "open": 1,
+    "verified": 1,
+    "popularity": 90,
+    "bio": "Собираю быстрые и аккуратные интерфейсы. Люблю дизайн-системы, анимации и чистый код.",
+    "skills": [
+      "React",
+      "TypeScript",
+      "Next.js",
+      "Анимации"
+    ],
+    "portfolio": [
+      {
+        "title": "Nexos",
+        "meta": "Корпоративный сайт · 2025",
+        "prompt": "modern corporate website for an architecture tech company displayed on a large monitor, white and concrete tones, clean layout, desk setup"
+      },
+      {
+        "title": "Kit UI",
+        "meta": "Библиотека компонентов · 2024",
+        "prompt": "grid of colorful UI components (buttons, toggles, cards) floating in 3D space with soft shadows, design system showcase, lavender background"
+      }
+    ],
+    "experience": [
+      {
+        "place": "Хвоя Collective",
+        "role": "Фронтенд-разработчик",
+        "period": "2023 — 2026"
+      }
+    ],
+    "reviews": []
+  },
+  {
+    "slug": "lera-sokolova",
+    "kind": "person",
+    "name": "Лера Соколова",
+    "role": "Иллюстратор",
+    "directions": [
+      "Иллюстрация"
+    ],
+    "city": "Казань",
+    "formats": [
+      "Удалённо"
+    ],
+    "tags": [
+      "Иллюстрация",
+      "Procreate"
+    ],
+    "look": "a young East Asian woman around 25, long straight black hair, gentle smile, cream top",
+    "open": 1,
+    "verified": 1,
+    "popularity": 86,
+    "bio": "Рисую миры для брендов, книг и игр. Работаю в цифре и в гуаши.",
+    "skills": [
+      "Иллюстрация",
+      "Procreate",
+      "Персонажи",
+      "Книжная графика"
+    ],
+    "portfolio": [
+      {
+        "title": "Сказки ветра",
+        "meta": "Детская книга · 2025",
+        "prompt": "spread of a children's picture book with whimsical gouache illustrations of a fox and wind spirits over hills, open book on a table"
+      },
+      {
+        "title": "Мягкие формы",
+        "meta": "Серия постеров · 2026",
+        "prompt": "series of three illustrated posters with soft pastel 3D-like shapes and plants, hanging on a cream wall"
+      }
+    ],
+    "experience": [],
+    "reviews": [
+      {
+        "author": "Денис Фёдоров",
+        "text": "Персонажи Леры сразу ожили — игроки пишут о них в отзывах."
+      }
+    ]
+  },
+  {
+    "slug": "daria-kim",
+    "kind": "person",
+    "name": "Дарья Ким",
+    "role": "Продуктовый дизайнер",
+    "directions": [
+      "Дизайн"
+    ],
+    "city": "Москва",
+    "formats": [
+      "Гибрид"
+    ],
+    "tags": [
+      "UI/UX",
+      "Исследования"
+    ],
+    "look": "a woman around 32 of Korean descent, sleek bob haircut, thin glasses, white shirt",
+    "open": 0,
+    "verified": 1,
+    "popularity": 80,
+    "bio": "Проектирую сервисы вокруг реальных задач людей. Опыт в EdTech, финтехе и медицине.",
+    "skills": [
+      "UI/UX",
+      "CJM",
+      "Figma",
+      "A/B-тесты"
+    ],
+    "portfolio": [
+      {
+        "title": "Пульс",
+        "meta": "Медицинский сервис · 2026",
+        "prompt": "health tracking app screens with heart-rate graphs and calm green-lavender palette on phones, floating on soft gradient background"
+      },
+      {
+        "title": "Учи.Лаб",
+        "meta": "Платформа для школ · 2024",
+        "prompt": "tablet showing a friendly educational dashboard with progress cards and colorful course tiles, classroom desk scene"
+      }
+    ],
+    "experience": [],
+    "reviews": []
+  },
+  {
+    "slug": "alexey-petrov",
+    "kind": "person",
+    "name": "Алексей Петров",
+    "role": "Продюсер",
+    "directions": [
+      "Продакшн"
+    ],
+    "city": "Новосибирск",
+    "formats": [
+      "Удалённо"
+    ],
+    "tags": [
+      "Продакшн",
+      "Менеджмент"
+    ],
+    "look": "a man around 38 with a full dark beard, black baseball cap, glasses, grey t-shirt",
+    "open": 1,
+    "verified": 0,
+    "popularity": 74,
+    "bio": "Довожу идеи до релиза и считаю бюджеты. Продюсировал игры, сериалы и спецпроекты.",
+    "skills": [
+      "Продакшн",
+      "Бюджетирование",
+      "Agile",
+      "Переговоры"
+    ],
+    "portfolio": [
+      {
+        "title": "Орбита",
+        "meta": "Продюсирование игры · 2026",
+        "prompt": "behind-the-scenes photo of a game studio team around a big screen showing a space game, warm office light"
+      },
+      {
+        "title": "Северный ветер",
+        "meta": "Документальный сериал · 2024",
+        "prompt": "cinematic still of a film crew shooting on a snowy northern coast at golden hour, camera on tripod"
+      }
+    ],
+    "experience": [
+      {
+        "place": "Орбита Team",
+        "role": "Продюсер",
+        "period": "2024 — 2026"
+      }
+    ],
+    "reviews": []
+  },
+  {
+    "slug": "olga-belova",
+    "kind": "person",
+    "name": "Ольга Белова",
+    "role": "Маркетолог",
+    "directions": [
+      "Маркетинг"
+    ],
+    "city": "Санкт-Петербург",
+    "formats": [
+      "Гибрид"
+    ],
+    "tags": [
+      "Стратегия",
+      "Запуски"
+    ],
+    "look": "a woman around 35, auburn hair in a low bun, small earrings, olive blazer",
+    "open": 1,
+    "verified": 1,
+    "popularity": 70,
+    "bio": "Помогаю проектам находить свою аудиторию. Строю стратегии запусков и комьюнити.",
+    "skills": [
+      "Стратегия",
+      "CJM",
+      "Performance",
+      "Комьюнити"
+    ],
+    "portfolio": [
+      {
+        "title": "Рынок на ладони",
+        "meta": "Запуск маркетплейса · 2025",
+        "prompt": "flat lay of farm products, a smartphone with a marketplace app and printed promo flyers on a wooden table, bright daylight"
+      },
+      {
+        "title": "Кампания «Ближе»",
+        "meta": "Рекламная кампания · 2024",
+        "prompt": "city billboard mockup with bold purple and orange campaign poster at a bus stop in the evening, people walking by blurred"
+      }
+    ],
+    "experience": [],
+    "reviews": []
+  },
+  {
+    "slug": "ivan-orlov",
+    "kind": "person",
+    "name": "Иван Орлов",
+    "role": "Бэкенд-разработчик",
+    "directions": [
+      "Разработка"
+    ],
+    "city": "Екатеринбург",
+    "formats": [
+      "Удалённо"
+    ],
+    "tags": [
+      "Python",
+      "Go"
+    ],
+    "look": "a man around 33, short neat hair, round glasses, navy hoodie, thoughtful expression",
+    "open": 1,
+    "verified": 1,
+    "popularity": 77,
+    "bio": "Проектирую API и сервисы, которые выдерживают рост. Python, Go, PostgreSQL.",
+    "skills": [
+      "Python",
+      "Go",
+      "PostgreSQL",
+      "Архитектура API"
+    ],
+    "portfolio": [
+      {
+        "title": "Код для детей",
+        "meta": "Платформа онлайн-школы · 2025",
+        "prompt": "isometric illustration of server racks connected to colorful learning app screens, soft 3D clay style, lavender and orange"
+      },
+      {
+        "title": "Логистика 24",
+        "meta": "Сервис доставки · 2023",
+        "prompt": "abstract data visualization of delivery routes glowing over a dark city map, neon orange lines"
+      }
+    ],
+    "experience": [],
+    "reviews": []
+  },
+  {
+    "slug": "timur-gareev",
+    "kind": "person",
+    "name": "Тимур Гареев",
+    "role": "3D-художник",
+    "directions": [
+      "3D и моушн"
+    ],
+    "city": "Казань",
+    "formats": [
+      "Удалённо"
+    ],
+    "tags": [
+      "Blender",
+      "Cinema 4D"
+    ],
+    "look": "a man around 27 of Tatar descent, undercut hairstyle, black t-shirt, slight smile",
+    "open": 1,
+    "verified": 1,
+    "popularity": 84,
+    "bio": "Делаю 3D-визуалы для брендов и игр. Мягкий пластилиновый стиль — моя любовь.",
+    "skills": [
+      "Blender",
+      "Cinema 4D",
+      "Octane",
+      "Скульптинг"
+    ],
+    "portfolio": [
+      {
+        "title": "Атлас ремёсел",
+        "meta": "AR-модели · 2026",
+        "prompt": "3D renders of traditional russian crafts: painted wooden toys, ceramic teapot and embroidered towel, soft studio light, cream background"
+      },
+      {
+        "title": "Мягкий мир",
+        "meta": "Серия рендеров · 2025",
+        "prompt": "soft matte clay 3D render of rounded shapes, spheres and arches in lavender and orange, playful composition"
+      }
+    ],
+    "experience": [],
+    "reviews": []
+  },
+  {
+    "slug": "sofia-lebedeva",
+    "kind": "person",
+    "name": "София Лебедева",
+    "role": "Моушн-дизайнер",
+    "directions": [
+      "3D и моушн"
+    ],
+    "city": "Москва",
+    "formats": [
+      "Удалённо",
+      "Гибрид"
+    ],
+    "tags": [
+      "After Effects",
+      "Lottie"
+    ],
+    "look": "a woman around 26 with short pink-dyed hair, oversized denim jacket, playful expression",
+    "open": 1,
+    "verified": 1,
+    "popularity": 79,
+    "bio": "Оживляю интерфейсы, логотипы и истории. Делаю анимации, которые хочется пересматривать.",
+    "skills": [
+      "After Effects",
+      "Lottie",
+      "Rive",
+      "Раскадровка"
+    ],
+    "portfolio": [
+      {
+        "title": "Ночной экспресс",
+        "meta": "Анимация титров · 2026",
+        "prompt": "motion design frame of a stylized night train moving through glowing purple mountains, flat vector style with grain"
+      },
+      {
+        "title": "Онбординг Kit",
+        "meta": "Lottie-анимации · 2025",
+        "prompt": "sequence of four animated onboarding frames for a mobile app with bouncing shapes and arrows, displayed as a storyboard"
+      }
+    ],
+    "experience": [],
+    "reviews": []
+  },
+  {
+    "slug": "nikita-zaitsev",
+    "kind": "person",
+    "name": "Никита Зайцев",
+    "role": "Мобильный разработчик",
+    "directions": [
+      "Разработка"
+    ],
+    "city": "Нижний Новгород",
+    "formats": [
+      "Удалённо"
+    ],
+    "tags": [
+      "Swift",
+      "Kotlin"
+    ],
+    "look": "a man around 29, short blond hair, fair skin, green sweatshirt, friendly look",
+    "open": 1,
+    "verified": 1,
+    "popularity": 72,
+    "bio": "Пишу нативные приложения для iOS и Android. Люблю офлайн-режим и плавные анимации.",
+    "skills": [
+      "Swift",
+      "Kotlin",
+      "SwiftUI",
+      "Jetpack Compose"
+    ],
+    "portfolio": [
+      {
+        "title": "Тихий лес",
+        "meta": "Приложение для бёрдвотчинга · 2026",
+        "prompt": "smartphone in a hand in a misty forest showing a bird identification app with a bird photo card"
+      },
+      {
+        "title": "Велопуть",
+        "meta": "Трекер велопрогулок · 2024",
+        "prompt": "phone mounted on a bicycle handlebar showing a route map app, city park background, sunny day"
+      }
+    ],
+    "experience": [],
+    "reviews": []
+  },
+  {
+    "slug": "polina-grishina",
+    "kind": "person",
+    "name": "Полина Гришина",
+    "role": "Фотограф",
+    "directions": [
+      "Фото и видео"
+    ],
+    "city": "Санкт-Петербург",
+    "formats": [
+      "Гибрид"
+    ],
+    "tags": [
+      "Портрет",
+      "Предметка"
+    ],
+    "look": "a woman around 31 with freckles and wavy ginger hair, warm smile, rust sweater",
+    "open": 1,
+    "verified": 1,
+    "popularity": 82,
+    "bio": "Снимаю людей и вещи так, чтобы в них хотелось вглядываться. Портреты, предметка, репортаж.",
+    "skills": [
+      "Портрет",
+      "Предметная съёмка",
+      "Свет",
+      "Ретушь"
+    ],
+    "portfolio": [
+      {
+        "title": "Свет и тень",
+        "meta": "Фотопроект · 2025",
+        "prompt": "moody black and white photograph of a northern town street with long shadows and a lone figure, fine art photography"
+      },
+      {
+        "title": "Керамика Глина",
+        "meta": "Предметная съёмка · 2024",
+        "prompt": "minimal product photo of handmade ceramic cups on a linen cloth, soft window light, beige palette"
+      }
+    ],
+    "experience": [],
+    "reviews": [
+      {
+        "author": "Лев Гусев",
+        "text": "Полина сняла коллекцию так, что её купили ещё до показа."
+      }
+    ]
+  },
+  {
+    "slug": "artem-kovalev",
+    "kind": "person",
+    "name": "Артём Ковалёв",
+    "role": "Видеограф и монтажёр",
+    "directions": [
+      "Фото и видео",
+      "Продакшн"
+    ],
+    "city": "Москва",
+    "formats": [
+      "Гибрид"
+    ],
+    "tags": [
+      "DaVinci",
+      "Монтаж"
+    ],
+    "look": "a man around 34, shaved head, short dark beard, black turtleneck, serious but kind look",
+    "open": 1,
+    "verified": 1,
+    "popularity": 76,
+    "bio": "Снимаю и монтирую клипы, рекламу и документалки. Цветокоррекция — отдельная страсть.",
+    "skills": [
+      "DaVinci Resolve",
+      "Premiere",
+      "Цветокоррекция",
+      "Съёмка"
+    ],
+    "portfolio": [
+      {
+        "title": "Звук города",
+        "meta": "Документальный ролик · 2025",
+        "prompt": "cinematic film still of a street musician playing violin in a Moscow underpass, teal and orange grading"
+      },
+      {
+        "title": "Бег на рассвете",
+        "meta": "Рекламный ролик · 2024",
+        "prompt": "cinematic still of a runner on an empty bridge at sunrise, lens flare, anamorphic look"
+      }
+    ],
+    "experience": [],
+    "reviews": []
+  },
+  {
+    "slug": "ekaterina-romanova",
+    "kind": "person",
+    "name": "Екатерина Романова",
+    "role": "Саунд-дизайнер",
+    "directions": [
+      "Музыка и звук"
+    ],
+    "city": "Калининград",
+    "formats": [
+      "Удалённо"
+    ],
+    "tags": [
+      "Ableton",
+      "Звук для игр"
+    ],
+    "look": "a woman around 29 with straight dark hair and bangs, studio headphones around her neck, black top",
+    "open": 1,
+    "verified": 1,
+    "popularity": 73,
+    "bio": "Создаю звуковые миры для игр, приложений и инсталляций. Записываю полевые звуки по всей стране.",
+    "skills": [
+      "Ableton",
+      "Wwise",
+      "Полевые записи",
+      "Сведение"
+    ],
+    "portfolio": [
+      {
+        "title": "Звук города",
+        "meta": "Аудиокарта · 2025",
+        "prompt": "field recording setup: a zoom recorder with furry windscreen on a tripod on a rainy city street at night, bokeh lights"
+      },
+      {
+        "title": "Орбита",
+        "meta": "Звук для игры · 2026",
+        "prompt": "music production desk with midi keyboard, monitors showing audio waveforms, purple ambient light"
+      }
+    ],
+    "experience": [],
+    "reviews": []
+  },
+  {
+    "slug": "maxim-belyaev",
+    "kind": "person",
+    "name": "Максим Беляев",
+    "role": "Композитор",
+    "directions": [
+      "Музыка и звук"
+    ],
+    "city": "Москва",
+    "formats": [
+      "Гибрид"
+    ],
+    "tags": [
+      "Саундтреки",
+      "Оркестровка"
+    ],
+    "look": "a man around 40 with long hair tied back, grey streaks, linen shirt, calm expression",
+    "open": 1,
+    "verified": 0,
+    "popularity": 68,
+    "bio": "Пишу музыку для кино, анимации и театра. От камерных пьес до оркестровых саундтреков.",
+    "skills": [
+      "Оркестровка",
+      "Cubase",
+      "Кино",
+      "Театр"
+    ],
+    "portfolio": [
+      {
+        "title": "Ночной экспресс",
+        "meta": "Саундтрек · 2026",
+        "prompt": "grand piano in a dim recording studio with sheet music and a single warm lamp, cinematic"
+      },
+      {
+        "title": "Из мастерской",
+        "meta": "Музыка для подкаста · 2025",
+        "prompt": "acoustic guitar, vintage microphone and handwritten notes on a wooden workbench in a craft workshop"
+      }
+    ],
+    "experience": [],
+    "reviews": []
+  },
+  {
+    "slug": "alina-safina",
+    "kind": "person",
+    "name": "Алина Сафина",
+    "role": "Копирайтер",
+    "directions": [
+      "Тексты"
+    ],
+    "city": "Уфа",
+    "formats": [
+      "Удалённо"
+    ],
+    "tags": [
+      "Нейминг",
+      "UX-тексты"
+    ],
+    "look": "a woman around 27 of Bashkir descent, long dark hair, mustard sweater, bright smile",
+    "open": 1,
+    "verified": 1,
+    "popularity": 66,
+    "bio": "Придумываю названия и пишу тексты, которые читают до конца. Нейминг, UX-тексты, тон бренда.",
+    "skills": [
+      "Нейминг",
+      "UX-райтинг",
+      "Tone of voice",
+      "Сторителлинг"
+    ],
+    "portfolio": [
+      {
+        "title": "Читай вместе",
+        "meta": "Тон голоса приложения · 2025",
+        "prompt": "notebook with handwritten word lists and sticky notes next to a phone with a reading app, cozy cafe table"
+      },
+      {
+        "title": "Глина",
+        "meta": "Нейминг и айдентика · 2024",
+        "prompt": "brand presentation board with naming options on cards and a ceramic mug, beige and terracotta palette"
+      }
+    ],
+    "experience": [],
+    "reviews": []
+  },
+  {
+    "slug": "grigory-melnikov",
+    "kind": "person",
+    "name": "Григорий Мельников",
+    "role": "Архитектор",
+    "directions": [
+      "Архитектура"
+    ],
+    "city": "Москва",
+    "formats": [
+      "Гибрид"
+    ],
+    "tags": [
+      "Концепции",
+      "Revit"
+    ],
+    "look": "a man around 45 with short grey hair and a neat beard, white shirt, confident look",
+    "open": 1,
+    "verified": 1,
+    "popularity": 81,
+    "bio": "Проектирую общественные пространства и жильё. Верю, что архитектура меняет привычки людей.",
+    "skills": [
+      "Revit",
+      "Концепции",
+      "Урбанистика",
+      "Макетирование"
+    ],
+    "portfolio": [
+      {
+        "title": "Город будущего",
+        "meta": "Концепция района · 2026",
+        "prompt": "architectural render of a futuristic modular city district with curved concrete buildings, greenery and water at sunset"
+      },
+      {
+        "title": "Тёплые дома",
+        "meta": "Модульное жильё · 2025",
+        "prompt": "architectural model of modular wooden houses in snowy northern landscape, warm lights in windows, dusk"
+      }
+    ],
+    "experience": [],
+    "reviews": []
+  },
+  {
+    "slug": "vera-nikolaeva",
+    "kind": "person",
+    "name": "Вера Николаева",
+    "role": "Дизайнер интерьеров",
+    "directions": [
+      "Архитектура",
+      "Дизайн"
+    ],
+    "city": "Санкт-Петербург",
+    "formats": [
+      "Гибрид"
+    ],
+    "tags": [
+      "Интерьер",
+      "3D-визуализация"
+    ],
+    "look": "a woman around 36 with a blonde pixie cut, terracotta blouse, warm expression",
+    "open": 1,
+    "verified": 1,
+    "popularity": 69,
+    "bio": "Создаю интерьеры, в которых легко жить и работать. Общественные пространства и квартиры.",
+    "skills": [
+      "Интерьер",
+      "3ds Max",
+      "Свет",
+      "Материалы"
+    ],
+    "portfolio": [
+      {
+        "title": "Место встречи",
+        "meta": "Арт-кластер · 2026",
+        "prompt": "interior of a converted brick factory into a bright art space with plants, wooden benches and big windows"
+      },
+      {
+        "title": "Кофейня Утро",
+        "meta": "Интерьер кафе · 2024",
+        "prompt": "cozy minimalist coffee shop interior with terracotta tiles, round lamps and morning sunlight"
+      }
+    ],
+    "experience": [],
+    "reviews": []
+  },
+  {
+    "slug": "denis-fedorov",
+    "kind": "person",
+    "name": "Денис Фёдоров",
+    "role": "Геймдизайнер",
+    "directions": [
+      "Геймдев"
+    ],
+    "city": "Новосибирск",
+    "formats": [
+      "Удалённо"
+    ],
+    "tags": [
+      "Unity",
+      "Нарратив"
+    ],
+    "look": "a man around 28 with messy brown hair, glasses, graphic t-shirt, enthusiastic look",
+    "open": 1,
+    "verified": 1,
+    "popularity": 78,
+    "bio": "Придумываю механики и истории для игр. Люблю кооператив и головоломки.",
+    "skills": [
+      "Unity",
+      "Баланс",
+      "Левел-дизайн",
+      "Нарратив"
+    ],
+    "portfolio": [
+      {
+        "title": "Лиса и звёзды",
+        "meta": "Мобильная головоломка · 2026",
+        "prompt": "colorful mobile puzzle game screenshot with a fox character jumping between glowing star platforms, cute stylized art"
+      },
+      {
+        "title": "Орбита",
+        "meta": "Кооперативная игра · 2026",
+        "prompt": "game screenshot of a cooperative space adventure with small astronauts on an orange planet, lavender nebula"
+      }
+    ],
+    "experience": [
+      {
+        "place": "Орбита Team",
+        "role": "Ведущий геймдизайнер",
+        "period": "2024 — 2026"
+      }
+    ],
+    "reviews": [
+      {
+        "author": "Тимур Гареев",
+        "text": "Денис умеет объяснить механику так, что художнику сразу ясно, что рисовать."
+      }
+    ]
+  },
+  {
+    "slug": "kira-vasilyeva",
+    "kind": "person",
+    "name": "Кира Васильева",
+    "role": "Аналитик данных",
+    "directions": [
+      "Аналитика"
+    ],
+    "city": "Москва",
+    "formats": [
+      "Удалённо"
+    ],
+    "tags": [
+      "SQL",
+      "Python"
+    ],
+    "look": "a woman around 30 with dark curly hair, gold hoop earrings, white t-shirt, smart look",
+    "open": 1,
+    "verified": 1,
+    "popularity": 67,
+    "bio": "Нахожу в данных ответы на продуктовые вопросы. Дашборды, эксперименты, прогнозы.",
+    "skills": [
+      "SQL",
+      "Python",
+      "A/B-тесты",
+      "Дашборды"
+    ],
+    "portfolio": [
+      {
+        "title": "Пульс",
+        "meta": "Аналитика здоровья · 2026",
+        "prompt": "clean analytics dashboard with line charts and heatmaps on a large monitor, lavender and orange accents, bright office"
+      },
+      {
+        "title": "Чистый берег",
+        "meta": "Карта волонтёров · 2025",
+        "prompt": "data map visualization of a coastline with glowing dots of volunteer activity, dark blue background"
+      }
+    ],
+    "experience": [],
+    "reviews": []
+  },
+  {
+    "slug": "ruslan-akhmedov",
+    "kind": "person",
+    "name": "Руслан Ахмедов",
+    "role": "ML-инженер",
+    "directions": [
+      "Разработка",
+      "Аналитика"
+    ],
+    "city": "Казань",
+    "formats": [
+      "Удалённо"
+    ],
+    "tags": [
+      "PyTorch",
+      "Computer Vision"
+    ],
+    "look": "a man around 31 with a short dark beard, dark hair, grey hoodie, focused look",
+    "open": 1,
+    "verified": 1,
+    "popularity": 75,
+    "bio": "Обучаю модели, которые видят и понимают. Компьютерное зрение и рекомендательные системы.",
+    "skills": [
+      "PyTorch",
+      "Computer Vision",
+      "MLOps",
+      "Python"
+    ],
+    "portfolio": [
+      {
+        "title": "Пульс",
+        "meta": "Модель анализа ЭКГ · 2026",
+        "prompt": "abstract visualization of a neural network analyzing a heartbeat line, glowing nodes in purple and orange on dark background"
+      },
+      {
+        "title": "Атлас ремёсел",
+        "meta": "Распознавание узоров · 2025",
+        "prompt": "phone camera recognizing a traditional embroidery pattern with AR overlay labels, close-up"
+      }
+    ],
+    "experience": [],
+    "reviews": []
+  },
+  {
+    "slug": "yana-kuznetsova",
+    "kind": "person",
+    "name": "Яна Кузнецова",
+    "role": "SMM-стратег",
+    "directions": [
+      "Маркетинг"
+    ],
+    "city": "Краснодар",
+    "formats": [
+      "Удалённо"
+    ],
+    "tags": [
+      "SMM",
+      "Контент"
+    ],
+    "look": "a woman around 24 with long light-brown hair, beige cardigan, cheerful smile",
+    "open": 1,
+    "verified": 1,
+    "popularity": 63,
+    "bio": "Делаю соцсети, которые живут без бюджета на рекламу. Контент-планы и коллаборации.",
+    "skills": [
+      "SMM",
+      "Контент-план",
+      "Reels",
+      "Коллаборации"
+    ],
+    "portfolio": [
+      {
+        "title": "Чистый берег",
+        "meta": "Кампания волонтёров · 2025",
+        "prompt": "grid of social media posts showing volunteers cleaning a beach, bright summer colors, phone mockup"
+      },
+      {
+        "title": "Вторая жизнь",
+        "meta": "Запуск коллекции · 2026",
+        "prompt": "instagram feed mockup with fashion photos of upcycled clothing, warm editorial tones"
+      }
+    ],
+    "experience": [],
+    "reviews": []
+  },
+  {
+    "slug": "pavel-smirnov",
+    "kind": "person",
+    "name": "Павел Смирнов",
+    "role": "DevOps-инженер",
+    "directions": [
+      "Разработка"
+    ],
+    "city": "Томск",
+    "formats": [
+      "Удалённо"
+    ],
+    "tags": [
+      "Kubernetes",
+      "CI/CD"
+    ],
+    "look": "a man around 35 with a ginger beard, plaid flannel shirt, relaxed expression",
+    "open": 1,
+    "verified": 0,
+    "popularity": 58,
+    "bio": "Строю инфраструктуру, которая не падает в пятницу вечером. Kubernetes, CI/CD, мониторинг.",
+    "skills": [
+      "Kubernetes",
+      "Terraform",
+      "CI/CD",
+      "Мониторинг"
+    ],
+    "portfolio": [
+      {
+        "title": "Рынок на ладони",
+        "meta": "Инфраструктура · 2025",
+        "prompt": "isometric 3D illustration of cloud servers and containers connected by glowing pipes, soft clay style"
+      },
+      {
+        "title": "Тёплые дома",
+        "meta": "Умный дом · 2025",
+        "prompt": "smart home control panel on a wall of a wooden house, showing temperature graphs, cozy evening light"
+      }
+    ],
+    "experience": [],
+    "reviews": []
+  },
+  {
+    "slug": "mila-osipova",
+    "kind": "person",
+    "name": "Мила Осипова",
+    "role": "Бренд-дизайнер",
+    "directions": [
+      "Дизайн"
+    ],
+    "city": "Москва",
+    "formats": [
+      "Гибрид"
+    ],
+    "tags": [
+      "Айдентика",
+      "Типографика"
+    ],
+    "look": "a woman around 29 with a sharp black bob, red lipstick, black turtleneck",
+    "open": 1,
+    "verified": 1,
+    "popularity": 88,
+    "bio": "Собираю айдентику с характером. Типографика, логотипы и визуальные системы.",
+    "skills": [
+      "Айдентика",
+      "Типографика",
+      "Логотипы",
+      "Гайдлайны"
+    ],
+    "portfolio": [
+      {
+        "title": "Новая форма",
+        "meta": "Айдентика выставки · 2026",
+        "prompt": "exhibition identity mockups: posters, tickets and tote bag with bold abstract purple and orange shapes, no readable text"
+      },
+      {
+        "title": "Глина",
+        "meta": "Брендинг керамики · 2024",
+        "prompt": "branding mockup of a ceramics studio: labels, boxes and business cards in terracotta and cream, minimal"
+      }
+    ],
+    "experience": [],
+    "reviews": [
+      {
+        "author": "Анна Миронова",
+        "text": "Мила задаёт визуальный тон, на который потом легко опираться всей команде."
+      }
+    ]
+  },
+  {
+    "slug": "egor-tikhonov",
+    "kind": "person",
+    "name": "Егор Тихонов",
+    "role": "Режиссёр анимации",
+    "directions": [
+      "3D и моушн",
+      "Продакшн"
+    ],
+    "city": "Санкт-Петербург",
+    "formats": [
+      "Гибрид"
+    ],
+    "tags": [
+      "Анимация",
+      "Режиссура"
+    ],
+    "look": "a man around 37 with wavy shoulder-length hair and a mustache, corduroy jacket, creative look",
+    "open": 1,
+    "verified": 1,
+    "popularity": 71,
+    "bio": "Режиссирую анимационные фильмы и рекламу. От раскадровки до финального рендера.",
+    "skills": [
+      "Режиссура",
+      "Раскадровка",
+      "Анимация",
+      "Toon Boom"
+    ],
+    "portfolio": [
+      {
+        "title": "Ночной экспресс",
+        "meta": "Короткий метр · 2026",
+        "prompt": "animated film frame of a cozy train compartment at night with a girl looking at stars through window, painterly style"
+      },
+      {
+        "title": "Домовой",
+        "meta": "Анимационная реклама · 2024",
+        "prompt": "stop-motion style frame of a tiny house spirit character in a kitchen, warm lighting, handmade textures"
+      }
+    ],
+    "experience": [],
+    "reviews": []
+  },
+  {
+    "slug": "arina-pavlova",
+    "kind": "person",
+    "name": "Арина Павлова",
+    "role": "UX-исследователь",
+    "directions": [
+      "Дизайн",
+      "Аналитика"
+    ],
+    "city": "Самара",
+    "formats": [
+      "Удалённо"
+    ],
+    "tags": [
+      "Интервью",
+      "Юзабилити"
+    ],
+    "look": "a woman around 33 with glasses and a long braid, light blue shirt, attentive expression",
+    "open": 1,
+    "verified": 1,
+    "popularity": 62,
+    "bio": "Разговариваю с пользователями и превращаю инсайты в решения. Интервью, юзабилити-тесты, CJM.",
+    "skills": [
+      "Интервью",
+      "Юзабилити",
+      "CJM",
+      "Синтез"
+    ],
+    "portfolio": [
+      {
+        "title": "Код для детей",
+        "meta": "Исследование родителей · 2025",
+        "prompt": "research wall with sticky notes, printed quotes and customer journey map in a bright office"
+      },
+      {
+        "title": "Пульс",
+        "meta": "Юзабилити-тесты · 2026",
+        "prompt": "usability testing session: a person using a phone app while a researcher takes notes, soft daylight"
+      }
+    ],
+    "experience": [],
+    "reviews": []
+  },
+  {
+    "slug": "lev-gusev",
+    "kind": "person",
+    "name": "Лев Гусев",
+    "role": "Fashion-дизайнер",
+    "directions": [
+      "Дизайн"
+    ],
+    "city": "Москва",
+    "formats": [
+      "Гибрид"
+    ],
+    "tags": [
+      "Апсайклинг",
+      "Коллекции"
+    ],
+    "look": "a man around 26 with a bleached buzz cut, small earring, oversized white shirt",
+    "open": 1,
+    "verified": 1,
+    "popularity": 65,
+    "bio": "Шью одежду из того, что уже было чьим-то. Апсайклинг-коллекции и коллаборации.",
+    "skills": [
+      "Апсайклинг",
+      "Конструирование",
+      "Стайлинг",
+      "Текстиль"
+    ],
+    "portfolio": [
+      {
+        "title": "Вторая жизнь",
+        "meta": "Коллекция · 2026",
+        "prompt": "fashion editorial photo of models in patchwork upcycled denim outfits in an industrial space"
+      },
+      {
+        "title": "Лоскут",
+        "meta": "Капсула · 2024",
+        "prompt": "flat lay of colorful patchwork jackets and fabric swatches on a concrete floor, top view"
+      }
+    ],
+    "experience": [],
+    "reviews": []
+  },
+  {
+    "slug": "forma-studio",
+    "kind": "studio",
+    "name": "Форма Studio",
+    "role": "Брендинг и цифровые продукты",
+    "directions": [
+      "Дизайн",
+      "Разработка"
+    ],
+    "city": "Москва",
+    "formats": [
+      "Гибрид"
+    ],
+    "tags": [
+      "Брендинг",
+      "Продукты"
+    ],
+    "look": "a bold black geometric logo mark: an abstract diamond made of four rounded petals with a square hole in the middle",
+    "open": 1,
+    "verified": 1,
+    "popularity": 95,
+    "bio": "Студия цифровых продуктов, брендинга и интерфейсов. Делаем айдентику, сайты и сервисы для культурных и технологических команд.",
+    "skills": [
+      "Брендинг",
+      "Айдентика",
+      "Веб-дизайн",
+      "Моушн"
+    ],
+    "portfolio": [
+      {
+        "title": "Новые бренды ближе",
+        "meta": "Рекламная кампания · 2026",
+        "prompt": "large outdoor exhibition wall with bold purple and orange graphic shapes, people walking by, motion blur"
+      },
+      {
+        "title": "Ритм",
+        "meta": "Дизайн наушников · 2026",
+        "prompt": "product render of sleek wireless sport earphones in lavender and orange on a soft pedestal"
+      }
+    ],
+    "experience": [],
+    "reviews": []
+  },
+  {
+    "slug": "hvoya-collective",
+    "kind": "studio",
+    "name": "Хвоя Collective",
+    "role": "Архитектура и урбанистика",
+    "directions": [
+      "Архитектура"
+    ],
+    "city": "Москва",
+    "formats": [
+      "Гибрид"
+    ],
+    "tags": [
+      "Архитектура",
+      "Урбанистика"
+    ],
+    "look": "a minimal logo mark: stylized pine needle cluster forming a circle, white on deep green",
+    "open": 1,
+    "verified": 1,
+    "popularity": 77,
+    "bio": "Коллектив архитекторов, дизайнеров и разработчиков. Проектируем города и пространства будущего.",
+    "skills": [
+      "Архитектура",
+      "Урбанистика",
+      "Ландшафт",
+      "Соучаствующее проектирование"
+    ],
+    "portfolio": [
+      {
+        "title": "Город будущего",
+        "meta": "Концепция · 2026",
+        "prompt": "aerial architectural render of a green modular neighborhood with curved rooftops and parks, soft morning light"
+      },
+      {
+        "title": "Место встречи",
+        "meta": "Реновация двора · 2026",
+        "prompt": "renovated factory courtyard with pavilions, trees and people relaxing, architectural photography"
+      }
+    ],
+    "experience": [],
+    "reviews": []
+  },
+  {
+    "slug": "pole-studio",
+    "kind": "studio",
+    "name": "Поле Студия",
+    "role": "Выставочный дизайн и навигация",
+    "directions": [
+      "Дизайн",
+      "Архитектура"
+    ],
+    "city": "Санкт-Петербург",
+    "formats": [
+      "Гибрид"
+    ],
+    "tags": [
+      "Выставки",
+      "Навигация"
+    ],
+    "look": "a minimal logo mark: a white quarter-circle and a square forming a stylized field, on black",
+    "open": 1,
+    "verified": 1,
+    "popularity": 73,
+    "bio": "Проектируем выставки, навигацию и пространства, в которых хочется задержаться.",
+    "skills": [
+      "Выставочный дизайн",
+      "Навигация",
+      "Графика",
+      "Сценография"
+    ],
+    "portfolio": [
+      {
+        "title": "Новая форма",
+        "meta": "Выставка · 2026",
+        "prompt": "contemporary exhibition hall with huge colorful abstract panels in purple and orange, visitors walking, wide shot"
+      },
+      {
+        "title": "Маршрут",
+        "meta": "Навигация в музее · 2024",
+        "prompt": "museum wayfinding signs with bold arrows and color coding in a modern concrete interior, no readable text"
+      }
+    ],
+    "experience": [],
+    "reviews": []
+  },
+  {
+    "slug": "orbita-team",
+    "kind": "studio",
+    "name": "Орбита Team",
+    "role": "Игры и интерактив",
+    "directions": [
+      "Геймдев"
+    ],
+    "city": "Новосибирск",
+    "formats": [
+      "Удалённо"
+    ],
+    "tags": [
+      "Игры",
+      "Unity"
+    ],
+    "look": "a minimal logo mark: a white planet with a tilted ring, on dark violet circle",
+    "open": 1,
+    "verified": 1,
+    "popularity": 70,
+    "bio": "Небольшая инди-студия: делаем добрые кооперативные игры и интерактивные истории.",
+    "skills": [
+      "Unity",
+      "Геймдизайн",
+      "Арт",
+      "Комьюнити"
+    ],
+    "portfolio": [
+      {
+        "title": "Орбита",
+        "meta": "Кооперативная игра · 2026",
+        "prompt": "key art of a cozy space game: small planets with orbits, an orange glowing planet in center, purple space"
+      },
+      {
+        "title": "Лиса и звёзды",
+        "meta": "Мобильная игра · 2026",
+        "prompt": "app store style key art of a fox character on a crescent moon with stars, soft gradients"
+      }
+    ],
+    "experience": [],
+    "reviews": []
+  }
+]

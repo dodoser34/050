@@ -1,0 +1,24 @@
+/* Точка входа стилей «Среды». Порядок: токены → база → компоненты → страницы. */
+@import url("base/tokens.css");
+@import url("base/reset.css");
+@import url("base/typography.css");
+@import url("base/layout.css");
+
+@import url("components/buttons.css");
+@import url("components/chips.css");
+@import url("components/avatars.css");
+@import url("components/cards.css");
+@import url("components/forms.css");
+@import url("components/search.css");
+@import url("components/header.css");
+@import url("components/footer.css");
+@import url("components/overlays.css");
+@import url("components/motion.css");
+
+@import url("pages/hero-motion.css");
+@import url("pages/home.css");
+@import url("pages/catalog.css");
+@import url("pages/project.css");
+@import url("pages/profile.css");
+@import url("pages/about.css");
+@import url("pages/auth.css");
