@@ -68,9 +68,8 @@
 .cta-band .row { margin-top: 2rem; }
 .cta-band__art { position: relative; aspect-ratio: 1; }
 .cta-band__ball { position: absolute; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #ffc0a0, var(--orange) 55%, #d9480f); box-shadow: 0 30px 60px rgba(30, 10, 80, .35); }
-.cta-band__ring { position: absolute; inset: 12%; border-radius: 50%; border: 2px solid rgba(255, 255, 255, .25); animation: spin 28s linear infinite; }
+.cta-band__ring { position: absolute; inset: 12%; border-radius: 50%; border: 2px solid rgba(255, 255, 255, .25); }
 .cta-band__ring::after { content: ""; position: absolute; top: -.6rem; left: 50%; width: 1.2rem; height: 1.2rem; border-radius: 50%; background: #fff; }
-@keyframes spin { to { transform: rotate(360deg); } }
 
 @media (max-width: 1200px) {
   .discover { grid-template-columns: 1fr; }

@@ -18,6 +18,18 @@
 main { display: block; min-height: 60vh; }
 .page-top { padding-top: clamp(1rem, 2.5vw, 2.5rem); }
 
+/* Статичные иллюстрации: прозрачность доходит до нуля по всем четырём краям,
+   а скругление скрывает углы даже в браузере без поддержки масок. */
+.site-illustration {
+  border-radius: var(--radius-lg);
+  --art-mask: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent),
+    linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent);
+  -webkit-mask-image: var(--art-mask);
+  -webkit-mask-composite: source-in;
+  mask-image: var(--art-mask);
+  mask-composite: intersect;
+}
+
 @media (max-width: 720px) {
   .grid-2 { grid-template-columns: 1fr; }
 }

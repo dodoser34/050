@@ -24,21 +24,7 @@
 .marquee__item--outline { color: transparent; -webkit-text-stroke: 1.5px var(--ink); }
 @keyframes marquee { to { transform: translateX(-50%); } }
 
-/* Мягкое парение иллюстраций */
-.float { animation: float 7s ease-in-out infinite; }
-/* через translate, а не transform — чтобы не конфликтовать с параллаксом на том же элементе */
-@keyframes float { 50% { translate: 0 -12px; } }
-
-/* Иллюстрации страниц: края мягко растворяются в фоне — без видимой «рамки» картинки */
-.page-hero__art img, .about-hero__art img, .auth__art img {
-  -webkit-mask-image: radial-gradient(ellipse 52% 54% at 50% 50%, #000 62%, transparent 100%);
-  mask-image: radial-gradient(ellipse 52% 54% at 50% 50%, #000 62%, transparent 100%);
-}
-
-/* Параллакс от курсора: JS выставляет --px/--py от -1 до 1 */
-[data-parallax] { transform: translate3d(calc(var(--px, 0) * var(--depth, 14px)), calc(var(--py, 0) * var(--depth, 14px)), 0); transition: transform .5s var(--ease-out); }
-
 @media (prefers-reduced-motion: reduce) {
   [data-reveal], .split-words .w > span { opacity: 1; transform: none; }
-  .marquee__track, .float { animation: none; }
+  .marquee__track { animation: none; }
 }

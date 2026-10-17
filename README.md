@@ -57,9 +57,8 @@ frontend/
     css/main.css         точка входа; base/ (токены, сетка), components/, pages/
     js/main.js           точка входа; core/ (api, сессия, иконки, заглушки), components/, pages/
     img/                 people/ · portfolio/ · projects/ · illustrations/ (генерируются по prompts/)
-prompts/                 images.prompt (116 картинок), codex-images.prompt, hero-motion.prompt
+prompts/                 задания для 116 изображений, манифест и исходный макет Hero Motion
 tools/                   build_prompts.py (собирает images.prompt из content/), image_assets.py (учёт и сохранение картинок)
-archive/hero-layers/     растровые слои hero из ChatGPT — на сайте не используются
 ```
 
 ## Страницы
@@ -110,7 +109,7 @@ archive/hero-layers/     растровые слои hero из ChatGPT — на 
 - Все размеры заданы в `rem`, корневой шрифт растёт на 2K, 3K, 4K и 5K (`base/tokens.css`), поэтому на больших мониторах интерфейс не мельчит.
 - Анимации:
   - появление при прокрутке, заголовки «по словам», счётчики;
-  - параллакс иллюстраций за курсором;
+  - статичные декоративные иллюстрации с мягкими краями; моушен-сцена на первом экране главной;
   - ховеры карточек, блик на кнопках, бегущая строка;
   - плавные переходы между страницами (View Transitions).
 

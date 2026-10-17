@@ -4,7 +4,7 @@ import { initPlaceholders } from "./core/placeholders.js";
 import { initActions } from "./components/actions.js";
 import { renderFooter } from "./components/footer.js";
 import { renderHeader } from "./components/header.js";
-import { initParallax, observeReveal } from "./components/reveal.js";
+import { observeReveal } from "./components/reveal.js";
 
 const PAGES = {
   home: () => import("./pages/home.js"),
@@ -24,7 +24,6 @@ async function boot() {
   initPlaceholders();
   initActions();
   observeReveal();
-  initParallax();
 
   const load = PAGES[document.body.dataset.page];
   if (load) {

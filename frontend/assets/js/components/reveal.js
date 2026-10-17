@@ -1,4 +1,4 @@
-/** Анимации интерфейса: появление при скролле, заголовки по словам, счётчики, параллакс от курсора. */
+/** Анимации интерфейса: появление при скролле, заголовки по словам, счётчики. */
 import { $$ } from "../core/dom.js";
 
 const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -53,16 +53,3 @@ function countUp(el) {
   setTimeout(() => (el.textContent = target), dur + 200); // итог гарантирован, даже если кадры не идут
 }
 
-/** Элементы [data-parallax] внутри [data-parallax-scope] слегка следуют за курсором. */
-export function initParallax() {
-  if (reduce || matchMedia("(hover: none)").matches) return;
-  $$("[data-parallax-scope]").forEach((scope) => {
-    const items = $$("[data-parallax]", scope);
-    scope.addEventListener("pointermove", (e) => {
-      const r = scope.getBoundingClientRect();
-      const px = ((e.clientX - r.left) / r.width - 0.5) * 2, py = ((e.clientY - r.top) / r.height - 0.5) * 2;
-      items.forEach((el) => { el.style.setProperty("--px", px.toFixed(3)); el.style.setProperty("--py", py.toFixed(3)); });
-    });
-    scope.addEventListener("pointerleave", () => items.forEach((el) => { el.style.setProperty("--px", 0); el.style.setProperty("--py", 0); }));
-  });
-}
