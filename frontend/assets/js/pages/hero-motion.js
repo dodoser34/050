@@ -107,14 +107,18 @@ const DEFS = `
   <filter id="hm-soft18" x="-50%" y="-200%" width="200%" height="500%"><feGaussianBlur stdDeviation="18"/></filter>`;
 
 function tube(parent, d) {
-  const dash = { pathLength: 1, "stroke-dasharray": "1 1", "stroke-dashoffset": 1, fill: "none", "stroke-linecap": "round" };
+  const dash = { pathLength: 1, "stroke-dasharray": "1 1", "stroke-dashoffset": 1, visibility: "hidden", fill: "none", "stroke-linecap": "round" };
   return [
     el("path", { d, ...dash, stroke: "#5B44C9", "stroke-opacity": .22, "stroke-width": 72, transform: "translate(5 9)", filter: "url(#hm-soft6)" }, parent),
     el("path", { d, ...dash, stroke: "url(#hm-tube)", "stroke-width": 72 }, parent),
     el("path", { d, ...dash, stroke: "#fff", "stroke-opacity": .38, "stroke-width": 16, transform: "translate(-9 -12)", filter: "url(#hm-soft4)" }, parent),
   ];
 }
-const setTube = (paths, off) => paths.forEach((p) => p.setAttribute("stroke-dashoffset", off));
+const setTube = (paths, off) => paths.forEach((p) => {
+  p.setAttribute("stroke-dashoffset", off);
+  // Круглый торец нулевого штриха в Chrome может выглядеть как отдельный шар.
+  p.setAttribute("visibility", off >= 1 ? "hidden" : "visible");
+});
 
 function build(stage) {
   const svg = el("svg", { viewBox: "0 0 1000 750", class: "hm-svg", "aria-hidden": "true" });
