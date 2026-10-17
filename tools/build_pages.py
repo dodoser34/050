@@ -100,11 +100,6 @@ def build(base_path):
     text = session.read_text(encoding="utf-8").replace('fallback = "/"', 'fallback = ' + json.dumps(base))
     text = text.replace('["/login", "/register"]', json.dumps([base + "login", base + "register"]))
     session.write_text(text, encoding="utf-8")
-    demo = (ROOT / "tools/pages_demo.js").read_text(encoding="utf-8")
-    (core / "pages-demo.js").write_text(demo.replace("__BASE_PATH__", json.dumps(base)), encoding="utf-8")
-    main = OUTPUT / "assets/js/main.js"
-    main.write_text('import { initPagesDemo } from "./core/pages-demo.js";\n' +
-                    main.read_text(encoding="utf-8") + '\ninitPagesDemo();\n', encoding="utf-8")
     (OUTPUT / ".nojekyll").touch()
     (OUTPUT / "404.html").write_text(
         '<!doctype html><html lang="ru"><meta charset="utf-8"><title>Страница не найдена — Среда</title>'

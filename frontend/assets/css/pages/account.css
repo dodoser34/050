@@ -21,11 +21,6 @@
 .chip-check span { display: block; padding: .55rem .9rem; border: 1px solid var(--line); border-radius: 2rem; }
 .chip-check input:checked + span { background: var(--lav-soft); border-color: var(--purple); color: var(--purple); }
 .chip-check input:focus-visible + span { outline: 2px solid var(--purple); outline-offset: 3px; }
-.demo-banner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .75rem 1.5rem; margin-top: 1rem; margin-bottom: 1rem; padding: 1rem 1.25rem; border: 1px solid #ddd5ff; border-radius: 1rem; background: var(--lav-soft); }
-.demo-banner > div:first-child { flex: 1 1 26rem; }
-.demo-banner p { margin: .3rem 0; font-size: .85rem; color: var(--ink-2); max-width: 54rem; }
-.demo-banner small, .demo-banner .link { font-size: .85rem; }
-.demo-banner__actions { display: flex; flex-wrap: wrap; gap: .5rem; }
 .admin-stats { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 1rem; }
 .admin-stats strong { display: block; font-size: 2rem; }
 .admin-stats span { color: var(--muted); font-size: .9rem; }
@@ -45,7 +40,4 @@
   .form-grid, .admin-queue { grid-template-columns: 1fr; }
   .admin-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .rows__item, .rows__item--3 { grid-template-columns: minmax(0, 1fr); }
-  .demo-banner__actions { width: 100%; }
-  .demo-banner__actions .btn { flex: 1; }
-  .demo-banner { padding: .9rem; }
 }

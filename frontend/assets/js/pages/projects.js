@@ -3,6 +3,7 @@ import { get } from "../core/api.js";
 import { $, $$, countLabel, debounce, esc, plural, toQuery } from "../core/dom.js";
 import { emptyState, projectCard, skeletons } from "../components/cards.js";
 import { observeReveal } from "../components/reveal.js";
+import { requireAuth } from "../core/session.js";
 
 const PAGE_SIZE = 9;
 
@@ -14,6 +15,7 @@ export async function init() {
     sort: params.get("sort") || "popular", mine: params.get("mine") === "true",
   };
   const grid = $("#project-grid"), more = $("#load-more"), search = $("#project-search");
+  if (state.mine && !(await requireAuth())) return;
   if (state.mine) {
     $("#projects-title").textContent = "Мои проекты";
     $("#projects-title").insertAdjacentHTML("afterend", '<a class="btn btn--sm btn--outline" href="/projects">Все проекты</a>');
@@ -58,6 +60,11 @@ export async function init() {
       $("#project-shown").textContent = `Показываем ${offset} из ${r.total} ${plural(r.total, ["проекта", "проектов", "проектов"])}`;
       more.hidden = offset >= r.total;
       observeReveal(grid);
+    } catch (err) {
+      grid.innerHTML = emptyState("Не удалось загрузить проекты", err.message);
+      $("#project-count").textContent = "";
+      $("#project-shown").textContent = "";
+      more.hidden = true;
     } finally { more.disabled = false; }
   };
 

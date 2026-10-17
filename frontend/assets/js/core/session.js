@@ -1,16 +1,52 @@
-/** Текущий пользователь: один запрос /api/auth/me на страницу. */
+/** Текущий пользователь и защита от смены аккаунта в другой вкладке. */
 import { get, post } from "./api.js";
 import { toast } from "./toast.js";
 
 let current = null;
-export const sessionReady = get("/api/auth/me").then((d) => (current = d.user)).catch(() => null);
+let known = false, refreshing = null, reloading = false;
+export const sessionReady = get("/api/auth/me").then((d) => {
+  current = d.user;
+  known = true;
+  return current;
+}).catch(() => null);
 export const currentUser = () => current;
+
+const identity = (user) => user ? `${user.id}:${Boolean(user.is_admin)}` : null;
+
+async function refreshSession(silent = false) {
+  await sessionReady;
+  if (reloading) return false;
+  if (!refreshing) {
+    refreshing = get("/api/auth/me").then(({ user }) => {
+      if (known && identity(user) !== identity(current)) {
+        reloading = true;
+        location.reload();
+        return false;
+      }
+      current = user;
+      known = true;
+      return true;
+    }).finally(() => { refreshing = null; });
+  }
+  try { return await refreshing; }
+  catch {
+    if (!silent) toast("Не удалось проверить вход. Проверьте соединение и попробуйте ещё раз", "err");
+    return false;
+  }
+}
+
+const checkSession = () => { refreshSession(true); };
+addEventListener("storage", checkSession);
+addEventListener("focus", checkSession);
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "visible") checkSession();
+});
 
 export const loginUrl = () => "/login?next=" + encodeURIComponent(location.pathname + location.search);
 
 /** true, если пользователь вошёл; иначе — подсказка и переход на вход. */
 export async function requireAuth() {
-  await sessionReady;
+  if (!(await refreshSession())) return false;
   if (current) return true;
   toast("Войдите, чтобы продолжить");
   setTimeout(() => (location.href = loginUrl()), 700);

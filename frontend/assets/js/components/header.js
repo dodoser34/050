@@ -2,6 +2,7 @@
 import { $, esc, initials } from "../core/dom.js";
 import { icon, LOGO_MARK } from "../core/icons.js";
 import { currentUser, logout, sessionReady } from "../core/session.js";
+import { get } from "../core/api.js";
 
 const NAV = [
   { href: "/services", label: "Услуги", key: "services" },
@@ -62,6 +63,14 @@ function renderUser(host) {
   });
   document.addEventListener("click", () => (dd.hidden = true));
   $("[data-logout]", menu).addEventListener("click", logout);
+  get("/api/auth/demo").then((demo) => {
+    if (!demo.enabled) return;
+    const entry = document.createElement("a");
+    entry.className = "dropdown__item";
+    entry.href = "/login?demo=1";
+    entry.textContent = "Демо: сменить роль";
+    $("[data-logout]", menu).before(entry);
+  }).catch(() => {});
 }
 
 function initMobileMenu(host, active) {

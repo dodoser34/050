@@ -1,6 +1,6 @@
 /** Вход и регистрация (одна логика, разные поля). */
 import { get, post } from "../core/api.js";
-import { $, $$, esc } from "../core/dom.js";
+import { $, $$ } from "../core/dom.js";
 import { icon } from "../core/icons.js";
 import { currentUser, nextUrl, sessionReady } from "../core/session.js";
 import { toast } from "../core/toast.js";
@@ -21,7 +21,8 @@ export async function init() {
   const form = $("[data-auth-form]");
   const cfg = FORMS[form.dataset.authForm];
 
-  sessionReady.then(() => { if (currentUser()) location.replace(nextUrl(currentUser().is_admin ? "/admin" : "/me")); });
+  const chooseDemo = new URLSearchParams(location.search).get("demo") === "1";
+  sessionReady.then(() => { if (currentUser() && !chooseDemo) location.replace(nextUrl(currentUser().is_admin ? "/admin" : "/me")); });
 
   $$("[data-toggle-password]", form).forEach((btn) => btn.addEventListener("click", () => {
     const input = btn.previousElementSibling, show = input.type === "password";
@@ -44,12 +45,12 @@ export async function init() {
       location.href = nextUrl(user.is_admin ? "/admin" : "/me");
     } catch (err) {
       showFieldErrors(form, err.errors);
-      if (!Object.keys(err.errors).length) formError.textContent = err.message;
+      if (!Object.keys(err.errors || {}).length) formError.textContent = err.message || "Не удалось войти. Попробуйте ещё раз";
     } finally { btn.disabled = false; }
   });
 }
 
-/** Демо-вход: кнопка «войти без регистрации» и подстановка демо-логина в форму входа. */
+/** Демо-вход расположен под основной формой, отдельно от регистрации. */
 async function initDemo(form) {
   const slot = $("[data-demo-slot]");
   if (!slot) return;
@@ -58,23 +59,31 @@ async function initDemo(form) {
   const canFill = form.dataset.authForm === "login";
   slot.innerHTML = `
     <div class="demo-login">
+      <h3 class="demo-login__title">Попробовать без регистрации</h3>
+      <p class="demo-login__intro">Выберите роль и посмотрите, как работает Среда.</p>
       <div class="demo-login__row">
-        <button type="button" class="btn btn--outline-orange demo-login__btn" data-demo="user">${icon("sparkle")}Демо-вход</button>
-        <button type="button" class="btn btn--outline demo-login__btn" data-demo="admin">${icon("shield")}Демо-админ</button>
+        <button type="button" class="demo-login__card" data-demo="user" aria-label="Демо-вход: пользователь">
+          <span class="demo-login__icon">${icon("users")}</span>
+          <span><strong>Пользователь</strong><small>Анкета, проекты и отклики</small></span>${icon("arrow-up-right", "sm")}
+        </button>
+        <button type="button" class="demo-login__card demo-login__card--admin" data-demo="admin" aria-label="Демо-вход: администратор">
+          <span class="demo-login__icon">${icon("shield")}</span>
+          <span><strong>Администратор</strong><small>Модерация и управление</small></span>${icon("arrow-up-right", "sm")}
+        </button>
       </div>
-      ${canFill ? `<p class="demo-login__creds">или вручную: <button type="button" class="demo-login__fill" data-demo-fill title="Подставить в форму">${esc(demo.email)} · ${esc(demo.password)}</button></p>`
-                : '<p class="demo-login__creds">Посмотрите сайт изнутри без регистрации: свой проект, лайки и отклики уже есть.</p>'}
+      ${demo.local ? '<p class="demo-login__note">Это демоверсия: аккаунты и изменения сохраняются только в вашем браузере. Для регистрации используйте вымышленные данные и отдельный пароль.</p>' : ""}
+      ${canFill ? '<button type="button" class="demo-login__fill" data-demo-fill>Подставить демо-логин и пароль в форму</button>' : ""}
     </div>`;
   $$("[data-demo]", slot).forEach((btn) => btn.addEventListener("click", async () => {
     const role = btn.dataset.demo;
-    btn.disabled = true;
+    $$("[data-demo]", slot).forEach((b) => { b.disabled = true; });
     try {
       await post("/api/auth/demo", { role });
       toast(role === "admin" ? "Вы вошли как администратор" : "Вы вошли в демо-аккаунт", "ok");
       location.href = nextUrl(role === "admin" ? "/admin" : "/me");
     } catch (err) {
       toast(err.message, "err");
-      btn.disabled = false;
+      $$("[data-demo]", slot).forEach((b) => { b.disabled = false; });
     }
   }));
   $("[data-demo-fill]", slot)?.addEventListener("click", () => {

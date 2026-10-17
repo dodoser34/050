@@ -116,7 +116,7 @@ function renderProfile(card, profile, directions) {
 
   const form = $("#profile-form", card);
   clearErrorsOnInput(form);
-  card.addEventListener("click", (e) => {
+  form.addEventListener("click", (e) => {
     const add = e.target.closest("[data-add]");
     if (add) $(`#${add.dataset.add}-rows`, card).insertAdjacentHTML("beforeend", add.dataset.add === "portfolio" ? workRow() : expRow());
     const del = e.target.closest("[data-remove]");
@@ -140,6 +140,7 @@ function renderProfile(card, profile, directions) {
     };
     btn.disabled = true;
     try {
+      if (!(await requireAuth())) return;
       const { profile: saved } = await api("/api/me/profile", { method: "PUT", body });
       toast(saved.status === "approved" ? "Анкета сохранена и опубликована" : "Анкета отправлена на модерацию", "ok");
       renderProfile(card, saved, directions);

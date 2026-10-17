@@ -15,13 +15,24 @@
   border: 1px solid #ddd7ce; border-radius: .875rem; background: var(--surface); font-size: 1.1rem; transition: border-color .2s, box-shadow .2s, transform .2s;
 }
 .google-btn:hover { border-color: var(--ink); box-shadow: var(--shadow-sm); transform: translateY(-1px); }
-.demo-login { margin-top: .75rem; }
-.demo-login__row { display: grid; grid-template-columns: 1fr 1fr; gap: .6rem; }
-.demo-login__btn { height: 3.25rem; border-style: dashed; }
-.demo-login__btn .icon { transition: transform .5s var(--ease-spring); }
-.demo-login__btn:hover .icon { transform: rotate(90deg) scale(1.15); }
-.demo-login__creds { margin-top: .5rem; font-size: .85rem; color: var(--muted); text-align: center; }
-.demo-login__fill { background: none; border: 0; padding: 0; font: inherit; color: var(--ink-2); text-decoration: underline dotted; text-underline-offset: 3px; }
+.demo-login { margin-top: 1.75rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
+.demo-login__title { margin: 0; font-family: var(--font); font-size: 1.05rem; font-weight: 600; letter-spacing: -.02em; }
+.demo-login__intro { margin-top: .35rem; font-size: .9rem; color: var(--muted); }
+.demo-login__row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; margin-top: 1rem; }
+.demo-login__card { display: flex; align-items: center; gap: .65rem; padding: 1rem .8rem; border: 1px solid var(--line); border-radius: .9rem; background: var(--surface); text-align: left; transition: border-color .2s, background .2s; }
+.demo-login__card:hover { border-color: var(--orange); background: var(--orange-soft); }
+.demo-login__card--admin:hover { border-color: var(--purple); background: var(--lav-soft); }
+.demo-login__card > span:nth-child(2) { flex: 1; min-width: 0; }
+.demo-login__card > .icon { flex: none; color: var(--muted); }
+.demo-login__card strong, .demo-login__card small { display: block; }
+.demo-login__card strong { font-size: .9rem; font-weight: 600; }
+.demo-login__card small { margin-top: .25rem; color: var(--muted); font-size: .75rem; line-height: 1.4; }
+.demo-login__card:disabled { opacity: .6; cursor: wait; }
+.demo-login__icon { flex: none; display: grid; place-items: center; width: 2rem; height: 2rem; border-radius: .6rem; color: var(--orange-d); background: var(--orange-soft); }
+.demo-login__card--admin .demo-login__icon { color: var(--purple); background: var(--lav-soft); }
+.demo-login__icon .icon { width: 1.1rem; height: 1.1rem; }
+.demo-login__note { margin-top: .85rem; font-size: .78rem; line-height: 1.5; color: var(--muted); }
+.demo-login__fill { display: block; margin-top: .75rem; background: none; border: 0; padding: 0; font: inherit; font-size: .8rem; color: var(--ink-2); text-decoration: underline dotted; text-underline-offset: 3px; }
 .demo-login__fill:hover { color: var(--orange); }
 .divider { display: flex; align-items: center; gap: 1.25rem; margin: 1.4rem 0 .5rem; color: var(--muted); }
 .divider::before, .divider::after { content: ""; flex: 1; height: 1px; background: var(--line); }
@@ -35,4 +46,8 @@
   .auth__side { padding: 1rem 0 0; }
   .auth__art { display: none; }
   .auth__main { border-left: 0; padding: 1.5rem 0 3rem; }
+}
+@media (max-width: 620px) {
+  .demo-login__row { grid-template-columns: 1fr; }
+  .demo-login__card { padding: 1rem; }
 }
