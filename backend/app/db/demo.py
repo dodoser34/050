@@ -48,7 +48,7 @@ DEMO_PROJECT = {
         "updates": [
             {"date": "2 апр", "title": "Посмотрели три помещения", "text": "Лучшее — 96 м² с большими окнами на тихой улице. Ведём переговоры об аренде."},
         ],
-        "conditions": "Гибрид, встречи в Москве. Оплата по договору, дизайнерам — указание авторства на вывеске и в соцсетях.",
+        "conditions": "Гибрид, встречи в Алматы. Оплата по договору, дизайнерам — указание авторства на вывеске и в соцсетях.",
         "links": [{"label": "Мудборд", "url": "https://example.com/zerno"}],
     },
 }
@@ -123,7 +123,7 @@ def _ensure_profile(db: sqlite3.Connection, user_id: int) -> None:
     db.execute(
         """INSERT INTO specialists (slug, kind, name, role, avatar, cover, city, formats, directions, tags, about, verified, open,
            popularity, details, user_id, status) VALUES (?,?,?,?,?,?,?,?,?,?,?,0,1,0,?,?,'approved')""",
-        (DEMO_PROFILE_SLUG, "person", DEMO_NAME, "Продюсер проектов", "", "", "Москва", json.dumps(["Гибрид"], ensure_ascii=False),
+        (DEMO_PROFILE_SLUG, "person", DEMO_NAME, "Продюсер проектов", "", "", "Алматы", json.dumps(["Гибрид"], ensure_ascii=False),
          json.dumps(["Управление проектами", "Продакшн"], ensure_ascii=False), json.dumps(["Продюсирование"], ensure_ascii=False),
          "Собираю команды под городские и творческие проекты.", json.dumps(details, ensure_ascii=False), user_id))
 

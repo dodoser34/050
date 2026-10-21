@@ -1,5 +1,5 @@
 PROFILE = {
-    "kind": "person", "name": "Тест Специалист", "role": "Моушн-дизайнер", "city": "Москва",
+    "kind": "person", "name": "Тест Специалист", "role": "Моушн-дизайнер", "city": "Алматы",
     "formats": ["Удалённо"], "directions": ["3D и моушн"], "tags": ["After Effects"],
     "bio": "Делаю анимацию для интерфейсов и рекламы. Люблю аккуратные переходы.",
     "skills": ["After Effects", "Rive"], "telegram": "@test", "website": "",

@@ -110,7 +110,7 @@ function renderProfile(card, profile) {
       <div class="form-grid">
         ${field("name", org ? "Название" : "Имя", `<input class="input" id="f-name" name="name" value="${esc(p.name || "")}" maxlength="80" placeholder="${org ? "Студия «Форма»" : "Анна Миронова"}">`)}
         ${field("role", org ? "Чем занимается" : "Специализация", `<input class="input" id="f-role" name="role" value="${esc(p.role === "Организация" ? "" : p.role || "")}" maxlength="80" placeholder="${org ? "Дизайн-студия" : "UX/UI-дизайнер"}">`)}
-        ${field("city", "Город", `<input class="input" id="f-city" name="city" value="${esc(p.city === "Не указан" ? "" : p.city || "")}" maxlength="60" placeholder="Москва">`)}
+        ${field("city", "Город", `<input class="input" id="f-city" name="city" value="${esc(p.city === "Не указан" ? "" : p.city || "")}" maxlength="60" placeholder="Алматы">`)}
         ${field("tags", "Ключевые теги (через запятую)", `<input class="input" id="f-tags" name="tags" value="${esc((p.tags || []).join(", "))}" placeholder="Figma, Веб-дизайн">`)}
       </div>
 

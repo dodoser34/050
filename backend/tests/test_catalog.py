@@ -8,8 +8,8 @@ def test_specialist_filters(client):
     design = client.get("/api/specialists", params={"direction": "Дизайн"}).json()
     assert design["total"] > 0
     assert all("Дизайн" in s["directions"] for s in design["items"])
-    moscow = client.get("/api/specialists", params={"city": "Москва", "format": "Удалённо"}).json()
-    assert all(s["city"] == "Москва" and "Удалённо" in s["formats"] for s in moscow["items"])
+    moscow = client.get("/api/specialists", params={"city": "Алматы", "format": "Удалённо"}).json()
+    assert all(s["city"] == "Алматы" and "Удалённо" in s["formats"] for s in moscow["items"])
 
 
 def test_profile_has_participation_and_portfolio(client):

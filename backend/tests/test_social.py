@@ -6,7 +6,7 @@ PNG = "data:image/png;base64," + base64.b64encode(
                   "1f15c4890000000d49444154789c6360000002000154a24f5d0000000049454e44ae426082")).decode()
 
 PROFILE = {
-    "kind": "person", "name": "Тест Специалист", "role": "Моушн-дизайнер", "city": "Москва",
+    "kind": "person", "name": "Тест Специалист", "role": "Моушн-дизайнер", "city": "Алматы",
     "formats": ["Удалённо"], "directions": ["3D и моушн", "нейросети для видео"], "tags": [],
     "bio": "Делаю анимацию для интерфейсов и рекламы. Люблю аккуратные переходы.", "skills": [],
     "portfolio": [{"type": "image", "title": "Шоурил", "image_data": PNG},
@@ -40,7 +40,7 @@ def approve_profile(client, email):
 
 
 def test_org_registration_creates_draft_profile(client):
-    r = register(client, "org@example.com", account_type="org", org_name="Студия Свет", org_city="Казань")
+    r = register(client, "org@example.com", account_type="org", org_name="Студия Свет", org_city="Шымкент")
     assert r["account_type"] == "org"
     me = client.get("/api/me/profile").json()
     assert me["account_type"] == "org" and me["profile"]["kind"] == "studio" and me["profile"]["status"] == "pending"
