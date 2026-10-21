@@ -29,20 +29,14 @@ function apply() {
 }
 
 /** Иллюстрации с тёмной парой: <img src="…/about.webp" data-dark="…/about-dark.webp">.
- *  В тёмной теме подставляется тёмная версия; если её ещё нет (prompts/images-dark.prompt), остаётся светлая. */
+ *  В тёмной теме сразу ставится тёмная версия (prompts/images-dark.prompt); если её нет —
+ *  core/placeholders.js возвращает светлую. */
 export function swapThemeImages(root = document) {
   const dark = document.documentElement.dataset.theme === "dark";
   root.querySelectorAll("img[data-dark]").forEach((img) => {
     img.dataset.light ??= img.getAttribute("src");
     const want = dark && img.dataset.darkMissing !== "1" ? img.dataset.dark : img.dataset.light;
-    if (img.getAttribute("src") === want) return;
-    if (want === img.dataset.dark) {
-      // сначала проверяем, что тёмный файл есть, — иначе сработала бы векторная заглушка вместо светлой картинки
-      const probe = new Image();
-      probe.onload = () => { if (document.documentElement.dataset.theme === "dark") img.src = want; };
-      probe.onerror = () => { img.dataset.darkMissing = "1"; };
-      probe.src = want;
-    } else img.src = want;
+    if (img.getAttribute("src") !== want) img.src = want;
   });
 }
 

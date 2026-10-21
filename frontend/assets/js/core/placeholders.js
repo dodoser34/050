@@ -64,6 +64,12 @@ function artSvg(variant) {
 }
 
 function applyFallback(img) {
+  // тёмной версии иллюстрации ещё нет — показываем светлую, а не векторную заглушку
+  if (img.dataset.dark && img.dataset.light && img.getAttribute("src") === img.dataset.dark) {
+    img.dataset.darkMissing = "1";
+    img.src = img.dataset.light;
+    return;
+  }
   if (img.dataset.fbDone) return;
   img.dataset.fbDone = "1";
   const label = img.dataset.label || img.alt || "";

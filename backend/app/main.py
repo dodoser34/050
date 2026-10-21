@@ -26,7 +26,10 @@ async def cache_headers(request: Request, call_next):
     response = await call_next(request)
     if "cache-control" not in response.headers:
         path = request.url.path
-        if path.startswith(("/assets/img/", "/uploads/")):
+        if response.status_code >= 400:
+            # ошибки не кэшируем: иначе браузер час «помнит», что картинки нет, даже когда её уже загрузили
+            response.headers["Cache-Control"] = "no-store"
+        elif path.startswith(("/assets/img/", "/uploads/")):
             response.headers["Cache-Control"] = "public, max-age=3600"
         elif not path.startswith("/api/"):
             response.headers["Cache-Control"] = "no-cache"
