@@ -28,3 +28,11 @@ DEMO_ENABLED = os.environ.get("SREDA_DEMO", "1") != "0"
 DEMO_NAME = "Демо Пользователь"
 DEMO_EMAIL = os.environ.get("SREDA_DEMO_EMAIL", "demo@sreda.dev")
 DEMO_PASSWORD = os.environ.get("SREDA_DEMO_PASSWORD", "demo-sreda-2026")
+
+# Загруженные пользователями картинки (обложки проектов, работы портфолио, картинки постов)
+UPLOADS_DIR = Path(os.environ.get("SREDA_UPLOADS_DIR", ROOT_DIR / "data" / "uploads"))
+UPLOADS_URL = "/uploads/"
+UPLOAD_MAX_BYTES = 4 * 1024 * 1024
+
+# Статус «в сети»: пользователь онлайн, если был активен за последние ONLINE_WINDOW секунд
+ONLINE_WINDOW = 5 * 60

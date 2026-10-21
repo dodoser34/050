@@ -1,30 +1,38 @@
-/* Анимации появления при скролле: [data-reveal] (+ [data-reveal="left|right|zoom"]), задержка через --d */
-[data-reveal] { opacity: 0; transform: translateY(28px); transition: opacity .8s var(--ease-out), transform .9s var(--ease-out); transition-delay: var(--d, 0s); }
-[data-reveal="left"] { transform: translateX(-36px); }
-[data-reveal="right"] { transform: translateX(36px); }
-[data-reveal="zoom"] { transform: scale(.94); }
-[data-reveal].is-visible { opacity: 1; transform: none; }
+/* Анимации появления. Уровень задаёт html[data-motion]:
+   full — выезды, заголовки по словам, задержки; calm (по умолчанию) — только короткое проявление без сдвигов;
+   off — всё видно сразу. Переключается в настройках (меню → «Анимации»). */
+[data-reveal] { opacity: 0; transition: opacity .45s var(--ease-out); }
+[data-reveal].is-visible { opacity: 1; }
+
+html[data-motion="full"] [data-reveal] { transform: translateY(24px); transition: opacity .7s var(--ease-out), transform .8s var(--ease-out); transition-delay: var(--d, 0s); }
+html[data-motion="full"] [data-reveal="left"] { transform: translateX(-32px); }
+html[data-motion="full"] [data-reveal="right"] { transform: translateX(32px); }
+html[data-motion="full"] [data-reveal="zoom"] { transform: scale(.95); }
+html[data-motion="full"] [data-reveal].is-visible { transform: none; }
 /* на узких экранах боковой выезд заменяем вертикальным — ничего не торчит за край */
 @media (max-width: 760px) {
-  [data-reveal="left"]:not(.is-visible), [data-reveal="right"]:not(.is-visible) { transform: translateY(28px); }
+  html[data-motion="full"] [data-reveal="left"]:not(.is-visible), html[data-motion="full"] [data-reveal="right"]:not(.is-visible) { transform: translateY(24px); }
 }
+html[data-motion="off"] [data-reveal] { opacity: 1; transform: none; transition: none; }
 
-/* Заголовки, которые появляются по словам */
+/* Заголовки, которые появляются по словам (только в режиме «все анимации») */
 .split-words .w { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: .08em; }
-.split-words .w > span { display: inline-block; transform: translateY(105%); transition: transform .9s var(--ease-out); transition-delay: calc(var(--i) * 60ms); }
+.split-words .w > span { display: inline-block; transform: translateY(105%); transition: transform .8s var(--ease-out); transition-delay: calc(var(--i) * 50ms); }
 .split-words.is-visible .w > span { transform: none; }
 
 /* Бегущая строка */
 .marquee { overflow: hidden; border-block: 1px solid var(--line); background: var(--surface); padding-block: 1.1rem; }
 .marquee__track { display: flex; width: max-content; gap: 2.5rem; animation: marquee 38s linear infinite; }
+html[data-motion="calm"] .marquee__track { animation-duration: 60s; }
+html[data-motion="off"] .marquee__track { animation: none; }
 .marquee:hover .marquee__track { animation-play-state: paused; }
 .marquee__item { display: inline-flex; align-items: center; gap: 2.5rem; font-family: var(--font-display); font-weight: 800; font-size: clamp(1.4rem, 2.4vw, 2.6rem); letter-spacing: -.04em; white-space: nowrap; }
 .marquee__item::after { content: ""; width: .7em; height: .7em; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #ffc0a0, var(--orange) 55%, #d9480f); }
 .marquee__item:nth-child(3n+2)::after { background: radial-gradient(circle at 35% 30%, #eae4ff, var(--lav) 60%, var(--purple)); }
-.marquee__item--outline { color: transparent; -webkit-text-stroke: 1.5px var(--ink); }
-@keyframes marquee { to { transform: translateX(-50%); } }
-
-@media (prefers-reduced-motion: reduce) {
-  [data-reveal], .split-words .w > span { opacity: 1; transform: none; }
-  .marquee__track { animation: none; }
+/* Контурный текст через -webkit-text-stroke обводит каждый контур вариативного шрифта отдельно —
+   в местах наложения контуров буквы получаются «кривыми». Вместо обводки — градиентная заливка. */
+.marquee__item--outline {
+  color: transparent; background: linear-gradient(100deg, var(--purple), var(--lav) 60%, var(--orange));
+  -webkit-background-clip: text; background-clip: text;
 }
+@keyframes marquee { to { transform: translateX(-50%); } }

@@ -15,6 +15,7 @@ PAGES = {
     "/about": "about.html",
     "/me": "me.html",
     "/admin": "admin.html",
+    "/messages": "messages.html",
 }
 
 

@@ -49,7 +49,7 @@ def build(base_path):
     def rewrite(text):
         # Root-relative links appear both in HTML and in JS template strings.
         text = re.sub(
-            r'''(["'`])/(?=(?:assets|api|services|projects|people|about|login|register|me|admin)(?:[/\n?\#"'`]|$))''',
+            r'''(["'`])/(?=(?:assets|api|services|projects|people|about|login|register|me|admin|messages)(?:[/\n?\#"'`]|$))''',
             lambda m: m[1] + base, text)
         text = text.replace('href="/"', 'href="' + base + '"')
         return re.sub(r"url\(/(?!/)", lambda _: "url(" + base, text)
@@ -69,7 +69,7 @@ def build(base_path):
 
     for route, name in {"": "index.html", "services": "services.html", "projects": "projects.html",
                         "about": "about.html", "login": "login.html", "register": "register.html",
-                        "me": "me.html", "admin": "admin.html",
+                        "me": "me.html", "admin": "admin.html", "messages": "messages.html",
                         "projects/view": "project.html", "people/view": "profile.html"}.items():
         page(route, name)
     for slug in data["profiles"]:
@@ -83,6 +83,8 @@ def build(base_path):
     (core / "api.js").write_text(adapter.replace("__BASE_PATH__", json.dumps(base)), encoding="utf-8")
     store = (ROOT / "tools/pages_store.js").read_text(encoding="utf-8")
     (core / "pages-store.js").write_text(store.replace("__BASE_PATH__", json.dumps(base)), encoding="utf-8")
+    social = (ROOT / "tools/pages_social.js").read_text(encoding="utf-8")
+    (core / "pages-social.js").write_text(social, encoding="utf-8")
 
     # Browser-created entities use existing HTML shells with a query parameter:
     # GitHub Pages cannot create a directory for each new local slug.

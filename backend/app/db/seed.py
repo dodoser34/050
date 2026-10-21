@@ -19,7 +19,20 @@ def _dumps(value) -> str:
     return json.dumps(value, ensure_ascii=False)
 
 
-def _specialist_row(s: dict, by_name: dict[str, dict]) -> tuple:
+def _studio_staff(projects: list[dict], people: dict[str, dict]) -> dict[str, list[dict]]:
+    """Сотрудники демо-организаций — участники их проектов. Публиковать в блоге может первый из них."""
+    out: dict[str, list[dict]] = {}
+    for p in projects:
+        if people[p["owner"]]["kind"] != "studio":
+            continue
+        staff = out.setdefault(p["owner"], [])
+        for slug in p["team"]:
+            if people[slug]["kind"] == "person" and all(m["slug"] != slug for m in staff):
+                staff.append({"slug": slug, "role": people[slug]["role"], "can_post": not staff, "visible": True})
+    return out
+
+
+def _specialist_row(s: dict, by_name: dict[str, dict], staff: list[dict] = ()) -> tuple:
     slug = s["slug"]
     portfolio = [{"title": w["title"], "meta": w["meta"], "cover": content.portfolio_path(slug, i + 1)}
                  for i, w in enumerate(s["portfolio"])]
@@ -39,6 +52,8 @@ def _specialist_row(s: dict, by_name: dict[str, dict]) -> tuple:
         "experience": s["experience"],
         "reviews": reviews,
     }
+    if s["kind"] == "studio":
+        details.update(staff=list(staff), staff_visibility="all", show_staff_count=True)
     about = s["bio"].split(". ")[0].rstrip(".") + "."
     return (slug, s["kind"], s["name"], s["role"], content.avatar_path(slug), content.portfolio_path(slug, 1),
             s["city"], _dumps(s["formats"]), _dumps(s["directions"]), _dumps(s["tags"]), about,
@@ -63,10 +78,11 @@ def seed_content(db: sqlite3.Connection) -> None:
     # пересоздаём только демо-контент: анкеты и проекты пользователей не трогаем
     db.execute("DELETE FROM projects WHERE author_id IS NULL")
     db.execute("DELETE FROM specialists WHERE user_id IS NULL")
+    staff = _studio_staff(content.projects(), people)
     db.executemany(
         """INSERT INTO specialists (slug, kind, name, role, avatar, cover, city, formats, directions,
            tags, about, verified, open, popularity, details) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
-        [_specialist_row(s, by_name) for s in specialists],
+        [_specialist_row(s, by_name, staff.get(s["slug"], [])) for s in specialists],
     )
     db.executemany(
         """INSERT INTO projects (slug, title, description, category, tags, stage, roles, license, beta, cover,
@@ -79,11 +95,13 @@ def seed_content(db: sqlite3.Connection) -> None:
 
 # Колонки, добавленные после первых версий схемы: при старте дописываются в существующую базу
 MIGRATIONS = {
-    "users": {"is_admin": "INTEGER NOT NULL DEFAULT 0"},
+    "users": {"is_admin": "INTEGER NOT NULL DEFAULT 0", "account_type": "TEXT NOT NULL DEFAULT 'person'",
+              "last_seen": "INTEGER NOT NULL DEFAULT 0", "settings": "TEXT NOT NULL DEFAULT '{}'"},
+    "applications": {"status": "TEXT NOT NULL DEFAULT 'pending'", "conversation_id": "INTEGER"},
     "specialists": {"user_id": "INTEGER REFERENCES users(id) ON DELETE SET NULL",
                     "status": "TEXT NOT NULL DEFAULT 'approved'", "moderation_note": "TEXT NOT NULL DEFAULT ''"},
     "projects": {"details": "TEXT NOT NULL DEFAULT '{}'", "status": "TEXT NOT NULL DEFAULT 'approved'",
-                 "moderation_note": "TEXT NOT NULL DEFAULT ''"},
+                 "moderation_note": "TEXT NOT NULL DEFAULT ''", "closed": "INTEGER NOT NULL DEFAULT 0"},
 }
 
 

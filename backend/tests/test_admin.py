@@ -87,4 +87,4 @@ def test_admin_users_and_stats(client, user):
     me = next(u for u in users if u["email"] == "admin@sreda.dev")
     assert client.post(f"/api/admin/users/{me['id']}/admin", json={"is_admin": False}).status_code == 400
     stats = client.get("/api/admin/stats").json()
-    assert stats["specialists"] == 30 and stats["users"] >= 3
+    assert stats["specialists"] == 31 and stats["users"] >= 3  # 30 демо-анкет + анкета демо-пользователя

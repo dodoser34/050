@@ -16,8 +16,8 @@ export function initGlobalSearch(root) {
     if (q.length < 2) { box.hidden = true; return; }
     const r = await get("/api/search?" + toQuery({ q })).catch(() => null);
     if (!r) return;
-    const person = (s) => item(personUrl(s.slug), imgTag(s.avatar, "avatar", s.name), s.name, s.role);
-    box.innerHTML = group("Люди", r.people, person) + group("Студии", r.studios, person) +
+    const person = (s) => item(personUrl(s.slug), imgTag(s.avatar, "avatar", s.name, s.kind === "studio" ? 'class="is-org"' : ""), s.name, (s.kind === "studio" ? "Организация · " : "") + s.role);
+    box.innerHTML = group("Люди", r.people, person) + group("Организации", r.studios, person) +
       group("Проекты", r.projects, (p) => item(projectUrl(p), imgTag(p.cover, "cover", p.title, 'class="is-thumb"'), p.title, p.owner_name)) ||
       `<div class="search__empty">Ничего не нашли по запросу «${esc(q)}»</div>`;
     box.hidden = false;

@@ -1,24 +1,43 @@
-/* Дизайн-токены. Все размеры в rem — на 2K/4K масштабируется корневой шрифт. */
+/* Дизайн-токены. Все размеры в rem — на 2K/4K масштабируется корневой шрифт.
+   Тема: html[data-theme="light|dark"] (ставит assets/js/boot.js до отрисовки, без вспышки светлой темы). */
 :root {
+  color-scheme: light;
   --bg: #fffbf5;
   --bg-2: #f7f1e8;
   --surface: #fffefb;
   --surface-2: #f3eee6;
+  --surface-3: #ebe5dc;
   --ink: #111114;
   --ink-2: #2a2a30;
   --muted: #74747e;
   --muted-2: #9a9aa3;
   --line: #e9e3da;
   --line-2: #f1ece4;
+  --border: #ddd7ce;          /* поля ввода, контурные кнопки */
+  --border-hover: #c9c2b7;
   --orange: #ff6a2c;
   --orange-d: #f05a1c;
   --orange-soft: #ffeee4;
+  --orange-ink: #9a3a0e;
   --purple: #6c55f5;
+  --purple-ink: #3c2fa0;
   --lav: #a996f5;
   --lav-soft: #eeeaff;
+  --lav-line: #ddd5ff;
   --green: #1f9d55;
   --green-soft: #e5f6ea;
   --danger: #d93036;
+  --danger-soft: #fdecec;
+  --danger-ink: #b42328;
+
+  --header-bg: rgba(255, 251, 245, .72);
+  --header-bg-solid: rgba(255, 251, 245, .9);
+  --glass: rgba(255, 255, 255, .84);
+  --skeleton-a: #f2ede6;
+  --skeleton-b: #f8f4ee;
+  --backdrop: rgba(17, 17, 20, .45);
+  --footer-bg: #111114;
+  --avatar-ring: #fff;
 
   --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-display: "Inter Tight", "Inter", system-ui, sans-serif;
@@ -41,6 +60,47 @@
   --container: 120rem;              /* 1920px при 16px */
   --gutter: clamp(1rem, 4vw, 6rem);
   --header-h: 4.75rem;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #121116;
+  --bg-2: #18171d;
+  --surface: #1b1a21;
+  --surface-2: #26242d;
+  --surface-3: #312e39;
+  --ink: #f3f1f7;
+  --ink-2: #d9d6e0;
+  --muted: #9d9aa8;
+  --muted-2: #7a7785;
+  --line: #2d2b34;
+  --line-2: #24222a;
+  --border: #3a3743;
+  --border-hover: #55515f;
+  --orange-soft: #3a2218;
+  --orange-ink: #ffb38f;
+  --purple: #9a87ff;
+  --purple-ink: #d5ccff;
+  --lav-soft: #2a2443;
+  --lav-line: #3d3561;
+  --green: #4cc684;
+  --green-soft: #173325;
+  --danger: #ff6b70;
+  --danger-soft: #3a1c1f;
+  --danger-ink: #ffa3a6;
+
+  --header-bg: rgba(18, 17, 22, .72);
+  --header-bg-solid: rgba(18, 17, 22, .92);
+  --glass: rgba(27, 26, 33, .82);
+  --skeleton-a: #1d1c23;
+  --skeleton-b: #26242d;
+  --backdrop: rgba(0, 0, 0, .6);
+  --footer-bg: #0b0a0e;
+  --avatar-ring: #26242d;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, .3), 0 2px 8px rgba(0, 0, 0, .25);
+  --shadow: 0 2px 4px rgba(0, 0, 0, .3), 0 12px 32px rgba(0, 0, 0, .35);
+  --shadow-lg: 0 4px 10px rgba(0, 0, 0, .35), 0 24px 60px rgba(0, 0, 0, .5);
 }
 
 html { font-size: 16px; }

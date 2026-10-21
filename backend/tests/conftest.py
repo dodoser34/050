@@ -16,6 +16,7 @@ def client(tmp_path, monkeypatch):
     from app import config
     from app.db import connection
     monkeypatch.setattr(config, "DB_PATH", db_path)
+    monkeypatch.setattr(config, "UPLOADS_DIR", tmp_path / "uploads")
     monkeypatch.setattr(connection, "DB_PATH", db_path)
 
     from fastapi.testclient import TestClient

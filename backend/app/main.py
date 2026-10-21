@@ -9,6 +9,7 @@ from fastapi.staticfiles import StaticFiles
 
 from .web.errors import register_error_handlers
 from .web.routing import routers
+from . import config
 from .config import ASSETS_DIR
 from .db import init_db
 
@@ -25,7 +26,7 @@ async def cache_headers(request: Request, call_next):
     response = await call_next(request)
     if "cache-control" not in response.headers:
         path = request.url.path
-        if path.startswith("/assets/img/"):
+        if path.startswith(("/assets/img/", "/uploads/")):
             response.headers["Cache-Control"] = "public, max-age=3600"
         elif not path.startswith("/api/"):
             response.headers["Cache-Control"] = "no-cache"
@@ -41,6 +42,8 @@ def create_app() -> FastAPI:
     for router in routers:
         app.include_router(router)
     app.mount("/assets", StaticFiles(directory=ASSETS_DIR), name="assets")
+    config.UPLOADS_DIR.mkdir(parents=True, exist_ok=True)
+    app.mount("/uploads", StaticFiles(directory=config.UPLOADS_DIR), name="uploads")
     return app
 
 

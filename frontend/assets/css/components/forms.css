@@ -5,11 +5,11 @@
 .field__error:empty { display: none; }
 
 .input {
-  width: 100%; height: 3.5rem; padding: 0 1.15rem; border-radius: .875rem; border: 1px solid #ddd7ce;
+  width: 100%; height: 3.5rem; padding: 0 1.15rem; border-radius: .875rem; border: 1px solid var(--border);
   background: var(--surface); font-size: 1.05rem; outline: 0; transition: border-color .2s, box-shadow .2s;
 }
 .input::placeholder { color: var(--muted-2); }
-.input:hover { border-color: #c9c2b7; }
+.input:hover { border-color: var(--border-hover); }
 .input:focus { border-color: var(--ink); box-shadow: 0 0 0 4px rgba(108, 85, 245, .1); }
 .input.is-invalid { border-color: var(--danger); animation: shake .35s; }
 textarea.input { height: 8rem; padding: .9rem 1.1rem; resize: vertical; line-height: 1.5; }
@@ -20,7 +20,7 @@ textarea.input { height: 8rem; padding: .9rem 1.1rem; resize: vertical; line-hei
 .input-wrap__btn { position: absolute; right: .6rem; top: 50%; transform: translateY(-50%); background: none; border: 0; padding: .5rem; color: var(--ink-2); }
 
 .select {
-  appearance: none; width: 100%; height: 2.875rem; padding: 0 2.5rem 0 .9rem; border-radius: .75rem; border: 1px solid #ddd7ce; cursor: pointer;
+  appearance: none; width: 100%; height: 2.875rem; padding: 0 2.5rem 0 .9rem; border-radius: .75rem; border: 1px solid var(--border); cursor: pointer;
   background: var(--surface) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%23111' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m4 6 4 4 4-4'/%3E%3C/svg%3E") no-repeat right .9rem center;
   font-size: .9rem; transition: border-color .2s;
 }
@@ -28,7 +28,7 @@ textarea.input { height: 8rem; padding: .9rem 1.1rem; resize: vertical; line-hei
 
 .check { display: flex; align-items: flex-start; gap: .85rem; font-size: 1rem; line-height: 1.5; cursor: pointer; }
 .check input {
-  appearance: none; margin: 0; flex: none; width: 1.5rem; height: 1.5rem; border: 1px solid #c9c4bc; border-radius: .4rem;
+  appearance: none; margin: 0; flex: none; width: 1.5rem; height: 1.5rem; border: 1px solid var(--border-hover); border-radius: .4rem;
   background: var(--surface); cursor: pointer; display: grid; place-items: center; transition: background .2s, border-color .2s, transform .2s var(--ease-spring);
 }
 .check input:checked { background: var(--orange); border-color: var(--orange); transform: scale(1.06); }
@@ -37,5 +37,13 @@ textarea.input { height: 8rem; padding: .9rem 1.1rem; resize: vertical; line-hei
 .check--sm { font-size: .95rem; align-items: center; gap: .7rem; }
 .check--sm input { width: 1.3rem; height: 1.3rem; }
 
-.form-error { margin-top: 1rem; padding: .8rem 1rem; border-radius: .75rem; background: #fdecec; color: #b42328; font-size: .95rem; }
+.form-error { margin-top: 1rem; padding: .8rem 1rem; border-radius: .75rem; background: var(--danger-soft); color: var(--danger-ink); font-size: .95rem; }
 .form-error:empty { display: none; }
+/* Загрузка картинки с предпросмотром */
+.upload__box { display: flex; align-items: center; gap: 1rem; }
+.upload__preview { flex: none; width: 7.5rem; aspect-ratio: 16 / 10; border-radius: .8rem; background: var(--surface-2) center / cover no-repeat; border: 1px dashed var(--border); display: grid; place-items: center; color: var(--muted); }
+.upload__preview[style*="background-image"] { border-style: solid; }
+.upload__actions { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; }
+.upload__actions .field__hint { flex-basis: 100%; margin-top: 0; }
+.upload--round .upload__preview { width: 5.5rem; aspect-ratio: 1; border-radius: 50%; }
+.report-reasons { display: grid; gap: .6rem; }

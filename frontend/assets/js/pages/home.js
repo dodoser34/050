@@ -3,7 +3,7 @@ import { get } from "../core/api.js";
 import { $, esc, capFirst, seeking, toQuery } from "../core/dom.js";
 import { icon } from "../core/icons.js";
 import { imgTag } from "../core/placeholders.js";
-import { emptyState, personTile, personUrl, projectCard, projectUrl, skeletons, verifiedMark } from "../components/cards.js";
+import { emptyState, personTile, personUrl, projectCard, projectUrl, nameMarks, skeletons } from "../components/cards.js";
 import { observeReveal } from "../components/reveal.js";
 import { initGlobalSearch } from "../components/search.js";
 import { initHeroMotion } from "./hero-motion.js";
@@ -44,19 +44,19 @@ async function renderSide() {
       <article class="card spec-mini is-hoverable">
         ${imgTag(p.avatar, "avatar", p.name, 'class="spec-mini__photo"')}
         <div>
-          <h3 class="spec-mini__name"><a class="card__link" href="${personUrl(p.slug)}">${esc(p.name)}</a>${p.verified ? verifiedMark() : ""}</h3>
+          <h3 class="spec-mini__name"><a class="card__link" href="${personUrl(p.slug)}">${esc(p.name)}</a>${nameMarks(p)}</h3>
           <div class="spec-mini__role">${esc(p.role)}</div>
           <div class="chips">${p.tags.slice(0, 2).map((t) => `<span class="tag">${esc(t)}</span>`).join("")}</div>
           <p class="spec-mini__about">${esc(p.about)}</p>
           <button class="btn btn--sm btn--outline-orange btn--block" data-action="invite" data-slug="${esc(p.slug)}" data-name="${esc(p.name)}">${icon("user-plus", "sm")}Пригласить</button>
         </div>
       </article></div>` : ""}
-      ${st ? `<div data-reveal="right" style="--d:.08s">${label("Команда недели", st.featured)}
+      ${st ? `<div data-reveal="right" style="--d:.08s">${label("Организация недели", st.featured)}
       <article class="card studio-mini is-hoverable">
         <div class="studio-mini__row">
           ${imgTag(st.avatar, "avatar", st.name, 'class="studio-mini__logo"')}
           <div>
-            <h3 class="studio-mini__name"><a class="card__link" href="${personUrl(st.slug)}">${esc(st.name)}</a>${st.verified ? verifiedMark() : ""}</h3>
+            <h3 class="studio-mini__name"><a class="card__link" href="${personUrl(st.slug)}">${esc(st.name)}</a>${nameMarks(st)}</h3>
             <p>${esc(st.about)}</p>
           </div>
           <span class="round-btn">${icon("arrow-right", "sm")}</span>

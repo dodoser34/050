@@ -4,7 +4,7 @@ import json
 from fastapi import APIRouter
 
 from ..db import get_db
-from ..services.serializers import img_url, project_out, specialist_out
+from ..services.serializers import img_url, profile_flags, project_out, specialist_out
 from ..services.settings import FEATURED_KEY, get_setting
 from ..web.dependencies import OptionalUser
 
@@ -28,6 +28,7 @@ def home(user: OptionalUser):
         team, team_manual = _pick(db, "specialists", featured.get("team", ""), "kind = 'studio'", "popularity DESC")
         project, project_manual = _pick(db, "projects", featured.get("project", ""), "1 = 1",
                                         "json_array_length(roles) > 0 DESC, likes DESC")
+        flags = profile_flags(db)
         thumbs = []
         if team:
             details = json.loads(team["details"])
@@ -38,5 +39,5 @@ def home(user: OptionalUser):
     return {
         "freelancer": specialist_out(person) | {"featured": person_manual} if person else None,
         "team": specialist_out(team) | {"thumbs": thumbs[:4], "featured": team_manual} if team else None,
-        "project": project_out(project) | {"featured": project_manual} if project else None,
+        "project": project_out(project, flags=flags) | {"featured": project_manual} if project else None,
     }

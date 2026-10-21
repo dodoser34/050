@@ -1,8 +1,10 @@
-/** «Услуги»: каталог специалистов и студий с фильтрами. Состояние фильтров хранится в адресной строке. */
+/** «Специалисты»: каталог специалистов и организаций с фильтрами. Состояние фильтров хранится в адресной строке.
+ *  На телефоне фильтры открываются шторкой по кнопке рядом с сортировкой. */
 import { get } from "../core/api.js";
 import { $, $$, countLabel, debounce, esc, toQuery } from "../core/dom.js";
 import { emptyState, skeletons, specCard } from "../components/cards.js";
 import { observeReveal } from "../components/reveal.js";
+import { filtersButton, initFilterSheet } from "../components/sheet.js";
 
 export async function init() {
   const params = new URLSearchParams(location.search);
@@ -19,8 +21,9 @@ export async function init() {
   $("#format-opts").innerHTML = meta.formats.map((f) => checkbox("format", f)).join("");
   $("#city").insertAdjacentHTML("beforeend", meta.cities.map((c) => `<option>${esc(c)}</option>`).join(""));
   $("#kind").value = state.kind;
-  // на планшете и телефоне группы фильтров свёрнуты, чтобы список был виден сразу
-  if (matchMedia("(max-width: 1100px)").matches) $$(".filter-group").forEach((g) => (g.open = false));
+  $("#filters-btn-slot").outerHTML = filtersButton();
+  const activeCount = () => state.direction.length + state.format.length + Boolean(state.city) + Boolean(state.kind) + Number(state.available);
+  const sheet = initFilterSheet($(".filters-btn"), $(".filters"), { count: activeCount, onReset: () => $("#filters-reset").click() });
 
   const syncControls = () => {
     search.value = state.q;
@@ -37,6 +40,7 @@ export async function init() {
 
   const load = async () => {
     syncControls();
+    sheet.refresh();
     history.replaceState(null, "", "?" + toQuery(state));
     list.innerHTML = skeletons(4);
     try {

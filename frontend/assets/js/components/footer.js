@@ -15,7 +15,7 @@ export function renderFooter() {
       <div class="footer__col">
         <h4>Платформа</h4>
         <a href="/services">Специалисты</a>
-        <a href="/services?kind=studio">Студии</a>
+        <a href="/services?kind=studio">Организации</a>
         <a href="/projects">Проекты</a>
         <a href="/projects?has_roles=true">Открытые роли</a>
       </div>
@@ -29,7 +29,7 @@ export function renderFooter() {
         <h4>Аккаунт</h4>
         <a href="/login">Войти</a>
         <a href="/register">Регистрация</a>
-        <a href="/api/docs">API</a>
+        <a href="/messages">Сообщения</a>
       </div>
     </div>
     <div class="container"><div class="footer__big" aria-hidden="true">Среда</div></div>

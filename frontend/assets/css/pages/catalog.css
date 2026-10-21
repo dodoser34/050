@@ -5,7 +5,11 @@
 .page-hero__art img { width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: contain; }
 .page-hero__art .btn { position: absolute; right: 0; bottom: 0; z-index: 2; }
 
-.catalog-tools { position: sticky; top: calc(var(--header-h) - 1px); z-index: 20; padding-block: .9rem; background: linear-gradient(var(--bg) 80%, rgba(255, 251, 245, 0)); }
+/* Липкая панель поиска: фон сплошной (раньше низ был прозрачным, и карточки просвечивали сквозь фильтры),
+   под ней — короткое растворение. Когда шапка прячется при прокрутке, панель поднимается к самому верху. */
+.catalog-tools { position: sticky; top: calc(var(--header-h) - 1px); z-index: 20; padding-block: .9rem; background: var(--bg); transition: top .4s var(--ease-out); }
+.catalog-tools::after { content: ""; position: absolute; left: 0; right: 0; top: 100%; height: 1.25rem; background: linear-gradient(var(--bg), transparent); pointer-events: none; }
+body:has(.header.is-hidden) .catalog-tools { top: 0; }
 .catalog-tools .chips { margin-top: .9rem; }
 
 .catalog { display: grid; grid-template-columns: 17rem minmax(0, 1fr); gap: clamp(1.25rem, 2vw, 2.5rem); padding-top: 1.25rem; }

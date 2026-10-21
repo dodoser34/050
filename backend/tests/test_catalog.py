@@ -1,5 +1,5 @@
 def test_demo_content_seeded(client):
-    assert client.get("/api/specialists").json()["total"] == 30
+    assert client.get("/api/specialists").json()["total"] == 31  # 30 демо-анкет + анкета демо-пользователя
     assert client.get("/api/specialists?kind=studio").json()["total"] == 4
     assert client.get("/api/projects?limit=50").json()["total"] == 21  # 20 из content/ + проект демо-аккаунта
 

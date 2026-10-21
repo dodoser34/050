@@ -1,9 +1,9 @@
 .header {
   position: sticky; top: 0; z-index: 50; height: var(--header-h);
-  background: rgba(255, 251, 245, .72); backdrop-filter: saturate(1.4) blur(14px); -webkit-backdrop-filter: saturate(1.4) blur(14px);
+  background: var(--header-bg); backdrop-filter: saturate(1.4) blur(14px); -webkit-backdrop-filter: saturate(1.4) blur(14px);
   border-bottom: 1px solid transparent; transition: transform .4s var(--ease-out), border-color .3s, box-shadow .3s, background .3s;
 }
-.header.is-scrolled { border-bottom-color: var(--line); background: rgba(255, 251, 245, .86); box-shadow: 0 6px 24px rgba(60, 40, 120, .05); }
+.header.is-scrolled, .header.is-menu-open { border-bottom-color: var(--line); background: var(--header-bg-solid); box-shadow: 0 6px 24px rgba(60, 40, 120, .05); }
 .header.is-hidden { transform: translateY(-100%); }
 .header__inner { height: 100%; display: flex; align-items: center; gap: clamp(1.5rem, 3.5vw, 3.5rem); }
 
@@ -18,13 +18,22 @@
 .nav__link:hover::after, .nav__link.is-active::after { transform: scaleX(1); transform-origin: left; }
 .nav__link.is-active { color: var(--ink); font-weight: 500; }
 
-.header__actions { margin-left: auto; display: flex; align-items: center; gap: .6rem; }
-.menu-btn { display: none; width: 2.75rem; height: 2.75rem; border: 0; border-radius: .75rem; background: transparent; place-items: center; }
-.menu-btn:hover { background: var(--surface-2); }
+.header__actions { margin-left: auto; display: flex; align-items: center; gap: .5rem; }
+.menu-btn, .head-btn { position: relative; display: grid; place-items: center; width: 2.75rem; height: 2.75rem; border: 0; border-radius: .75rem; background: transparent; color: var(--ink); flex: none; }
+.menu-btn { display: none; }
+.menu-btn:hover, .head-btn:hover, .head-btn[aria-expanded="true"] { background: var(--surface-2); }
+.head-btn .icon { width: 1.35rem; height: 1.35rem; }
+.count-badge {
+  position: absolute; top: .2rem; right: .15rem; min-width: 1.15rem; height: 1.15rem; padding: 0 .3rem; border-radius: 1rem;
+  background: var(--orange); color: #fff; font-size: .68rem; font-weight: 700; line-height: 1.15rem; text-align: center;
+  box-shadow: 0 0 0 2px var(--bg); pointer-events: none;
+}
+.count-badge:empty, .count-badge[data-n="0"] { display: none; }
 
 .user-menu { position: relative; }
 .user-menu__btn { display: grid; place-items: center; width: 2.75rem; height: 2.75rem; border-radius: 50%; border: 0; background: var(--lav-soft); color: var(--purple); font-weight: 700; transition: transform .3s var(--ease-spring); }
 .user-menu__btn:hover { transform: scale(1.06); }
+.user-menu__btn.is-admin { background: var(--ink); color: var(--bg); box-shadow: 0 0 0 3px var(--lav-soft); }
 .dropdown {
   position: absolute; right: 0; top: calc(100% + .5rem); min-width: 15rem; z-index: 60; padding: .5rem;
   background: var(--surface); border: 1px solid var(--line); border-radius: 1rem; box-shadow: var(--shadow-lg);
@@ -32,25 +41,65 @@
 }
 .dropdown__head { padding: .5rem .65rem .7rem; border-bottom: 1px solid var(--line-2); margin-bottom: .35rem; font-size: .9rem; }
 .dropdown__head small { display: block; color: var(--muted); }
-.dropdown__item { display: block; width: 100%; text-align: left; background: none; border: 0; padding: .6rem .65rem; border-radius: .6rem; font-size: .9rem; }
+.dropdown__item { display: flex; align-items: center; gap: .6rem; width: 100%; text-align: left; background: none; border: 0; padding: .6rem .65rem; border-radius: .6rem; font-size: .9rem; color: var(--ink); }
+.dropdown__item .icon { width: 1.05rem; height: 1.05rem; color: var(--muted); }
 .dropdown__item:hover { background: var(--surface-2); }
 .dropdown__item--accent { color: var(--purple); font-weight: 600; }
-.user-menu__btn.is-admin { background: var(--ink); color: #fff; box-shadow: 0 0 0 3px var(--lav-soft); }
+.dropdown__sep { height: 1px; background: var(--line-2); margin: .35rem 0; }
 @keyframes pop-in { from { opacity: 0; transform: scale(.96) translateY(-4px); } }
 
-/* Мобильное меню на весь экран */
+/* Панель уведомлений */
+.notif-menu { position: relative; }
+.notif-panel { width: min(24rem, calc(100vw - 2rem)); max-height: min(32rem, 75vh); overflow: auto; padding: .35rem; overscroll-behavior: contain; }
+.notif-panel__head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .55rem .65rem .65rem; border-bottom: 1px solid var(--line-2); margin-bottom: .25rem; }
+.notif-panel__head strong { font-size: 1rem; }
+.notif-panel__head button { background: none; border: 0; color: var(--orange); font-size: .85rem; padding: 0; }
+.notif { display: grid; grid-template-columns: 2.25rem 1fr; gap: .7rem; padding: .65rem; border-radius: .75rem; font-size: .9rem; line-height: 1.4; color: var(--ink); }
+.notif:hover { background: var(--surface-2); }
+.notif.is-unread { background: var(--lav-soft); }
+.notif__icon { width: 2.25rem; height: 2.25rem; border-radius: 50%; display: grid; place-items: center; background: var(--surface-2); color: var(--purple); }
+.notif__icon .icon { width: 1.05rem; height: 1.05rem; }
+.notif small { display: block; color: var(--muted); font-size: .78rem; margin-top: .15rem; }
+.notif-panel__empty { padding: 1.5rem .75rem; text-align: center; color: var(--muted); font-size: .9rem; }
+.notif-panel__all { display: block; text-align: center; padding: .65rem; font-size: .88rem; color: var(--orange); font-weight: 500; }
+
+/* Мобильное меню: под шапкой, со своей прокруткой; страница под ним не прокручивается (html.is-locked) */
 .mobile-nav {
-  position: fixed; inset: var(--header-h) 0 0; z-index: 49; padding: 1.5rem var(--gutter) 2rem; background: var(--bg);
-  display: flex; flex-direction: column; gap: .25rem; animation: slide-down .3s var(--ease-out);
+  position: fixed; top: var(--header-h); left: 0; right: 0; bottom: 0; z-index: 49;
+  padding: .75rem var(--gutter) calc(1.5rem + env(safe-area-inset-bottom)); background: var(--bg);
+  display: flex; flex-direction: column; gap: .15rem; overflow-y: auto; overscroll-behavior: contain;
+  animation: slide-down .25s var(--ease-out);
 }
-.mobile-nav a { font-family: var(--font-display); font-weight: 800; font-size: 2.4rem; letter-spacing: -.045em; padding: .35rem 0; }
-.mobile-nav a.is-active { color: var(--orange); }
-.mobile-nav .btn { margin-top: auto; }
-@keyframes slide-down { from { opacity: 0; transform: translateY(-10px); } }
+.mobile-nav__link {
+  display: flex; align-items: center; gap: .85rem; padding: .7rem .5rem; border-radius: .8rem;
+  font-size: 1.1rem; font-weight: 600; letter-spacing: -.01em; color: var(--ink);
+}
+.mobile-nav__link .icon { width: 1.3rem; height: 1.3rem; color: var(--muted); }
+.mobile-nav__link:active { background: var(--surface-2); }
+.mobile-nav__link.is-active { color: var(--orange); }
+.mobile-nav__link.is-active .icon { color: var(--orange); }
+.mobile-nav__link .count-badge { position: static; margin-left: auto; box-shadow: none; }
+.mobile-nav__group { margin-top: .9rem; padding-top: .9rem; border-top: 1px solid var(--line); }
+.mobile-nav__label { font-size: .78rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: 0 .5rem .5rem; }
+.mobile-nav .btn--primary { margin-top: 1.25rem; flex: none; }
+@keyframes slide-down { from { opacity: 0; transform: translateY(-8px); } }
+
+/* Переключатели оформления (тема, анимации) — в меню и в настройках кабинета */
+.seg { display: flex; padding: .25rem; gap: .25rem; border-radius: .9rem; background: var(--surface-2); }
+.seg button { flex: 1; min-width: 0; height: 2.35rem; border: 0; border-radius: .7rem; background: transparent; color: var(--ink-2); font-size: .88rem; font-weight: 500; white-space: nowrap; display: inline-flex; align-items: center; justify-content: center; gap: .4rem; }
+.seg button .icon { width: 1rem; height: 1rem; }
+.seg button[aria-pressed="true"] { background: var(--surface); color: var(--ink); box-shadow: var(--shadow-sm); }
+.seg + .mobile-nav__label { margin-top: .9rem; }
 
 @media (max-width: 960px) {
   .nav { display: none; }
   .menu-btn { display: grid; }
-  .header__login, .header__create-text { display: none; }
-  .header__create { width: 2.875rem; padding: 0; }
+  .header__login, .header__create-text, .header__theme { display: none; }
+  .header__create { width: 2.75rem; height: 2.75rem; padding: 0; }
+  .header .user-menu { display: none; }
+  .notif-panel { position: fixed; left: .75rem; right: .75rem; top: calc(var(--header-h) - .25rem); width: auto; }
+}
+@media (max-width: 400px) {
+  .logo { font-size: 1.45rem; }
+  .header__actions { gap: .25rem; }
 }

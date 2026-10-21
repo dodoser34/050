@@ -19,15 +19,19 @@ def create_session(user_id: int, remember: bool) -> tuple[str, int]:
 
 
 def user_by_token(token: str) -> dict | None:
+    now = int(time.time())
     with get_db() as db:
         row = db.execute(
-            """SELECT u.id, u.name, u.email, u.is_admin FROM sessions s JOIN users u ON u.id = s.user_id
+            """SELECT u.id, u.name, u.email, u.is_admin, u.account_type, u.last_seen FROM sessions s JOIN users u ON u.id = s.user_id
                WHERE s.token_hash = ? AND s.expires_at > ?""",
-            (token_digest(token), int(time.time())),
+            (token_digest(token), now),
         ).fetchone()
+        if row and now - (row["last_seen"] or 0) > 60:  # статус «в сети»: обновляем не чаще раза в минуту
+            db.execute("UPDATE users SET last_seen = ? WHERE id = ?", (now, row["id"]))
     if not row:
         return None
     user = dict(row)
+    user.pop("last_seen")
     user["is_admin"] = bool(user["is_admin"])
     return user
 

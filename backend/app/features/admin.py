@@ -1,9 +1,11 @@
-"""Админ-панель: модерация анкет и проектов, выбор героев главной страницы, пользователи."""
+"""Админ-панель: модерация анкет и проектов, жалобы, выбор героев главной страницы, пользователи."""
 from fastapi import APIRouter, HTTPException, Query
 from pydantic import BaseModel, Field, field_validator
 
 from ..db import get_db
+from ..services import social
 from ..services.serializers import project_out, specialist_out
+from .reports import REASONS
 from ..services.settings import FEATURED_KEY, get_setting, set_setting
 from ..web.dependencies import AdminUser
 
@@ -43,6 +45,7 @@ def stats(_: AdminUser):
             "pending_projects": count("SELECT COUNT(*) FROM projects WHERE status = 'pending'"),
             "applications": count("SELECT COUNT(*) FROM applications"),
             "invitations": count("SELECT COUNT(*) FROM invitations"),
+            "reports": count("SELECT COUNT(*) FROM reports WHERE status = 'open'"),
         }
 
 
@@ -70,11 +73,17 @@ def _moderate(table: str, slug: str, data: ModerateIn) -> dict:
     if data.action == "reject" and not data.note.strip():
         raise HTTPException(status_code=422, detail="Укажите причину отклонения — автор её увидит")
     status = "approved" if data.action == "approve" else "rejected"
+    owner, name, url = ("author_id", "title", "/projects/") if table == "projects" else ("user_id", "name", "/people/")
     with get_db() as db:
-        cur = db.execute(f"UPDATE {table} SET status = ?, moderation_note = ? WHERE slug = ?",
-                         (status, data.note.strip() if status == "rejected" else "", slug))
-        if not cur.rowcount:
+        row = db.execute(f"SELECT {owner} AS owner, {name} AS name FROM {table} WHERE slug = ?", (slug,)).fetchone()
+        if not row:
             raise HTTPException(status_code=404, detail="Не найдено")
+        db.execute(f"UPDATE {table} SET status = ?, moderation_note = ? WHERE slug = ?",
+                   (status, data.note.strip() if status == "rejected" else "", slug))
+        what = "Проект" if table == "projects" else "Анкета"
+        text = (f"{what} «{row['name']}» опубликован{'а' if table != 'projects' else ''}" if status == "approved"
+                else f"{what} «{row['name']}» отклонен{'а' if table != 'projects' else ''}: {data.note.strip()}")
+        social.notify(db, row["owner"], "moderation", text, url + slug)
     return {"ok": True, "status": status}
 
 
@@ -132,3 +141,42 @@ def set_admin(user_id: int, data: AdminFlagIn, admin: AdminUser):
         if not cur.rowcount:
             raise HTTPException(status_code=404, detail="Пользователь не найден")
     return {"ok": True, "is_admin": data.is_admin}
+
+
+class ReportDecisionIn(BaseModel):
+    status: str                                # resolved — меры приняты, dismissed — нарушений нет
+    note: str = Field(default="", max_length=500)
+
+    @field_validator("status")
+    @classmethod
+    def status_known(cls, v: str) -> str:
+        if v not in ("resolved", "dismissed"):
+            raise ValueError("Неизвестное решение")
+        return v
+
+
+@router.get("/reports")
+def reports(_: AdminUser, status: str = Query("open")):
+    with get_db() as db:
+        rows = db.execute(
+            """SELECT r.*, u.name AS user_name, u.email AS user_email FROM reports r LEFT JOIN users u ON u.id = r.user_id
+               WHERE r.status = ? ORDER BY r.id DESC""", (status,)).fetchall()
+    urls = {"profile": "/people/", "project": "/projects/"}
+    return [{"id": r["id"], "target_type": r["target_type"], "target_slug": r["target_slug"], "target_title": r["target_title"],
+             "url": urls.get(r["target_type"], "") + r["target_slug"] if r["target_type"] in urls else "",
+             "reason": REASONS.get(r["reason"], r["reason"]), "comment": r["comment"], "status": r["status"],
+             "resolution": r["resolution"], "created_at": r["created_at"],
+             "reporter": {"name": r["user_name"], "email": r["user_email"]}} for r in rows]
+
+
+@router.post("/reports/{report_id}")
+def decide_report(report_id: int, data: ReportDecisionIn, _: AdminUser):
+    with get_db() as db:
+        r = db.execute("SELECT * FROM reports WHERE id = ?", (report_id,)).fetchone()
+        if not r:
+            raise HTTPException(status_code=404, detail="Жалоба не найдена")
+        db.execute("UPDATE reports SET status = ?, resolution = ? WHERE id = ?", (data.status, data.note.strip(), report_id))
+        verdict = "приняты меры" if data.status == "resolved" else "нарушений не нашли"
+        social.notify(db, r["user_id"], "report", f"Жалоба на «{r['target_title']}» рассмотрена: {verdict}"
+                      + (f". {data.note.strip()}" if data.note.strip() else ""), "")
+    return {"ok": True, "status": data.status}

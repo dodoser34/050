@@ -17,6 +17,7 @@ export async function init() {
     <div class="admin-stats" data-admin-stats aria-live="polite"></div>
     <nav class="admin-tabs" aria-label="Разделы админ-панели">
       <button class="btn btn--primary" data-tab="moderation" aria-pressed="true">Модерация</button>
+      <button class="btn btn--outline" data-tab="reports" aria-pressed="false">Жалобы</button>
       <button class="btn btn--outline" data-tab="featured" aria-pressed="false">Главная страница</button>
       <button class="btn btn--outline" data-tab="users" aria-pressed="false">Пользователи</button>
     </nav><section data-admin-panel aria-live="polite"></section>`;
@@ -26,7 +27,7 @@ export async function init() {
   async function stats() {
     const s = await get("/api/admin/stats");
     $("[data-admin-stats]", root).innerHTML = [[s.users, "Пользователей"], [s.specialists, "Специалистов"], [s.projects, "Проектов"],
-      [s.pending_specialists + s.pending_projects, "Ждут проверки"], [s.applications, "Откликов"], [s.invitations, "Сообщений"]]
+      [s.pending_specialists + s.pending_projects, "Ждут проверки"], [s.reports || 0, "Открытых жалоб"], [s.applications, "Откликов"]]
       .map(([n, label]) => `<div class="card card--pad"><strong>${n}</strong><span>${label}</span></div>`).join("");
   }
   async function render() {
@@ -50,13 +51,29 @@ export async function init() {
           .map(([key, label]) => `<button class="btn btn--sm ${status === key ? "btn--primary" : "btn--outline"}" data-status="${key}" aria-pressed="${status === key}">${label}</button>`).join("")}</div>
           <div class="admin-queue">${queue.specialists.map((p) => item(p, "specialists")).join("")}${queue.projects.map((p) => item(p, "projects")).join("")}
           ${!queue.specialists.length && !queue.projects.length ? '<div class="empty-state"><strong>Здесь пока пусто</strong><p>Материалы с этим статусом появятся здесь.</p></div>' : ""}</div>`;
+      } else if (tab === "reports") {
+        const reports = await get("/api/admin/reports?status=" + (status === "pending" ? "open" : status === "approved" ? "resolved" : "dismissed"));
+        html = `<div class="row admin-status" aria-label="Статус жалоб">${[["pending", "Новые"], ["approved", "Меры приняты"], ["rejected", "Без нарушений"]]
+          .map(([key, label]) => `<button class="btn btn--sm ${status === key ? "btn--primary" : "btn--outline"}" data-status="${key}" aria-pressed="${status === key}">${label}</button>`).join("")}</div>
+          <div class="admin-queue">${reports.map((r) => `<article class="card card--pad moderation-item" data-report="${r.id}">
+            <div class="row"><span class="eyebrow">${{ profile: "Профиль", project: "Проект", post: "Запись" }[r.target_type] || "Материал"}</span><span class="badge badge--orange">${esc(r.reason)}</span></div>
+            <h3 class="title-sm">${esc(r.target_title)}</h3>
+            ${r.comment ? `<p>${esc(r.comment)}</p>` : ""}
+            <p class="muted">От: ${esc(r.reporter?.name || "—")} · ${esc(r.reporter?.email || "")}</p>
+            ${r.url ? `<a class="link" href="${esc(r.url)}">Открыть материал ↗</a>` : `<span class="muted">Запись №${esc(r.target_slug)}</span>`}
+            ${r.resolution ? `<div class="notice">${esc(r.resolution)}</div>` : ""}
+            ${r.status === "open" ? `<label class="field"><span class="field__label">Комментарий для автора жалобы</span><textarea class="input" data-note maxlength="500" placeholder="Например: материал удалён"></textarea></label>
+            <div class="form-error" role="alert"></div><div class="row">
+              <button class="btn btn--primary" data-report-decision="resolved">Меры приняты</button>
+              <button class="btn btn--outline" data-report-decision="dismissed">Нарушений нет</button></div>` : ""}
+          </article>`).join("") || '<div class="empty-state"><strong>Жалоб нет</strong><p>Новые жалобы появятся здесь.</p></div>'}</div>`;
       } else if (tab === "featured") {
         const [chosen, people, projects] = await Promise.all([get("/api/admin/featured"), get("/api/specialists"), get("/api/projects?limit=50")]);
         const select = (key, title, items) => `<label class="field"><span class="field__label">${title}</span><select class="select" name="${key}">
           <option value="">Автоматический выбор</option>${items.map((p) => `<option value="${esc(p.slug)}" ${chosen[key] === p.slug ? "selected" : ""}>${esc(p.name || p.title)}</option>`).join("")}</select></label>`;
         html = `<form class="card card--pad admin-featured" data-featured><h2 class="title">Герои главной страницы</h2><p class="muted">Выберите опубликованные материалы для блока открытий.</p>
           ${select("freelancer", "Специалист", people.items.filter((p) => p.kind === "person"))}
-          ${select("team", "Студия / команда", people.items.filter((p) => p.kind === "studio"))}
+          ${select("team", "Организация / команда", people.items.filter((p) => p.kind === "studio"))}
           ${select("project", "Проект", projects.items)}<div class="form-error" role="alert"></div>
           <div class="row" style="margin-top:1.5rem"><button class="btn btn--primary" type="submit">Сохранить выбор</button><a class="link" href="/">Посмотреть главную ↗</a></div></form>`;
       } else {
@@ -75,10 +92,21 @@ export async function init() {
     if (!button) return;
     if (button.dataset.tab) {
       tab = button.dataset.tab;
+      status = "pending";
       $$("[data-tab]", root).forEach((b) => { const active = b === button; b.classList.toggle("btn--primary", active); b.classList.toggle("btn--outline", !active); b.setAttribute("aria-pressed", active); });
       await render(); return;
     }
     if (button.dataset.status) { status = button.dataset.status; await render(); return; }
+    if (button.dataset.reportDecision) {
+      const card = button.closest("[data-report]");
+      $$("button", card).forEach((b) => { b.disabled = true; });
+      try {
+        await post(`/api/admin/reports/${card.dataset.report}`, { status: button.dataset.reportDecision, note: $("[data-note]", card).value.trim() });
+        toast("Жалоба рассмотрена", "ok");
+        await Promise.all([stats(), render()]);
+      } catch (e) { $(".form-error", card).textContent = e.message; $$("button", card).forEach((b) => { b.disabled = false; }); }
+      return;
+    }
     if (button.dataset.moderate) {
       const card = button.closest("[data-slug]"), error = $(".form-error", card), note = $("[data-note]", card).value.trim();
       error.textContent = "";

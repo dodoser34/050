@@ -1,4 +1,5 @@
-"""Генерирует prompts/images.prompt из демо-контента (content/*.json).
+"""Генерирует prompts/images.prompt из демо-контента (content/*.json) и prompts/images-dark.prompt —
+тёмные версии иллюстраций для тёмной темы.
 
 Запуск из корня проекта:  python -m tools.build_prompts
 Каждая запись = файл, который нужно положить в frontend/assets/img/<путь>.
@@ -10,6 +11,7 @@ import json
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "prompts" / "images.prompt"
+OUT_DARK = ROOT / "prompts" / "images-dark.prompt"
 SPECIALISTS = json.loads((ROOT / "content" / "specialists.json").read_text(encoding="utf-8"))
 PROJECTS = json.loads((ROOT / "content" / "projects.json").read_text(encoding="utf-8"))
 # проект демо-аккаунта (backend/app/db/demo.py)
@@ -57,6 +59,38 @@ ILLUSTRATIONS = [
      "orange sphere on the right and a thin orbit line, lots of calm empty space on the left. " + STYLE_3D),
 ]
 
+
+# Тёмная тема: те же сцены на тёмном фоне сайта. Светлые иллюстрации с кремовым фоном на тёмной странице
+# выглядят светлыми прямоугольниками, поэтому для каждой нужна пара «-dark» (подхватывается автоматически).
+DARK_BG = "#121116"
+PALETTE_DARK = "palette: deep graphite background #121116, lavender #A996F5 / #9A87FF, warm orange #FF6A2C glowing accents, soft off-white #F3F1F7 highlights"
+STYLE_3D_DARK = ("soft matte clay 3D render, velvety micro-texture, rounded organic forms, moody low-key studio lighting with a soft rim light, "
+                 "subtle warm glow from the orange elements, gentle contact shadows, " + PALETTE_DARK +
+                 ", minimal, premium, no text, no logos, no watermark")
+DARK_RULES = (f"The background must be a flat deep graphite {DARK_BG} that fades into pure {DARK_BG} at all four edges "
+              "(no vignette brighter than the page, no visible frame), so the image blends seamlessly into a dark web page.")
+ILLUSTRATIONS_DARK = [
+    ("illustrations/services-dark.webp", "1600x1000",
+     "Dark-theme version of the SPECIALISTS page hero: a loose floating arc of creative tools made of soft clay — a pencil, a code bracket "
+     "symbol, a camera, a microphone, a paint brush, a tiny gear and a ruler — orbiting a small glowing orange sphere, thin luminous lavender "
+     "orbit lines connecting them. " + DARK_RULES + " " + STYLE_3D_DARK),
+    ("illustrations/projects-dark.webp", "1600x1000",
+     "Dark-theme version of the PROJECTS page hero: a playful staircase of rounded lavender blocks growing from small to tall, a glowing orange "
+     "ball rolling up the steps leaving a dotted trail of light, a little flag on the top block, a lightbulb-shaped cloud softly lit from inside. "
+     + DARK_RULES + " " + STYLE_3D_DARK),
+    ("illustrations/about-dark.webp", "1600x1000",
+     "Dark-theme version of the ABOUT page hero: a group of different soft shapes (sphere, cube, cone, torus, capsule) gathered around a round "
+     "low table like a team in conversation, one orange sphere in the middle glowing warmly and lighting the others, thin orbit lines linking them. "
+     + DARK_RULES + " " + STYLE_3D_DARK),
+    ("illustrations/auth-dark.webp", "1600x1200",
+     "Dark-theme version of the LOGIN and SIGN-UP illustration: a tall arched doorway / portal made of a thick lavender tube standing on a soft "
+     "plinth, warm orange light pouring from inside the arch onto the floor, an orange ball rolling towards the doorway along a curved path, "
+     "a few small floating lavender spheres and thin orbit lines. Welcoming, calm night mood. " + DARK_RULES + " " + STYLE_3D_DARK),
+    ("illustrations/profile-banner-dark.webp", "2400x400",
+     "Very wide abstract banner for the dark theme: soft lavender clay tube loops drifting across a deep violet-graphite background #1E1A2E "
+     "with a partially visible glowing orange sphere on the right and a thin luminous orbit line, lots of calm empty space on the left. "
+     + STYLE_3D_DARK),
+]
 
 def block(path: str, size: str, prompt: str, note: str = "") -> str:
     head = f"[{path}]  {size}" + (f"  — {note}" if note else "")
@@ -106,8 +140,36 @@ def main() -> None:
 
     OUT.parent.mkdir(exist_ok=True)
     OUT.write_text("\n".join(parts), encoding="utf-8")
+    write_dark()
     count = len(ILLUSTRATIONS) + len(SPECIALISTS) + total + len(projects)
     print(f"{OUT.relative_to(ROOT)}: {count} изображений")
+
+
+def write_dark() -> None:
+    parts = [
+        "# ============================================================",
+        "# Среда — тёмные версии иллюстраций (для тёмной темы сайта)",
+        "# Файл сгенерирован: python -m tools.build_prompts",
+        "# Формат тот же, что в images.prompt:  [путь в frontend/assets/img]  размер, на следующей строке — промпт.",
+        "# Сайт сам подхватывает файл «…-dark.webp», когда включена тёмная тема; пока файла нет — показывает светлую версию.",
+        "# Композиция, ракурс и объекты — как у светлой пары (её путь — без «-dark»), меняются только фон и свет.",
+        f"# Фон страницы в тёмной теме: {DARK_BG}. Края картинки должны растворяться в этом цвете.",
+        "# Сохраняйте в .webp (качество 85).",
+        "# Портреты, логотипы, портфолио и обложки проектов перерисовывать не нужно: они в карточках и смотрятся на любом фоне.",
+        "# ============================================================",
+        "",
+        "## ОБЩИЙ СТИЛЬ",
+        f"# {STYLE_3D_DARK}",
+        "",
+        f"## ИЛЛЮСТРАЦИИ СТРАНИЦ — ТЁМНАЯ ТЕМА ({len(ILLUSTRATIONS_DARK)} шт.)",
+        "",
+    ]
+    light = {p: (s, t) for p, s, t in ILLUSTRATIONS}
+    for path, size, prompt in ILLUSTRATIONS_DARK:
+        pair = path.replace("-dark", "")
+        parts.append(block(path, size, prompt, f"пара к {pair}" if pair in light else ""))
+    OUT_DARK.write_text("\n".join(parts), encoding="utf-8")
+    print(f"{OUT_DARK.relative_to(ROOT)}: {len(ILLUSTRATIONS_DARK)} изображений")
 
 
 if __name__ == "__main__":

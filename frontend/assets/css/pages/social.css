@@ -1,0 +1,117 @@
+/* Ленты и блоги, опросы, управление проектом, вкладки кабинета, фильтры-шторка на телефоне */
+.feed { display: grid; gap: .9rem; }
+.post { padding: 1.1rem 1.2rem; display: grid; gap: .65rem; }
+.post__head { display: flex; align-items: center; gap: .75rem; }
+.post__head img { width: 2.6rem; height: 2.6rem; border-radius: 50%; object-fit: cover; flex: none; }
+.post__head strong { display: block; font-size: .95rem; }
+.post__head strong a:hover { color: var(--orange); }
+.post__head small { color: var(--muted); font-size: .8rem; }
+.post__menu { margin-left: auto; }
+.post__kind { font-weight: 600; }
+.post__kind--result { color: var(--green); }
+.post__kind--poll { color: var(--purple); }
+.post__title { font-size: 1.25rem; letter-spacing: -.03em; }
+.post__body { line-height: 1.55; color: var(--ink-2); overflow-wrap: anywhere; }
+.post__image { padding: 0; border: 0; background: none; border-radius: .9rem; overflow: hidden; display: block; width: 100%; }
+.post__image img { width: 100%; max-height: 26rem; object-fit: cover; }
+.poll { display: grid; gap: .45rem; }
+.poll__opt {
+  position: relative; overflow: hidden; display: flex; justify-content: space-between; gap: 1rem; text-align: left;
+  padding: .7rem .9rem; border-radius: .8rem; border: 1px solid var(--line); background: var(--surface); color: var(--ink);
+}
+.poll__opt::before { content: ""; position: absolute; inset: 0 auto 0 0; width: var(--share, 0%); background: var(--lav-soft); transition: width .5s var(--ease-out); }
+.poll__opt > * { position: relative; }
+.poll__opt:hover { border-color: var(--purple); }
+.poll__opt.is-mine { border-color: var(--purple); font-weight: 600; }
+.composer { display: grid; gap: .75rem; margin-bottom: 1rem; }
+.composer textarea.input { height: 6rem; }
+.composer__kinds { max-width: 26rem; }
+.composer .field { margin: 0; }
+
+/* Вкладки, которые на телефоне прокручиваются, а не переносятся */
+.tabs--compact { margin: 1.25rem 0 1.25rem; }
+.tab .count-badge { position: static; display: inline-block; margin-left: .35rem; box-shadow: none; vertical-align: middle; }
+
+/* Управление проектом (для автора) */
+.manage { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; padding: .75rem; margin-top: 1rem; border-radius: 1rem; background: var(--surface-2); }
+.manage__label { font-size: .85rem; font-weight: 600; color: var(--muted); margin-right: .25rem; }
+.applicant { display: grid; grid-template-columns: 3rem minmax(0, 1fr); gap: .9rem; padding: 1rem 1.1rem; }
+.applicant img { width: 3rem; height: 3rem; border-radius: 50%; object-fit: cover; }
+.applicant__top { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem .7rem; }
+.applicant p { margin-top: .45rem; color: var(--ink-2); line-height: 1.5; }
+.applicant__actions { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .75rem; }
+.member-row { display: grid; grid-template-columns: 2.6rem minmax(0, 1fr) auto; gap: .75rem; align-items: center; padding: .7rem 0; border-bottom: 1px solid var(--line-2); }
+.member-row img { width: 2.6rem; height: 2.6rem; border-radius: 50%; object-fit: cover; }
+.member-row__main { min-width: 0; display: grid; gap: .4rem; }
+.member-row__main .input { height: 2.5rem; font-size: .92rem; }
+.member-row__flags { display: flex; flex-wrap: wrap; gap: .3rem .9rem; font-size: .85rem; }
+.member-row__flags .check { font-size: .85rem; gap: .45rem; }
+.member-search { position: relative; margin-top: 1rem; }
+.member-search__results { position: absolute; left: 0; right: 0; top: calc(100% + .35rem); z-index: 5; max-height: 16rem; overflow: auto; background: var(--surface); border: 1px solid var(--line); border-radius: .9rem; box-shadow: var(--shadow-lg); padding: .35rem; }
+.member-search__item { display: flex; align-items: center; gap: .65rem; width: 100%; padding: .5rem; border: 0; border-radius: .6rem; background: none; text-align: left; color: var(--ink); }
+.member-search__item:hover { background: var(--surface-2); }
+.member-search__item img { width: 2.1rem; height: 2.1rem; border-radius: 50%; object-fit: cover; }
+.member-search__item small { display: block; color: var(--muted); }
+
+/* Роль в проекте на странице профиля */
+.badge--founder { background: var(--orange-soft); color: var(--orange-d); }
+.badge--founder .icon { width: .85rem; height: .85rem; }
+.group-title { font-size: 1rem; font-weight: 600; color: var(--muted); margin: 1.5rem 0 .75rem; text-transform: uppercase; letter-spacing: .1em; }
+.group-title:first-child { margin-top: 0; }
+
+/* Работы портфолио разных типов */
+.work-card__type { position: absolute; left: .75rem; top: .75rem; z-index: 2; }
+.work-card .media .play { position: absolute; inset: 0; display: grid; place-items: center; z-index: 1; }
+.work-card .media .play span { width: 3.5rem; height: 3.5rem; border-radius: 50%; display: grid; place-items: center; background: rgba(17, 17, 20, .6); color: #fff; backdrop-filter: blur(6px); }
+.work-rows { display: grid; gap: .75rem; }
+.work-row { display: grid; gap: .6rem; padding: .9rem; border: 1px solid var(--line); border-radius: 1rem; background: var(--bg); }
+.work-row__head { display: flex; gap: .5rem; align-items: center; }
+.work-row__head .select { width: auto; flex: 1; }
+.work-row .field { margin: 0; }
+
+/* Кабинет: вкладки разделов */
+.cabinet-tabs { position: sticky; top: calc(var(--header-h) - 1px); z-index: 15; background: var(--bg); transition: top .4s var(--ease-out); }
+body:has(.header.is-hidden) .cabinet-tabs { top: 0; }
+.settings-block { display: grid; gap: .75rem; padding: 1.25rem 0; border-bottom: 1px solid var(--line); }
+.settings-block:last-child { border-bottom: 0; }
+.settings-block h3 { font-size: 1.15rem; }
+.settings-block .seg { max-width: 30rem; }
+.radio-list { display: grid; gap: .6rem; }
+.app-card { display: grid; grid-template-columns: 4.5rem minmax(0, 1fr); gap: .9rem; padding: .9rem; align-items: start; }
+.app-card img { width: 4.5rem; height: 3.4rem; border-radius: .6rem; object-fit: cover; }
+.app-card__top { display: flex; flex-wrap: wrap; gap: .4rem .7rem; align-items: center; }
+.app-card p { color: var(--muted); font-size: .9rem; margin-top: .3rem; }
+.app-card .row { margin-top: .6rem; --gap: .5rem; }
+
+/* Фильтры каталога на телефоне: кнопка рядом с сортировкой, сами фильтры — шторка снизу */
+.filters-btn { display: none; }
+.sheet-head { display: none; }
+@media (max-width: 1100px) {
+  .filters-btn { display: inline-flex; }
+  .list-head__tools { display: flex; gap: .5rem; flex: none; margin-left: auto; }
+  .filters, .dropdown-filters.is-sheet {
+    position: fixed !important; left: 0; right: 0; bottom: 0; top: auto; z-index: 101; margin: 0;
+    max-height: 85dvh; overflow: auto; overscroll-behavior: contain; display: none !important;
+    border-radius: 1.5rem 1.5rem 0 0; padding: 0 1.25rem calc(1.25rem + env(safe-area-inset-bottom)); background: var(--bg);
+    box-shadow: 0 -20px 60px rgba(0, 0, 0, .25);
+  }
+  .filters.is-open, .dropdown-filters.is-sheet.is-open { display: grid !important; grid-template-columns: 1fr; gap: 0; animation: sheet-in .3s var(--ease-out); }
+  .dropdown-filters.is-sheet.is-open { gap: .9rem; align-items: stretch; }
+  .dropdown-filters.is-sheet .select { width: 100%; }
+  .sheet-head { display: flex; position: sticky; top: 0; z-index: 2; justify-content: space-between; align-items: center; padding: 1rem 0 .75rem; background: var(--bg); border-bottom: 1px solid var(--line); margin-bottom: .25rem; }
+  .sheet-head strong { font-family: var(--font-display); font-size: 1.4rem; letter-spacing: -.03em; }
+  .sheet-foot { position: sticky; bottom: calc(-1.25rem - env(safe-area-inset-bottom)); padding: .9rem 0 calc(.25rem + env(safe-area-inset-bottom)); background: var(--bg); display: flex; gap: .6rem; }
+  .sheet-foot .btn { flex: 1; }
+  .sheet-backdrop { position: fixed; inset: 0; z-index: 100; background: var(--backdrop); animation: fade-in .2s ease; }
+  .filters .filters__title { display: none; }
+  .filters .filter-group { border-bottom: 1px solid var(--line); padding: .9rem 0; }
+}
+@media (min-width: 1101px) { .sheet-foot { display: none; } }
+@media (max-width: 640px) {
+  /* заголовок — отдельной строкой, под ним счётчик, сортировка и кнопка «Фильтры» */
+  .list-head { gap: .75rem; }
+  .list-head .title { flex: 1 1 100%; font-size: 1.6rem; }
+  .list-head .select { width: auto; min-width: 0; max-width: 10.5rem; margin-left: 0; }
+  .member-row { grid-template-columns: 2.4rem minmax(0, 1fr); }
+  .member-row > .icon-btn { grid-column: 2; justify-self: start; }
+}

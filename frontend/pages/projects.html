@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@700;800;900&display=swap" rel="stylesheet">
+  <script src="/assets/js/boot.js"></script>
   <link rel="stylesheet" href="/assets/css/main.css">
   <script type="module" src="/assets/js/main.js"></script>
 </head>
@@ -24,7 +25,7 @@
         <p class="lead" data-reveal style="--d:.2s">Находите проекты по душе. Присоединяйтесь к&nbsp;командам и поддерживайте идеи.</p>
       </div>
       <div class="page-hero__art">
-        <img class="site-illustration" src="/assets/img/illustrations/projects.webp" alt="" width="1600" height="1000" data-fb="art" data-variant="projects">
+        <img class="site-illustration" src="/assets/img/illustrations/projects.webp" data-dark="/assets/img/illustrations/projects-dark.webp" alt="" width="1600" height="1000" data-fb="art" data-variant="projects">
         <button class="btn btn--primary btn--lg" data-action="create-project"><i data-icon="plus"></i>Создать проект</button>
       </div>
     </section>
@@ -38,7 +39,7 @@
         </label>
       </div>
       <div class="chips chips--scroll" id="project-chips"><button class="chip is-active" data-tag="">Все</button></div>
-      <div class="dropdown-filters">
+      <div class="dropdown-filters is-sheet">
         <select class="select" id="f-stage" aria-label="Стадия проекта"><option value="">Любая стадия</option></select>
         <select class="select" id="f-role" aria-label="Открытые роли"><option value="">Любая роль</option></select>
         <select class="select" id="f-license" aria-label="Лицензия"><option value="">Любая лицензия</option></select>
@@ -51,8 +52,11 @@
       <div class="list-head">
         <h2 class="title" id="projects-title">Открывайте новое</h2>
         <span class="list-head__count" id="project-count"></span>
-        <label class="visually-hidden" for="project-sort">Сортировка</label>
-        <select class="select" id="project-sort"><option value="popular">Популярные</option><option value="new">Новые</option></select>
+        <div class="list-head__tools">
+          <label class="visually-hidden" for="project-sort">Сортировка</label>
+          <select class="select" id="project-sort"><option value="popular">Популярные</option><option value="new">Новые</option></select>
+          <span id="filters-btn-slot"></span>
+        </div>
       </div>
       <div class="grid-cards" id="project-grid"></div>
       <div class="load-more">

@@ -1,14 +1,16 @@
-/** Анимации интерфейса: появление при скролле, заголовки по словам, счётчики. */
+/** Анимации интерфейса: появление при скролле, заголовки по словам, счётчики.
+ *  Уровень берётся из настроек (core/prefs.js): full — всё, calm — короткое проявление, off — без анимаций. */
 import { $$ } from "../core/dom.js";
+import { motionLevel } from "../core/prefs.js";
 
-const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
 let observer = null;
 
 /** Подключает появление ко всем [data-reveal], .split-words и [data-count] внутри root. Можно вызывать повторно для новых элементов. */
 export function observeReveal(root = document) {
-  if (reduce) {
+  const level = motionLevel();
+  if (level === "off") {
     $$("[data-reveal], .split-words", root).forEach((el) => el.classList.add("is-visible"));
-    $$("[data-count]", root).forEach((el) => (el.textContent = el.dataset.count));
+    $$("[data-count]", root).forEach((el) => { el.dataset.counted = "1"; el.textContent = el.dataset.count; });
     return;
   }
   observer ??= new IntersectionObserver((entries) => {
@@ -18,9 +20,15 @@ export function observeReveal(root = document) {
       if (e.target.dataset.count) countUp(e.target);
       observer.unobserve(e.target);
     });
-  }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
-  $$(".split-words", root).forEach(splitWords);
-  $$("[data-reveal]:not(.is-visible), .split-words:not(.is-visible)", root).forEach((el) => observer.observe(el));
+  }, { rootMargin: "0px 0px -6% 0px", threshold: 0.05 });
+  // по словам заголовки «выезжают» только в режиме «все анимации»
+  $$(".split-words:not(.is-visible)", root).forEach((el) => (level === "full" ? splitWords(el) : el.classList.add("is-visible")));
+  $$("[data-reveal]:not(.is-visible), .split-words:not(.is-visible)", root).forEach((el) => {
+    // в спокойном режиме то, что уже на экране (в том числе после перезагрузки посреди страницы), показываем сразу —
+    // проявляется только то, до чего пользователь докрутит
+    if (level !== "full" && inViewport(el)) el.classList.add("is-visible");
+    else observer.observe(el);
+  });
   // счётчики: если уже на экране — считаем сразу, иначе ждём появления
   $$("[data-count]:not([data-counted])", root).forEach((el) => (inViewport(el) ? countUp(el) : observer.observe(el)));
 }
@@ -43,7 +51,9 @@ function splitWords(el) {
 function countUp(el) {
   if (el.dataset.counted) return;
   el.dataset.counted = "1";
-  const target = +el.dataset.count, start = performance.now(), dur = 1400;
+  const target = +el.dataset.count;
+  if (motionLevel() === "off") { el.textContent = target; return; }
+  const start = performance.now(), dur = motionLevel() === "full" ? 1400 : 700;
   const step = () => {
     const p = Math.min(1, Math.max(0, (performance.now() - start) / dur));
     el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
@@ -52,4 +62,3 @@ function countUp(el) {
   requestAnimationFrame(step);
   setTimeout(() => (el.textContent = target), dur + 200); // итог гарантирован, даже если кадры не идут
 }
-

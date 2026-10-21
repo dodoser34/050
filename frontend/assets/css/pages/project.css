@@ -4,7 +4,9 @@
 
 /* ---------- Обложка ---------- */
 .project-cover { position: relative; width: 100%; margin-top: 1rem; border-radius: clamp(1.25rem, 2.4vw, 2.5rem); overflow: hidden; aspect-ratio: 21 / 8; min-height: 24rem; background: var(--surface-2); }
-.project-cover img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.08); animation: cover-in 1.6s var(--ease-out) forwards; }
+/* картинка — на всю обложку: на телефоне у обложки только min-height, и height: 100% не работал (снизу оставалась пустая полоса) */
+.project-cover > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+html[data-motion="full"] .project-cover img { transform: scale(1.08); animation: cover-in 1.6s var(--ease-out) forwards; }
 @keyframes cover-in { to { transform: scale(1); } }
 .project-cover::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(17, 17, 20, 0) 30%, rgba(17, 17, 20, .78)); }
 .project-cover__content { position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; padding: clamp(1.25rem, 3vw, 3rem); color: #fff; display: flex; align-items: end; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
@@ -19,13 +21,14 @@
 /* ---------- Навигация по разделам ---------- */
 .section-nav {
   position: sticky; top: calc(var(--header-h) - 1px); z-index: 15; display: flex; gap: .25rem; overflow-x: auto; scrollbar-width: none;
-  margin-top: 1.25rem; padding: .5rem; border-radius: 1rem; background: rgba(255, 251, 245, .9); backdrop-filter: blur(12px);
-  border: 1px solid var(--line);
+  margin-top: 1.25rem; padding: .5rem; border-radius: 1rem; background: var(--header-bg-solid); backdrop-filter: blur(12px);
+  border: 1px solid var(--line); transition: top .4s var(--ease-out);
 }
+body:has(.header.is-hidden) .section-nav { top: .5rem; }
 .section-nav::-webkit-scrollbar { display: none; }
 .section-nav a { flex: none; padding: .55rem 1rem; border-radius: .7rem; font-size: .95rem; color: var(--ink-2); transition: background .2s, color .2s; }
 .section-nav a:hover { background: var(--surface-2); }
-.section-nav a.is-active { background: var(--ink); color: #fff; }
+.section-nav a.is-active { background: var(--ink); color: var(--bg); }
 
 /* ---------- Раскладка ---------- */
 .project-layout { display: grid; grid-template-columns: minmax(0, 1fr) clamp(20rem, 26vw, 28rem); gap: clamp(1.5rem, 3vw, 3.5rem); margin-top: clamp(1.5rem, 2.5vw, 2.5rem); }
@@ -45,7 +48,7 @@
 .ps-card__label { display: inline-flex; align-items: center; gap: .5rem; font-weight: 600; font-size: .85rem; text-transform: uppercase; letter-spacing: .12em; }
 .ps-card--problem { background: var(--surface-2); }
 .ps-card--problem .ps-card__label { color: var(--ink-2); }
-.ps-card--solution { background: linear-gradient(135deg, var(--lav-soft), #f6f1ff); }
+.ps-card--solution { background: linear-gradient(135deg, var(--lav-soft), var(--surface)); }
 .ps-card--solution .ps-card__label { color: var(--purple); }
 
 /* Цели */
@@ -79,7 +82,7 @@
 .team-card { display: flex; align-items: center; gap: .9rem; padding: .9rem; }
 .team-card img { width: 3.6rem; height: 3.6rem; border-radius: 50%; object-fit: cover; transition: transform .4s var(--ease-spring); }
 .team-card:hover img { transform: scale(1.08) rotate(-4deg); }
-.team-card__name { font-weight: 600; letter-spacing: -.01em; }
+.team-card__name { font-weight: 600; letter-spacing: -.01em; display: flex; align-items: center; gap: .35rem; flex-wrap: wrap; }
 .team-card:hover .team-card__name { color: var(--orange); }
 .team-card small { color: var(--muted); font-size: .85rem; }
 

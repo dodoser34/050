@@ -8,6 +8,14 @@ from fastapi.responses import JSONResponse
 FIELD_MESSAGES = {"email": "Введите корректный адрес электронной почты"}
 
 
+class FieldError(Exception):
+    """Ошибки отдельных полей из обработчика: {поле: сообщение} → 422 в формате ошибок валидации."""
+
+    def __init__(self, errors: dict[str, str], detail: str = "Проверьте поля формы"):
+        super().__init__(detail)
+        self.errors, self.detail = errors, detail
+
+
 def _chars(n: int) -> str:
     """Склонение: 1 символ, 2 символа, 5 символов."""
     if n % 10 == 1 and n % 100 != 11:
@@ -51,5 +59,10 @@ async def validation_handler(_: Request, exc: RequestValidationError) -> JSONRes
     return JSONResponse(status_code=422, content={"detail": "Проверьте поля формы", "errors": errors})
 
 
+async def field_error_handler(_: Request, exc: FieldError) -> JSONResponse:
+    return JSONResponse(status_code=422, content={"detail": exc.detail, "errors": exc.errors})
+
+
 def register_error_handlers(app: FastAPI) -> None:
     app.add_exception_handler(RequestValidationError, validation_handler)
+    app.add_exception_handler(FieldError, field_error_handler)

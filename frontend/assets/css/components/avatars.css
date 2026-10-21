@@ -14,3 +14,6 @@
 .avatar-stack > a:hover { transform: translateY(-3px); }
 .avatar-stack img, .avatar-stack .more { width: 2.125rem; height: 2.125rem; border-radius: 50%; border: 2px solid var(--surface); object-fit: cover; display: block; }
 .avatar-stack .more { display: grid; place-items: center; background: var(--surface-2); font-size: .75rem; color: var(--muted); }
+/* У организаций логотип — скруглённый квадрат, у людей — круг */
+.avatar.is-org, img.is-org { border-radius: 28%; }
+.avatar-stack__count { position: relative; z-index: 2; display: inline-flex; align-items: center; gap: .35rem; font-size: .85rem; color: var(--muted); }

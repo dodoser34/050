@@ -33,3 +33,5 @@ main { display: block; min-height: 60vh; }
 @media (max-width: 720px) {
   .grid-2 { grid-template-columns: 1fr; }
 }
+/* Пока нет тёмной версии иллюстрации (prompts/images-dark.prompt), светлую чуть приглушаем, чтобы не слепила */
+:root[data-theme="dark"] img[data-dark]:not([src*="-dark"]) { filter: brightness(.82) saturate(.95); }

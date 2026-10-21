@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@700;800;900&display=swap" rel="stylesheet">
+  <script src="/assets/js/boot.js"></script>
   <link rel="stylesheet" href="/assets/css/main.css">
   <script type="module" src="/assets/js/main.js"></script>
 </head>
@@ -20,7 +21,7 @@
       <h1 class="display split-words">Ваши идеи.<br>Ваша команда.<br>Ваша Среда.</h1>
       <p class="lead" data-reveal style="--d:.3s">Находите своих людей и создавайте вместе.</p>
       <div class="auth__art">
-        <img class="site-illustration" src="/assets/img/illustrations/auth.webp" alt="" width="1600" height="1200" data-fb="art" data-variant="auth">
+        <img class="site-illustration" src="/assets/img/illustrations/auth.webp" data-dark="/assets/img/illustrations/auth-dark.webp" alt="" width="1600" height="1200" data-fb="art" data-variant="auth">
       </div>
     </section>
 
@@ -36,7 +37,39 @@
         <div class="divider">или по почте</div>
 
         <div class="field">
-          <label class="field__label" for="name">Имя</label>
+          <span class="field__label">Кто вы</span>
+          <div class="account-type" role="radiogroup" aria-label="Тип аккаунта">
+            <label><input type="radio" name="account_type" value="person" checked><span><i data-icon="user"></i><strong>Специалист</strong><small>Ищу проекты и команду, веду портфолио</small></span></label>
+            <label><input type="radio" name="account_type" value="org"><span><i data-icon="building"></i><strong>Организация</strong><small>Студия, компания или сообщество с сотрудниками</small></span></label>
+          </div>
+        </div>
+        <div class="org-fields" data-org-fields hidden>
+          <div class="field">
+            <label class="field__label" for="org_name">Название организации</label>
+            <input class="input" id="org_name" name="org_name" placeholder="Студия «Форма»" maxlength="80">
+            <div class="field__error" data-error="org_name"></div>
+          </div>
+          <div class="form-grid">
+            <div class="field">
+              <label class="field__label" for="org_city">Город</label>
+              <input class="input" id="org_city" name="org_city" placeholder="Москва" maxlength="60">
+              <div class="field__error" data-error="org_city"></div>
+            </div>
+            <div class="field">
+              <label class="field__label" for="org_website">Сайт</label>
+              <input class="input" id="org_website" name="org_website" placeholder="https://…" maxlength="200">
+              <div class="field__error" data-error="org_website"></div>
+            </div>
+          </div>
+          <div class="field">
+            <label class="field__label" for="org_about">Чем занимается организация</label>
+            <textarea class="input" id="org_about" name="org_about" maxlength="600" placeholder="Пара предложений — их увидят в профиле организации"></textarea>
+            <div class="field__error" data-error="org_about"></div>
+          </div>
+          <p class="field__hint">После регистрации появится черновик профиля организации: дополните его в кабинете и отправьте на проверку. Сотрудников можно добавить там же.</p>
+        </div>
+        <div class="field">
+          <label class="field__label" for="name" data-name-label>Имя</label>
           <input class="input" id="name" name="name" placeholder="Как вас зовут" autocomplete="name" maxlength="80" required>
           <div class="field__error" data-error="name"></div>
         </div>

@@ -1,0 +1,30 @@
+# ============================================================
+# Среда — тёмные версии иллюстраций (для тёмной темы сайта)
+# Файл сгенерирован: python -m tools.build_prompts
+# Формат тот же, что в images.prompt:  [путь в frontend/assets/img]  размер, на следующей строке — промпт.
+# Сайт сам подхватывает файл «…-dark.webp», когда включена тёмная тема; пока файла нет — показывает светлую версию.
+# Композиция, ракурс и объекты — как у светлой пары (её путь — без «-dark»), меняются только фон и свет.
+# Фон страницы в тёмной теме: #121116. Края картинки должны растворяться в этом цвете.
+# Сохраняйте в .webp (качество 85).
+# Портреты, логотипы, портфолио и обложки проектов перерисовывать не нужно: они в карточках и смотрятся на любом фоне.
+# ============================================================
+
+## ОБЩИЙ СТИЛЬ
+# soft matte clay 3D render, velvety micro-texture, rounded organic forms, moody low-key studio lighting with a soft rim light, subtle warm glow from the orange elements, gentle contact shadows, palette: deep graphite background #121116, lavender #A996F5 / #9A87FF, warm orange #FF6A2C glowing accents, soft off-white #F3F1F7 highlights, minimal, premium, no text, no logos, no watermark
+
+## ИЛЛЮСТРАЦИИ СТРАНИЦ — ТЁМНАЯ ТЕМА (5 шт.)
+
+[illustrations/services-dark.webp]  1600x1000  — пара к illustrations/services.webp
+Dark-theme version of the SPECIALISTS page hero: a loose floating arc of creative tools made of soft clay — a pencil, a code bracket symbol, a camera, a microphone, a paint brush, a tiny gear and a ruler — orbiting a small glowing orange sphere, thin luminous lavender orbit lines connecting them. The background must be a flat deep graphite #121116 that fades into pure #121116 at all four edges (no vignette brighter than the page, no visible frame), so the image blends seamlessly into a dark web page. soft matte clay 3D render, velvety micro-texture, rounded organic forms, moody low-key studio lighting with a soft rim light, subtle warm glow from the orange elements, gentle contact shadows, palette: deep graphite background #121116, lavender #A996F5 / #9A87FF, warm orange #FF6A2C glowing accents, soft off-white #F3F1F7 highlights, minimal, premium, no text, no logos, no watermark
+
+[illustrations/projects-dark.webp]  1600x1000  — пара к illustrations/projects.webp
+Dark-theme version of the PROJECTS page hero: a playful staircase of rounded lavender blocks growing from small to tall, a glowing orange ball rolling up the steps leaving a dotted trail of light, a little flag on the top block, a lightbulb-shaped cloud softly lit from inside. The background must be a flat deep graphite #121116 that fades into pure #121116 at all four edges (no vignette brighter than the page, no visible frame), so the image blends seamlessly into a dark web page. soft matte clay 3D render, velvety micro-texture, rounded organic forms, moody low-key studio lighting with a soft rim light, subtle warm glow from the orange elements, gentle contact shadows, palette: deep graphite background #121116, lavender #A996F5 / #9A87FF, warm orange #FF6A2C glowing accents, soft off-white #F3F1F7 highlights, minimal, premium, no text, no logos, no watermark
+
+[illustrations/about-dark.webp]  1600x1000  — пара к illustrations/about.webp
+Dark-theme version of the ABOUT page hero: a group of different soft shapes (sphere, cube, cone, torus, capsule) gathered around a round low table like a team in conversation, one orange sphere in the middle glowing warmly and lighting the others, thin orbit lines linking them. The background must be a flat deep graphite #121116 that fades into pure #121116 at all four edges (no vignette brighter than the page, no visible frame), so the image blends seamlessly into a dark web page. soft matte clay 3D render, velvety micro-texture, rounded organic forms, moody low-key studio lighting with a soft rim light, subtle warm glow from the orange elements, gentle contact shadows, palette: deep graphite background #121116, lavender #A996F5 / #9A87FF, warm orange #FF6A2C glowing accents, soft off-white #F3F1F7 highlights, minimal, premium, no text, no logos, no watermark
+
+[illustrations/auth-dark.webp]  1600x1200  — пара к illustrations/auth.webp
+Dark-theme version of the LOGIN and SIGN-UP illustration: a tall arched doorway / portal made of a thick lavender tube standing on a soft plinth, warm orange light pouring from inside the arch onto the floor, an orange ball rolling towards the doorway along a curved path, a few small floating lavender spheres and thin orbit lines. Welcoming, calm night mood. The background must be a flat deep graphite #121116 that fades into pure #121116 at all four edges (no vignette brighter than the page, no visible frame), so the image blends seamlessly into a dark web page. soft matte clay 3D render, velvety micro-texture, rounded organic forms, moody low-key studio lighting with a soft rim light, subtle warm glow from the orange elements, gentle contact shadows, palette: deep graphite background #121116, lavender #A996F5 / #9A87FF, warm orange #FF6A2C glowing accents, soft off-white #F3F1F7 highlights, minimal, premium, no text, no logos, no watermark
+
+[illustrations/profile-banner-dark.webp]  2400x400  — пара к illustrations/profile-banner.webp
+Very wide abstract banner for the dark theme: soft lavender clay tube loops drifting across a deep violet-graphite background #1E1A2E with a partially visible glowing orange sphere on the right and a thin luminous orbit line, lots of calm empty space on the left. soft matte clay 3D render, velvety micro-texture, rounded organic forms, moody low-key studio lighting with a soft rim light, subtle warm glow from the orange elements, gentle contact shadows, palette: deep graphite background #121116, lavender #A996F5 / #9A87FF, warm orange #FF6A2C glowing accents, soft off-white #F3F1F7 highlights, minimal, premium, no text, no logos, no watermark

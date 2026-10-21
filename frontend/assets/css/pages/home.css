@@ -44,8 +44,8 @@
 .stat__num { font-family: var(--font-display); font-weight: 800; letter-spacing: -.05em; font-size: clamp(2.75rem, 5vw, 5.5rem); line-height: 1; }
 .stat__num span { color: var(--orange); }
 .stat__label { margin-top: .5rem; color: var(--muted); }
-.stat--accent { background: var(--ink); color: #fff; border-color: var(--ink); }
-.stat--accent .stat__label { color: #a5a3ad; }
+.stat--accent { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.stat--accent .stat__label { color: var(--muted-2); }
 
 /* Как это работает */
 .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1rem, 1.4vw, 1.75rem); counter-reset: step; }

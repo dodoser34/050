@@ -6,27 +6,32 @@
   padding-block: 2rem 5rem; margin-top: calc(var(--header-h) * -1); padding-top: calc(var(--header-h) + 2rem);
 }
 .hero__bg {
-  position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: 0;
+  position: absolute; inset: 0; z-index: -1; pointer-events: none; animation: hero-fade .8s var(--ease-out) both;
   background:
     radial-gradient(32vw 27vw at 81% 26%, rgba(182, 166, 255, .42), rgba(182, 166, 255, 0) 70%),
     radial-gradient(36vw 22vw at 65% 91%, rgba(255, 172, 128, .32), rgba(255, 172, 128, 0) 70%),
     var(--bg);
 }
 .hero__copy { position: relative; z-index: 3; max-width: 40rem; }
-.hero__copy > * { opacity: 0; }
+/* Текст hero появляется через CSS, а не из JS: он виден, даже если скрипты ещё грузятся или упали */
+.hero__copy > * { animation: hero-rise .6s var(--ease-out) both; animation-delay: calc(var(--enter, 0) * 1s + .05s); }
+html[data-motion="off"] .hero__copy > *, html[data-motion="off"] .hero__bg { animation: none; }
+@keyframes hero-rise { from { opacity: 0; transform: translateY(12px); } }
+@keyframes hero-fade { from { opacity: 0; } }
 .hero__title { font-size: clamp(3rem, 6vw, 7.25rem); line-height: .95; }
 .hero__lead { margin-top: 2rem; max-width: 30rem; font-size: clamp(1.15rem, 1.25vw, 1.5rem); line-height: 1.45; }
 .hero__actions { margin-top: 2.75rem; display: flex; gap: .9rem; flex-wrap: wrap; }
 .hero__note { margin-top: 1.9rem; display: flex; align-items: center; gap: .75rem; color: var(--muted); }
 
 .hero__stage {
-  position: absolute; z-index: 1; cursor: pointer;
+  position: absolute; z-index: 1;
   /* как в композиции 1920×1080: сцена 58% ширины, отступ слева 40%; на «низких» экранах ужимается по высоте */
   right: 1.9%; top: 50%; translate: 0 -46%; aspect-ratio: 4 / 3;
   width: min(58%, calc((100svh - var(--header-h)) * 1.02));
 }
 .hero__stage .hm-svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
 .hero__people { position: absolute; inset: 0; pointer-events: none; }
+@media (hover: hover) and (pointer: fine) { .hero__stage { cursor: pointer; } }
 .hero__caption { position: absolute; right: 0; top: calc(100% + 1.5rem); font-size: .9rem; color: var(--muted); opacity: 0; }
 .hero__caption a { color: var(--ink); font-weight: 500; }
 .hero__caption a:hover { color: var(--orange); }
@@ -38,7 +43,7 @@
 
 .hm-person { position: absolute; width: calc(var(--size) * var(--k, 1) * 1px); height: calc(var(--size) * var(--k, 1) * 1px); pointer-events: auto; opacity: 0; will-change: transform, opacity; }
 .hm-ava {
-  position: absolute; inset: 0; border-radius: 50%; border: 4px solid #fff; overflow: hidden;
+  position: absolute; inset: 0; border-radius: 50%; border: 4px solid var(--avatar-ring); overflow: hidden;
   display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 24px rgba(70, 50, 140, .18);
   font-weight: 600; font-size: calc(var(--size) * var(--k, 1) * .3px); color: rgba(17, 17, 20, .62);
   transition: transform .3s var(--ease-spring);
@@ -48,7 +53,7 @@
 .hm-label {
   position: absolute; top: 50%; left: calc(100% + .6rem); display: flex; align-items: center; gap: .5rem;
   height: 2.125rem; padding: 0 .9rem; border-radius: var(--radius-pill); white-space: nowrap; opacity: 0;
-  background: rgba(255, 255, 255, .74); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  background: var(--glass); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
   box-shadow: 0 6px 18px rgba(70, 50, 140, .10); font-size: .875rem; font-weight: 500; color: var(--ink);
 }
 .hm-person.is-right .hm-label { left: auto; right: calc(100% + .6rem); }

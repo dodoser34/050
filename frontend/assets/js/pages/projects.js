@@ -4,6 +4,7 @@ import { $, $$, countLabel, debounce, esc, plural, toQuery } from "../core/dom.j
 import { emptyState, projectCard, skeletons } from "../components/cards.js";
 import { observeReveal } from "../components/reveal.js";
 import { requireAuth } from "../core/session.js";
+import { filtersButton, initFilterSheet } from "../components/sheet.js";
 
 const PAGE_SIZE = 9;
 
@@ -29,6 +30,13 @@ export async function init() {
   fill("#f-role", meta.roles);
   fill("#f-license", meta.licenses);
 
+  $("#filters-btn-slot").outerHTML = filtersButton();
+  const activeCount = () => [state.stage, state.role, state.license, state.beta, state.has_roles].filter(Boolean).length;
+  const sheet = initFilterSheet($(".filters-btn"), $(".dropdown-filters"), { count: activeCount, onReset: () => {
+    Object.assign(state, { stage: "", role: "", license: "", beta: false, has_roles: false });
+    load();
+  } });
+
   const syncControls = () => {
     search.value = state.q;
     $$("#project-chips .chip").forEach((c) => c.classList.toggle("is-active", (c.dataset.tag || "") === state.tag));
@@ -44,6 +52,7 @@ export async function init() {
     if (!append) {
       offset = 0;
       syncControls();
+      sheet.refresh();
       history.replaceState(null, "", "?" + toQuery(state));
       grid.innerHTML = skeletons(6);
     }

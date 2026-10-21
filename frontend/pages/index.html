@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@700;800;900&display=swap" rel="stylesheet">
+  <script src="/assets/js/boot.js"></script>
   <link rel="stylesheet" href="/assets/css/main.css">
   <script type="module" src="/assets/js/main.js"></script>
 </head>
@@ -21,16 +22,16 @@
     <div class="hero__bg"></div>
     <div class="container">
       <div class="hero__copy">
-        <h1 class="hero__title" data-enter="0">Создавайте<br>вместе</h1>
-        <p class="hero__lead muted" data-enter="0.1">Находите людей, собирайте команды и&nbsp;запускайте идеи.</p>
-        <div class="hero__actions" data-enter="0.2">
+        <h1 class="hero__title" style="--enter:0">Создавайте<br>вместе</h1>
+        <p class="hero__lead muted" style="--enter:0.1">Находите людей, собирайте команды и&nbsp;запускайте идеи.</p>
+        <div class="hero__actions" style="--enter:0.2">
           <a class="btn btn--primary btn--lg" href="/services">Найти команду<i data-icon="arrow-right"></i></a>
           <a class="btn btn--outline btn--lg" href="/projects">Смотреть проекты</a>
         </div>
-        <p class="hero__note" data-enter="0.3"><span class="dot dot--live"></span><span id="hero-note">Сейчас команды ищут участников</span></p>
+        <p class="hero__note" style="--enter:0.3"><span class="dot dot--live"></span><span id="hero-note">Сейчас команды ищут участников</span></p>
       </div>
     </div>
-    <div class="hero__stage" id="hero-stage" title="Нажмите, чтобы проиграть анимацию ещё раз">
+    <div class="hero__stage" id="hero-stage">
       <div class="hero__people" id="hero-people"></div>
       <div class="hero__caption" id="hero-caption"></div>
     </div>
@@ -54,7 +55,7 @@
         <label class="search__field">
           <i data-icon="search"></i>
           <span class="visually-hidden">Поиск</span>
-          <input type="search" placeholder="Поиск людей, проектов и студий" autocomplete="off">
+          <input type="search" placeholder="Поиск людей, проектов и организаций" autocomplete="off">
           <span class="search__kbd">/</span>
         </label>
         <div class="search__results" hidden></div>

@@ -5,6 +5,11 @@ body {
   font: 1rem/1.5 var(--font); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
   overflow-x: clip;
 }
+/* Блокировка прокрутки под меню и модальными окнами (core/dom.js → lockScroll).
+   Блокируем html, а не body: у html стоит overflow-x: clip, и overflow body перестаёт
+   передаваться окну — body сам становится прокручиваемым, а липкая шапка «уезжает» наверх. */
+html.is-locked { overflow: hidden; scroll-behavior: auto; }
+html.is-locked body { overscroll-behavior: none; }
 img, svg, video { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
 button, input, select, textarea { font: inherit; color: inherit; }
@@ -13,21 +18,25 @@ p { margin: 0; }
 :focus-visible { outline: 2px solid var(--purple); outline-offset: 3px; border-radius: 4px; }
 ::selection { background: var(--orange); color: #fff; }
 [hidden] { display: none !important; }
-
 .visually-hidden {
   position: absolute !important; width: 1px; height: 1px; overflow: hidden;
   clip: rect(0 0 0 0); white-space: nowrap;
 }
-
-/* Плавные переходы между страницами (Chrome / Edge) */
+/* Плавные переходы между страницами (Chrome / Edge) — только в режиме «все анимации» */
 @view-transition { navigation: auto; }
-::view-transition-old(root) { animation: vt-out .25s var(--ease-out) both; }
-::view-transition-new(root) { animation: vt-in .35s var(--ease-out) both; }
-@keyframes vt-out { to { opacity: 0; transform: translateY(-6px); } }
-@keyframes vt-in { from { opacity: 0; transform: translateY(10px); } }
+::view-transition-old(root) { animation: vt-out .2s var(--ease-out) both; }
+::view-transition-new(root) { animation: vt-in .25s var(--ease-out) both; }
+@keyframes vt-out { to { opacity: 0; } }
+@keyframes vt-in { from { opacity: 0; } }
+html:not([data-motion="full"])::view-transition-old(root),
+html:not([data-motion="full"])::view-transition-new(root) { animation: none; }
 
+/* Анимации выключены в настройках (или системой): всё появляется сразу */
+html[data-motion="off"] { scroll-behavior: auto; }
+html[data-motion="off"] *, html[data-motion="off"] *::before, html[data-motion="off"] *::after {
+  animation-duration: .01ms !important; animation-delay: 0s !important; animation-iteration-count: 1 !important;
+  transition-duration: .01ms !important; transition-delay: 0s !important;
+}
 @media (prefers-reduced-motion: reduce) {
-  @view-transition { navigation: none; }
   html { scroll-behavior: auto; }
-  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }

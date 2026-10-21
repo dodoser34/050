@@ -13,7 +13,9 @@ const FORMS = {
   },
   register: {
     endpoint: "/api/auth/register",
-    payload: (f) => ({ name: f.name.value, email: f.email.value.trim(), password: f.password.value, accept_terms: f.accept_terms.checked }),
+    payload: (f) => ({ name: f.name.value, email: f.email.value.trim(), password: f.password.value, accept_terms: f.accept_terms.checked,
+      account_type: f.account_type.value, org_name: f.org_name.value, org_city: f.org_city.value,
+      org_about: f.org_about.value, org_website: f.org_website.value.trim() }),
   },
 };
 
@@ -34,6 +36,17 @@ export async function init() {
   $("[data-forgot]")?.addEventListener("click", (e) => { e.preventDefault(); toast("Восстановление пароля появится в следующей версии"); });
   clearErrorsOnInput(form);
   initDemo(form);
+  // регистрация организации: дополнительные поля и подпись «Ваше имя» для контактного лица
+  const orgFields = $("[data-org-fields]", form);
+  if (orgFields) {
+    const sync = () => {
+      const org = form.elements.account_type.value === "org";
+      orgFields.hidden = !org;
+      $("[data-name-label]", form).textContent = org ? "Ваше имя (контактное лицо)" : "Имя";
+    };
+    form.addEventListener("change", (e) => e.target.name === "account_type" && sync());
+    sync();
+  }
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();

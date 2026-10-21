@@ -1,5 +1,6 @@
 import { esc } from "../core/dom.js";
 import { get } from "../core/api.js";
+import { motionLevel } from "../core/prefs.js";
 
 /** Главная: моушен-hero. Порт композиции из Claude Design («Среда - Hero Motion.html», hero-motion-v2.jsx)
  на чистый JS: те же координаты сцены 1000×750, тайминги и easing.
@@ -107,7 +108,9 @@ const DEFS = `
   <filter id="hm-soft18" x="-50%" y="-200%" width="200%" height="500%"><feGaussianBlur stdDeviation="18"/></filter>`;
 
 function tube(parent, d) {
-  const dash = { pathLength: 1, "stroke-dasharray": "1 1", "stroke-dashoffset": 1, visibility: "hidden", fill: "none", "stroke-linecap": "round" };
+  // Пока трубка «рисуется», торцы плоские: круглый торец толстого штриха выглядит как отдельная пилюля,
+  // а смещённые тень и блик — как оторванные от неё куски. Круглые торцы — только у готовой трубки.
+  const dash = { pathLength: 1, "stroke-dasharray": "1 1", "stroke-dashoffset": 1, visibility: "hidden", fill: "none", "stroke-linecap": "butt" };
   return [
     el("path", { d, ...dash, stroke: "#5B44C9", "stroke-opacity": .22, "stroke-width": 72, transform: "translate(5 9)", filter: "url(#hm-soft6)" }, parent),
     el("path", { d, ...dash, stroke: "url(#hm-tube)", "stroke-width": 72 }, parent),
@@ -116,7 +119,7 @@ function tube(parent, d) {
 }
 const setTube = (paths, off) => paths.forEach((p) => {
   p.setAttribute("stroke-dashoffset", off);
-  // Круглый торец нулевого штриха в Chrome может выглядеть как отдельный шар.
+  p.setAttribute("stroke-linecap", off <= 0 ? "round" : "butt");
   p.setAttribute("visibility", off >= 1 ? "hidden" : "visible");
 });
 
@@ -215,13 +218,6 @@ function render(H, T, wall) {
   const { S } = H;
   const live = Math.max(0, T - CUES.Live);
 
-  H.bg.style.opacity = MOTION.enter(prog(T, 0, 0.8));
-  H.enter.forEach(([node, at]) => {
-    const p = MOTION.enter(prog(T, at, 0.55));
-    node.style.opacity = p;
-    node.style.transform = `translateY(${(1 - p) * 12}px)`;
-  });
-
   // орбиты: градиент «течёт» по реальному времени, чтобы не прыгал на шве цикла
   S.orbitGrad.setAttribute("gradientTransform", `translate(${((wall / 7) * 1200) % 1200} 0)`);
   S.orbits.forEach((e, i) => {
@@ -238,7 +234,8 @@ function render(H, T, wall) {
   const pf = MOTION.draw(prog(T, 0.9, 1.1));
   setTube(S.frontTubes, 1 - pf);
 
-  const ps = MOTION.enter(prog(T, 0.4, 1.2));
+  // тень появляется вместе с падением шара, а не раньше всего остального
+  const ps = MOTION.enter(prog(T, CUES.Drop, 0.6));
   set(S.shadow, { opacity: ps, transform: `translate(640 705) scale(${0.96 + 0.04 * ps}) translate(-640 -705)` });
 
   const { y, sx, sy } = ballState(T);
@@ -308,55 +305,57 @@ export function initHeroMotion() {
   if (!stage) return;
   const H = {
     S: build(stage),
-    bg: document.querySelector(".hero__bg"),
     peopleBox: document.getElementById("hero-people"),
     caption: document.getElementById("hero-caption"),
     hint: document.querySelector(".hero__cue"),
-    enter: [...document.querySelectorAll("[data-enter]")].map((n) => [n, parseFloat(n.dataset.enter)]),
     people: [],
   };
   // масштаб аватаров = ширина сцены / 1000
   const fit = () => stage.style.setProperty("--k", stage.clientWidth / 1000);
   fit();
   new ResizeObserver(fit).observe(stage);
-  loadTeam(H);
 
-  const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   // ?hero-t=6 — открыть сразу на нужной секунде (для отладки и скриншотов)
   const startAt = parseFloat(new URLSearchParams(location.search).get("hero-t")) || 0;
   const timeToT = (x) => (x < CUES.Live + LIVE ? x : CUES.Live + ((x - CUES.Live) % LIVE));
+  const still = () => motionLevel() === "off";
 
   // Время идёт по реальным часам (не по числу кадров), поэтому анимация не «тормозит» при редких кадрах.
-  // Пока hero вне экрана или вкладка скрыта — часы стоят.
-  let origin = performance.now() - startAt * 1000, pausedAt = null, running = false;
+  // Пока hero вне экрана или вкладка скрыта — часы стоят. Без анимаций рисуется один готовый кадр.
+  let origin = performance.now() - startAt * 1000, pausedAt = null, running = false, onScreen = true;
   const now = () => (performance.now() - origin) / 1000;
   const frame = () => {
-    if (pausedAt != null) { running = false; return; }
+    if (pausedAt != null || still()) { running = false; return; }
     const t = now();
-    render(H, reduce ? CUES.Live : timeToT(t), t);
-    if (reduce) { running = false; return; }
+    render(H, timeToT(t), t);
     requestAnimationFrame(frame);
   };
   const resume = () => {
+    if (still()) { render(H, CUES.Live, 0); return; }
     if (pausedAt != null) { origin += performance.now() - pausedAt; pausedAt = null; }
     if (!running) { running = true; requestAnimationFrame(frame); }
   };
   const pause = () => { if (pausedAt == null) pausedAt = performance.now(); };
 
+  render(H, still() ? CUES.Live : timeToT(now()), now()); // первый кадр сразу, без пустой сцены
   resume();
-  if (reduce) setTimeout(() => render(H, CUES.Live, 0), 400); // люди догружаются из API
+  // люди догружаются из API: в статичном режиме перерисовываем готовый кадр
+  loadTeam(H).then(() => still() && render(H, CUES.Live, 0));
 
-  let onScreen = true;
   new IntersectionObserver(([e]) => {
     onScreen = e.isIntersecting;
     onScreen && !document.hidden ? resume() : pause();
   }).observe(stage);
   document.addEventListener("visibilitychange", () => (document.hidden || !onScreen ? pause() : resume()));
+  // настройку анимаций можно переключить на лету (меню → «Анимации»)
+  addEventListener("sreda:prefs", () => (still() ? render(H, CUES.Live, 0) : (onScreen && resume())));
 
-  // клик по сцене — проиграть заново
+  // клик по сцене проигрывает её заново — только мышью: на телефоне случайное касание при прокрутке
+  // перезапускало анимацию и выглядело как сбой
   stage.addEventListener("click", (e) => {
-    if (e.target.closest("a")) return;
+    if (e.target.closest("a") || still() || !matchMedia("(hover: hover) and (pointer: fine)").matches) return;
     origin = performance.now();
-    if (reduce) render(H, CUES.Live, 0);
+    pausedAt = null;
+    resume();
   });
 }

@@ -3,13 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Специалисты и студии — Среда</title>
-  <meta name="description" content="Специалисты и студии для ваших проектов: дизайн, разработка, 3D, музыка, архитектура и не только.">
+  <title>Специалисты и организации — Среда</title>
+  <meta name="description" content="Специалисты и организации для ваших проектов: дизайн, разработка, 3D, музыка, архитектура и не только.">
   <meta name="theme-color" content="#fffbf5">
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@700;800;900&display=swap" rel="stylesheet">
+  <script src="/assets/js/boot.js"></script>
   <link rel="stylesheet" href="/assets/css/main.css">
   <script type="module" src="/assets/js/main.js"></script>
 </head>
@@ -21,10 +22,10 @@
       <div>
         <p class="eyebrow" data-reveal>Каталог</p>
         <h1 class="display--md split-words" style="margin-top:.75rem">Найдите тех, кто<br>воплотит вашу идею</h1>
-        <p class="lead" data-reveal style="--d:.2s">Специалисты и студии для ваших проектов — с портфолио, отзывами и понятным статусом.</p>
+        <p class="lead" data-reveal style="--d:.2s">Специалисты и организации для ваших проектов — с портфолио, отзывами и понятным статусом.</p>
       </div>
       <div class="page-hero__art">
-        <img class="site-illustration" src="/assets/img/illustrations/services.webp" alt="" width="1600" height="1000" data-fb="art" data-variant="services">
+        <img class="site-illustration" src="/assets/img/illustrations/services.webp" data-dark="/assets/img/illustrations/services-dark.webp" alt="" width="1600" height="1000" data-fb="art" data-variant="services">
       </div>
     </section>
 
@@ -46,7 +47,7 @@
           <summary>Кто нужен <i data-icon="chevron-up"></i></summary>
           <div class="filter-group__opts">
             <label class="visually-hidden" for="kind">Тип профиля</label>
-            <select class="select" id="kind"><option value="">Все профили</option><option value="person">Специалисты</option><option value="studio">Студии</option></select>
+            <select class="select" id="kind"><option value="">Все профили</option><option value="person">Специалисты</option><option value="studio">Организации</option></select>
           </div>
         </details>
         <details class="filter-group" open>
@@ -72,14 +73,17 @@
 
       <div>
         <div class="list-head">
-          <h2 class="title">Специалисты и студии</h2>
+          <h2 class="title">Специалисты и организации</h2>
           <span class="list-head__count" id="spec-count"></span>
-          <label class="visually-hidden" for="spec-sort">Сортировка</label>
-          <select class="select" id="spec-sort">
-            <option value="popular">Сначала популярные</option>
-            <option value="new">Сначала новые</option>
-            <option value="name">По имени</option>
-          </select>
+          <div class="list-head__tools">
+            <label class="visually-hidden" for="spec-sort">Сортировка</label>
+            <select class="select" id="spec-sort">
+              <option value="popular">Популярные</option>
+              <option value="new">Новые</option>
+              <option value="name">По имени</option>
+            </select>
+            <span id="filters-btn-slot"></span>
+          </div>
         </div>
         <div class="grid-cards grid-cards--people" id="spec-list"></div>
       </div>

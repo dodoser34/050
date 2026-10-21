@@ -1,5 +1,6 @@
 /** Точка входа фронтенда: общие компоненты + модуль текущей страницы (body[data-page]). */
 import { hydrateIcons } from "./core/icons.js";
+import { initPrefs, swapThemeImages } from "./core/prefs.js";
 import { initPlaceholders } from "./core/placeholders.js";
 import { initActions } from "./components/actions.js";
 import { renderFooter } from "./components/footer.js";
@@ -17,9 +18,11 @@ const PAGES = {
   register: () => import("./pages/auth.js"),
   me: () => import("./pages/me.js"),
   admin: () => import("./pages/admin.js"),
+  messages: () => import("./pages/messages.js"),
 };
 
 async function boot() {
+  initPrefs();
   renderHeader();
   renderFooter();
   hydrateIcons();
@@ -38,6 +41,7 @@ async function boot() {
   }
   hydrateIcons();
   observeReveal();
+  swapThemeImages();
 }
 
 boot();
